@@ -1,0 +1,36 @@
+package com.dynamicpdf.api.elements;
+
+public enum DataMatrixSymbolSize {
+
+    Auto,
+    R10xC10,
+    R12xC12,
+    R14xC14,
+    R16xC16,
+    R18xC18,
+    R20xC20,
+    R22xC22,
+    R24xC24,
+    R26xC26,
+    R32xC32,
+    R36xC36,
+    R40xC40,
+    R44xC44,
+    R48xC48,
+    R52xC52,
+    R64xC64,
+    R72xC72,
+    R80xC80,
+    R88xC88,
+    R96xC96,
+    R104xC104,
+    R120xC120,
+    R132xC132,
+    R144xC144,
+    R8xC18,
+    R8xC32,
+    R12xC26,
+    R12xC36,
+    R16xC36,
+    R16xC48
+}
