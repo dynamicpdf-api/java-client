@@ -8,7 +8,7 @@ public abstract class Endpoint {
 
     private RequestSpecification requestSpec;;
 
-    private static String defaultBaseUrl = "https://localhost:44397/v1.0";
+    private static String defaultBaseUrl = "https://api.dynamicpdf.com/v1.0";
     private static String defaultApiKey;
     private String baseUrl = defaultBaseUrl;
     private String apiKey = defaultApiKey;
