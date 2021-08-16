@@ -49,7 +49,7 @@ public class PdfInput extends Input {
         return startPage;
     }
 
-    public void setSatrtPage(int value) {
+    public void setStartPage(int value) {
         startPage = value;
     }
 

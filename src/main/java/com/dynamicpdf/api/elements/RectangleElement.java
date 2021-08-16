@@ -33,7 +33,7 @@ public class RectangleElement extends Element {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Rectangle;
+        return ElementType.RECTANGLE;
     }
 
     public float getWidth() {
@@ -86,6 +86,7 @@ public class RectangleElement extends Element {
         borderColorName = value;
     }
 
+    @JsonProperty("borderStyle")
     String getBorderStyleName() {
         return borderStyleName;
     }
@@ -114,6 +115,7 @@ public class RectangleElement extends Element {
         borderColorName = borderColor.getColorString();
     }
 
+    @JsonIgnore
     public LineStyle getBorderStyle() {
         return borderStyle;
     }

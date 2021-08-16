@@ -20,8 +20,8 @@ public class ImageInput extends Input {
     private float pageHeight;
     private boolean expandToFit;
     private boolean shrinkToFit;
-    private Align align = Align.Center;
-    private VAlign vAlign = VAlign.Center;
+    private Align align = Align.CENTER;
+    private VAlign vAlign = VAlign.CENTER;
     private int startPage;
     private int pageCount;
 
@@ -126,6 +126,7 @@ public class ImageInput extends Input {
         align = value;
     }
 
+    @JsonProperty("vAlign")
     public VAlign getVAlign() {
         return vAlign;
     }

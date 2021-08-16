@@ -11,6 +11,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_DEFAULT)
+@JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class Font {
 
     private static Font timesRoman = null;
@@ -76,6 +84,7 @@ public class Font {
         name = value;
     }
 
+    @JsonIgnore
     public FontResource getResource() {
         return resource;
     }

@@ -24,7 +24,7 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
     }
 
     public DataMatrixBarcodeElement(String value, ElementPlacement placement) {
-        this(value, placement, 0, 0, DataMatrixSymbolSize.Auto, DataMatrixEncodingType.Auto, DataMatrixFunctionCharacter.None);
+        this(value, placement, 0, 0, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
     }
 
     public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize, DataMatrixEncodingType encodingType, DataMatrixFunctionCharacter functionCharacter) {
@@ -36,12 +36,12 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
     }
 
     public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement) {
-        this(value, placement, 0, 0, DataMatrixSymbolSize.Auto, DataMatrixEncodingType.Auto, DataMatrixFunctionCharacter.None);
+        this(value, placement, 0, 0, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
     }
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.DataMatrixBarcode;
+        return ElementType.DATAMATRIXBARCODE;
     }
 
     public boolean getProcessTilde() {
@@ -52,6 +52,7 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
         processTilde = value;
     }
 
+    @JsonProperty("dataMatrixSymbolSize")
     DataMatrixSymbolSize getDataMatrixSymbolSize() {
         return dataMatrixSymbolSize;
     }
@@ -60,6 +61,7 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
         dataMatrixSymbolSize = value;
     }
 
+    @JsonProperty("dataMatrixEncodingType")
     DataMatrixEncodingType getDataMatrixEncodingType() {
         return dataMatrixEncodingType;
     }
@@ -68,6 +70,7 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
         dataMatrixEncodingType = value;
     }
 
+    @JsonProperty("dataMatrixFunctionCharacter")
     DataMatrixFunctionCharacter getDataMatrixFunctionCharacter() {
         return dataMatrixFunctionCharacter;
     }

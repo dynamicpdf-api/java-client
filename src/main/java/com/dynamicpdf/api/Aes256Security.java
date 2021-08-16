@@ -15,7 +15,7 @@ public class Aes256Security extends Security{
     public Aes256Security(String userPassword, String ownerPassword){super(userPassword, ownerPassword); }
 
     @JsonProperty("type")
-    SecurityType getType() { return SecurityType.Aes256; }
+    SecurityType getType() { return SecurityType.AES256; }
 
     public EncryptDocumentComponents getDocumentComponents() { return documentComponents; }
     

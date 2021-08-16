@@ -37,7 +37,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Pdf417Barcode;
+        return ElementType.PDF417BARCODE;
     }
 
     public int getColumns() {
@@ -48,6 +48,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
         columns = value;
     }
 
+    @JsonProperty("yDimension")
     public float getYDimension() {
         return yDimension;
     }
@@ -72,6 +73,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
         compactPdf417 = value;
     }
 
+    @JsonProperty("errorCorrection")
     public ErrorCorrection getErrorCorrection() {
         return errorCorrection;
     }
@@ -80,6 +82,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
         errorCorrection = value;
     }
 
+    @JsonProperty("compaction")
     public Compaction getCompaction() {
         return compaction;
     }

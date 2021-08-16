@@ -36,6 +36,7 @@ public abstract class BarcodeElement extends Element {
         colorName = color.getColorString();
     }
 
+    @JsonProperty("xDimension")
     public float getXDimension() {
         return xDimension;
     }

@@ -26,9 +26,10 @@ public class StackedGs1DataBarBarcodeElement extends TextBarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.StackedGs1DataBarBarcode;
+        return ElementType.STACKEDGS1DATABARBARCODE;
     }
 
+    @JsonProperty("stackedGs1DataBarType")
     StackedGs1DataBarType getStackedGs1DataBarType() {
         return stackedGs1DataBarType;
     }

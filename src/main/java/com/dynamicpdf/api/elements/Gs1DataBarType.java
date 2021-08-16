@@ -1,8 +1,13 @@
 package com.dynamicpdf.api.elements;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Gs1DataBarType {
 
-    Omnidirectional,
-    Limited,
-    Expanded
+	@JsonProperty("omnidirectional")
+    OMNIDIRECTIONAL,
+    @JsonProperty("limited")
+    LIMITED,
+    @JsonProperty("expanded")
+    EXPANDED
 }

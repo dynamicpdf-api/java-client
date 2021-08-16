@@ -24,6 +24,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
         this(value, placement, 0, 0);
     }
 
+    @JsonProperty("font")
     String getFontName() {
         return fontName;
     }
@@ -32,6 +33,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
         fontName = value;
     }
 
+    @JsonIgnore
     public Font getTextFont() {
         return getFont();
     }
@@ -63,6 +65,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
         textColorName = textColor.getColorString();
     }
 
+    @JsonIgnore
     public Font getFont() {
         return font;
 

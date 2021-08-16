@@ -31,7 +31,7 @@ public class LineElement extends Element {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Line;
+        return ElementType.LINE;
     }
 
     @JsonProperty("color")
@@ -60,14 +60,6 @@ public class LineElement extends Element {
     public void setColor(Color value) {
         color = value;
         colorName = color.getColorString();
-    }
-
-    public float getX1Offset() {
-        return x1Offset;
-    }
-
-    public void setX1Offset(float value) {
-        x1Offset = value;
     }
 
     public float getY1Offset() {

@@ -24,7 +24,7 @@ public class MsiBarcodeElement extends TextBarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.MsiBarcode;
+        return ElementType.MSIBARCODE;
     }
 
     public MsiBarcodeCheckDigitMode getAppendCheckDigit() {

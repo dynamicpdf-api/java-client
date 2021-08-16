@@ -1,8 +1,13 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Align {
 
-    Left,
-    Center,
-    Right
+	@JsonProperty("left")
+    LEFT,
+    @JsonProperty("center")
+    CENTER,
+    @JsonProperty("right")
+    RIGHT
 }

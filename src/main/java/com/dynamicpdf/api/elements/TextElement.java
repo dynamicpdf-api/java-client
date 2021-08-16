@@ -31,9 +31,10 @@ public class TextElement extends Element {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Text;
+        return ElementType.TEXT;
     }
 
+    @JsonProperty("font")
     String getFontName() {
         return fontName;
     }
@@ -51,6 +52,7 @@ public class TextElement extends Element {
         colorName = value;
     }
 
+    @JsonIgnore
     public Resource getResource() {
         return resource;
     }
@@ -59,6 +61,7 @@ public class TextElement extends Element {
         resource = value;
     }
 
+    @JsonIgnore
     public Font getTextFont() {
         return font;
     }
@@ -81,6 +84,7 @@ public class TextElement extends Element {
         colorName = color.getColorString();
     }
 
+    @JsonIgnore
     public Font getFont() {
         return font;
     }

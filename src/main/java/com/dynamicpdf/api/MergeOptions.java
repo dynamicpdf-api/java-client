@@ -1,22 +1,26 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_DEFAULT)
 public class MergeOptions {
 
-    private boolean documentInfo;
-    private boolean documentJavaScript;
-    private boolean documentProperties;
-    private boolean embeddedFiles;
-    private boolean formFields;
-    private boolean formsXfaData;
-    private boolean logicalStructure;
-    private boolean openAction;
-    private boolean optionalContentInfo;
-    private boolean outlines;
-    private boolean outputIntent;
-    private boolean pageAnnotations;
-    private boolean pageLabelsAndSections;
+    private boolean documentInfo = true;
+    private boolean documentJavaScript = true;
+    private boolean documentProperties = true;
+    private boolean embeddedFiles = true;
+    private boolean formFields = true;
+    private boolean formsXfaData = true;
+    private boolean logicalStructure = true;
+    private boolean openAction = true;
+    private boolean optionalContentInfo = true;
+    private boolean outlines = true;
+    private boolean outputIntent = true;
+    private boolean pageAnnotations = true;
+    private boolean pageLabelsAndSections = true;
     private String rootFormField = null;
-    private boolean xmpMetadata;
+    private boolean xmpMetadata = true;
 
     public boolean getDocumentInfo() {
         return documentInfo;

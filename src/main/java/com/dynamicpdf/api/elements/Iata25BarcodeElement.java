@@ -24,7 +24,7 @@ public class Iata25BarcodeElement extends TextBarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Iata25Barcode;
+        return ElementType.IATA25BARCODE;
     }
 
     public boolean getIncludeCheckDigit() {

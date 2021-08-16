@@ -31,7 +31,7 @@ public class PageNumberingElement extends Element {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.PageNumbering;
+        return ElementType.PAGENUMBERING;
     }
 
     public Resource getResource() {
@@ -42,10 +42,12 @@ public class PageNumberingElement extends Element {
         resource = value;
     }
 
+    @JsonIgnore
     public Font getTextFont() {
         return font;
     }
 
+    @JsonProperty("font")
     String getFontName() {
         return fontName;
     }
@@ -73,6 +75,7 @@ public class PageNumberingElement extends Element {
         colorName = value.getColorString();
     }
 
+    @JsonIgnore
     public Font getFont() {
         return font;
     }

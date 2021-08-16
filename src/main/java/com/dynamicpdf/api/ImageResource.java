@@ -70,20 +70,30 @@ public class ImageResource extends Resource {
     }
 
     private static boolean isJpeg2000Image(byte[] header) {
-        return (header[0] == 0x00 && header[1] == 0x00 && header[2] == 0x00 && header[3] == 0x0C && header[4] == 0x6A
-                && header[5] == 0x50 && (header[6] == 0x1A || header[6] == 0x20) && (header[7] == 0x1A || header[7] == 0x20)
-                && header[8] == 0x0D && header[9] == 0x0A && header[10] == 0x87 && header[11] == 0x0A)
-                || (header[0] == 0xFF && header[1] == 0x4F && header[2] == 0xFF && header[3] == 0x51 && header[6] == 0x00 && header[7] == 0x00);
+    	return ( checkBytes(header[0])==0x00 && checkBytes(header[1])==0x00
+                && checkBytes(header[2])==0x00 && checkBytes(header[3])==0x0C
+                && checkBytes(header[4])==0x6A && checkBytes(header[5])==0x50
+                && ( checkBytes(header[6])==0x1A || checkBytes(header[6])==0x20 )
+                && ( checkBytes(header[7])==0x1A || checkBytes(header[7])==0x20 )
+                && checkBytes(header[8])==0x0D && checkBytes(header[9])==0x0A
+                && checkBytes(header[10])==0x87 && checkBytes(header[11])==0x0A )
+                ||( checkBytes(header[0])==0xFF && checkBytes(header[1])==0x4F
+                && checkBytes(header[2])==0xFF && checkBytes(header[3])==0x51
+                && checkBytes(header[6])==0x00 && checkBytes(header[7])==0x00 );
     }
 
     private static boolean isPngImage(byte[] header) {
-        return header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47
-                && header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A;
+    	return checkBytes(header[0])==0x89 && checkBytes(header[1])==0x50
+                && checkBytes(header[2])==0x4E && checkBytes(header[3])==0x47
+                && checkBytes(header[4])==0x0D && checkBytes(header[5])==0x0A
+                && checkBytes(header[6])==0x1A && checkBytes(header[7])==0x0A;
     }
 
     private static boolean isTiffImage(byte[] header) {
-        return (header[0] == 0x49 && header[1] == 0x49 && header[2] == 0x2A && header[3] == 0x00)
-                || (header[0] == 0x4D && header[1] == 0x4D && header[2] == 0x00 && header[3] == 0x2A);
+    	return (checkBytes(header[0])==0x49 && checkBytes(header[1])==0x49
+                && checkBytes(header[2])==0x2A && checkBytes(header[3])==0x00)
+                || (checkBytes(header[0])==0x4D && checkBytes(header[1])==0x4D
+                && checkBytes(header[2])==0x00 && checkBytes(header[3])==0x2A);
     }
 
     private static boolean isGifImage(byte[] header) {
@@ -91,10 +101,16 @@ public class ImageResource extends Resource {
     }
 
     private static boolean isJpegImage(byte[] header) {
-        return header[0] == 0xFF && header[1] == 0xD8 && header[2] == 0xFF;
+    	return checkBytes(header[0]) == 0xFF && checkBytes(header[1]) == 0xD8 && checkBytes(header[2]) == 0xFF;
     }
 
     private static boolean isValidBitmapImage(byte[] header) {
         return header[0] == 0x42 && header[1] == 0x4D;
+    }
+    
+    private static int checkBytes( byte bytVal ) {
+        int val = (int)bytVal;
+        if( val < 0 ) { val = 256 + val; }
+        return val;
     }
 }

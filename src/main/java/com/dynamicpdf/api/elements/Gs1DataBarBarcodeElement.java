@@ -25,9 +25,10 @@ public class Gs1DataBarBarcodeElement extends TextBarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Gs1DataBarBarcode;
+        return ElementType.GS1DATABARBARCODE;
     }
 
+    @JsonProperty("gs1DataBarType")
     Gs1DataBarType getGs1DataBarType() {
         return type;
     }

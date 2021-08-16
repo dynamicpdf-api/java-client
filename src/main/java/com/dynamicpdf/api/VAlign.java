@@ -1,8 +1,13 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum VAlign {
 
-    Top,
-    Center,
-    Bottom
+	@JsonProperty("top")
+    TOP,
+    @JsonProperty("center")
+    CENTER,
+    @JsonProperty("bottom")
+    BOTTOM
 }

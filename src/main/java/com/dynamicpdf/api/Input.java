@@ -68,6 +68,7 @@ public abstract class Input {
         id = value;
     }
 
+    @JsonIgnore
     public Template getTemplate() {
         return this.template;
     }

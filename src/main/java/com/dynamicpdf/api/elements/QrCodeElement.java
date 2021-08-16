@@ -31,9 +31,10 @@ public class QrCodeElement extends Dim2BarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.QrCode;
+        return ElementType.QRCODE;
     }
 
+    @JsonProperty("fnc1")
     public QrCodeFnc1 getFnc1() {
         return fnc1;
     }

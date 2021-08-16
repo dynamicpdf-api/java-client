@@ -33,7 +33,7 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.AztecBarcode;
+        return ElementType.AZTECBARCODE;
     }
 
     public boolean getProcessTilde() {
@@ -44,19 +44,20 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
         processTilde = value;
     }
 
-    public AztecSymbolSize getAztecSymbolSize() {
+    @JsonProperty("symbolSize")
+    public AztecSymbolSize getSymbolSize() {
         return aztecSymbolSize;
     }
 
-    public void setAztecSymbolSize(AztecSymbolSize value) {
+    public void setSymbolSize(AztecSymbolSize value) {
         aztecSymbolSize = value;
     }
 
-    public int getErrorCorrection() {
+    public int getAztecErrorCorrection() {
         return errorCorrection;
     }
 
-    public void setErrorCorrection(int value) {
+    public void setAztecErrorCorrection(int value) {
         errorCorrection = value;
     }
 

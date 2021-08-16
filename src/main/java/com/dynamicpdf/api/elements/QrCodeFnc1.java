@@ -1,9 +1,14 @@
 package com.dynamicpdf.api.elements;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum QrCodeFnc1 {
 
-    None,
-    Gs1,
-    Industry
+	@JsonProperty("none")
+    NONE,
+    @JsonProperty("gs1")
+    GS1,
+    @JsonProperty("industry")
+    INDUSTRY
 
 }

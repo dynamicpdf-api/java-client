@@ -23,7 +23,7 @@ public class Code11BarcodeElement extends TextBarcodeElement {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Code11Barcode;
+        return ElementType.CODE11BARCODE;
     }
 
     public float getHeight() {

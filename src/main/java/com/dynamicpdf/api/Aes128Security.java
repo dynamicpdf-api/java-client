@@ -18,7 +18,7 @@ public class Aes128Security extends Security {
 
     @JsonProperty("type")
     SecurityType getType() {
-        return SecurityType.Aes128;
+        return SecurityType.AES128;
     }
 
     public EncryptDocumentComponents getDocumentComponents() {

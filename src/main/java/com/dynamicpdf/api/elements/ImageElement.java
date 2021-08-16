@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_DEFAULT)
@@ -46,9 +47,10 @@ public class ImageElement extends Element {
 
     @JsonProperty("type")
     ElementType getType() {
-        return ElementType.Image;
+        return ElementType.IMAGE;
     }
 
+    @JsonIgnore
     public Resource getResource() {
         return resource;
     }
@@ -57,6 +59,7 @@ public class ImageElement extends Element {
         resource = value;
     }
 
+    @JsonProperty("resourceName")
     String getResourceName() {
         return resourceName;
     }

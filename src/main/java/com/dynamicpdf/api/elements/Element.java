@@ -2,6 +2,7 @@ package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class Element {
 
@@ -59,6 +60,7 @@ public abstract class Element {
         placement = value;
     }
 
+    @JsonProperty("xOffset")
     public float getXOffset() {
         return xOffset;
     }
@@ -67,6 +69,7 @@ public abstract class Element {
         xOffset = value;
     }
 
+    @JsonProperty("yOffset")
     public float getYOffset() {
         return yOffset;
     }
