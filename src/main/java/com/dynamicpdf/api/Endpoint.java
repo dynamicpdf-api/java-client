@@ -61,7 +61,6 @@ public abstract class Endpoint {
 		RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
 		RestAssured.useRelaxedHTTPSValidation();
 		requestSpec = RestAssured.given()
-				//.baseUri("https://localhost:44397/v1.0/pdf-info")
 				.header("Authorization", "Bearer "+ getApiKey());
 		return requestSpec;
     }
