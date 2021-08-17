@@ -1,16 +1,21 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public abstract class Security {
 
     private String userPassword = "";
     private String ownerPassword = "";
-    private boolean allowCopy;
-    private boolean allowEdit;
-    private boolean allowPrint;
-    private boolean allowUpdateAnnotsAndFields;
-    private boolean allowAccessibility;
+    private boolean allowCopy = true;
+    private boolean allowEdit = true;
+    private boolean allowPrint = true;
+    private boolean allowUpdateAnnotsAndFields = true;
+    private boolean allowAccessibility = true;
     private boolean allowFormFilling;
-    private boolean allowHighResolutionPrinting;
+    private boolean allowHighResolutionPrinting = true;
     private boolean allowDocumentAssembly;
 
     Security() {
@@ -21,6 +26,7 @@ public abstract class Security {
         ownerPassword = ownerPwd;
     }
 
+    @JsonProperty("type")
     abstract SecurityType getType();
 
     public boolean getAllowCopy() {

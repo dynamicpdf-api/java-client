@@ -33,6 +33,8 @@ public abstract class Input {
         resourceName = resource.getResourceName();
     }
 
+    @JsonInclude
+    @JsonProperty("type")
     abstract InputType getType();
 
     String getTemplateId() {

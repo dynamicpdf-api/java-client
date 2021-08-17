@@ -43,8 +43,8 @@ public class Font {
     FontResource resource;
 
     private String name;
-    private boolean embed;
-    private boolean subset;
+    private boolean embed = true;
+    private boolean subset = true;
     private String resourceName;
 
     static {
@@ -263,7 +263,7 @@ public class Font {
         }
 
         for (FontInformation fontDetail : fontDetails) {
-            if (fontDetail.getFontName().toUpperCase() == fontName.toUpperCase()) {
+            if (fontDetail.getFontName().toUpperCase().equals(fontName.toUpperCase())) {
                 fontResource = new FontResource(fontDetail.getFilePath(), resourceName);
                 return new Font(fontResource, fontResource.getResourceName());
             }
@@ -295,7 +295,7 @@ public class Font {
                             reader = new DataStreamByteReader(data);
                             nameTable = readFontNameTable(reader);
                             if (nameTable != null) {
-                                fontDetails.add(new FontInformation(nameTable.getFontName(), file.getName()));
+                                fontDetails.add(new FontInformation(nameTable.getFontName(), file.getPath()));
                             }
                         } catch (IOException ex) {
 

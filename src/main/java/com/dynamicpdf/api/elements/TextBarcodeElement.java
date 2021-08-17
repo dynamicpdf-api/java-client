@@ -38,6 +38,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
         return getFont();
     }
 
+    @JsonIgnore
     public Resource getResource() {
         return resource;
     }

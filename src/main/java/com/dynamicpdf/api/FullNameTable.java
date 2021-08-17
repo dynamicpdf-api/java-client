@@ -68,13 +68,13 @@ class FullNameTable {
     }
 
     private int readULong(byte[] data, int index) {
-        int intReturn = data[index++];
+        int intReturn = data[index++] & 0xFF;
         intReturn *= 0x100;
-        intReturn += data[index++];
+        intReturn += data[index++] & 0xFF;
         intReturn *= 0x100;
-        intReturn += data[index++];
+        intReturn += data[index++] & 0xFF;
         intReturn *= 0x100;
-        intReturn += data[index];
+        intReturn += data[index] & 0xFF;
         return intReturn;
     }
 
@@ -83,7 +83,7 @@ class FullNameTable {
     }
 
     private int readUShort(int index) {
-        return (int) (this.data[index++] << 8 | this.data[index]);
+        return (int) ((this.data[index++] & 0xFF) << 8 | (this.data[index] & 0xFF));
     }
 
     private int readUShort1(int index) {

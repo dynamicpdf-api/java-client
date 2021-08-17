@@ -6,17 +6,14 @@
 package com.dynamicpdf.api;
 
 import com.dynamicpdf.api.elements.Element;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(Include.NON_DEFAULT)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class PageInput extends Input {
 
     private float pageWidth = 0;
@@ -33,6 +30,7 @@ public class PageInput extends Input {
     	super();
     }
 
+    @JsonInclude
     @JsonProperty("type")
     InputType getType() {
         return InputType.PAGE;

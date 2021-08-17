@@ -34,6 +34,7 @@ public class PageNumberingElement extends Element {
         return ElementType.PAGENUMBERING;
     }
 
+    @JsonIgnore
     public Resource getResource() {
         return resource;
     }
