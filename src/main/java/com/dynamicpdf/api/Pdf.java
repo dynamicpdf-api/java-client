@@ -251,7 +251,7 @@ public class Pdf extends Endpoint
 			throw new EndpointException("Minimum one input required.");
 		}
 		for (Resource resource : finalResources) {
-			if (resource.getType() == ResourceType.LayoutData) {
+			if (resource.getType() == ResourceType.LAYOUTDATA) {
 				LayoutDataResource res = (LayoutDataResource) resource;
 				spec.multiPart("Resource", res.getLayoutDataResourceName(), resource.getData(), resource.getMimeType());
 			} else {

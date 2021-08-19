@@ -10,6 +10,9 @@ import java.nio.file.Paths;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Represents the base class resource.
+ */
 public abstract class Resource {
 
     private String filePath;
@@ -87,10 +90,18 @@ public abstract class Resource {
     void setMimeType(String value) {
     }
 
+    /**
+     * Gets the resource name.
+     * @return The resource name.
+     */
     public String getResourceName() {
         return resourceName;
     }
 
+    /**
+     * Sets the resource name.
+     * @param value The resource name.
+     */
     public void setResourceName(String value) {
         resourceName = value;
     }

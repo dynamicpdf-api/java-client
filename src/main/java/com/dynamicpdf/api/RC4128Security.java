@@ -19,4 +19,8 @@ public class RC4128Security extends Security {
     public boolean getEncryptMetadata() {
         return encryptMetadata;
     }
+    
+    public void setEncryptMetadata(boolean value) {
+        encryptMetadata = value;
+    }
 }

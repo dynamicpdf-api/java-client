@@ -1,7 +1,11 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum EncryptDocumentComponents {
 
-    All,
-    AllExceptMetadata
+	@JsonProperty("all")
+    ALL,
+    @JsonProperty("allExceptMetadata")
+    ALLEXCEPTMETADATA
 }

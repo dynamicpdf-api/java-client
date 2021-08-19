@@ -10,6 +10,6 @@ public enum Compaction {
     TEXT,
     @JsonProperty("numeric")
     NUMERIC,
-    @JsonProperty("automatic")
-    AUTOMATIC
+    @JsonProperty("auto")
+    AUTO
 }

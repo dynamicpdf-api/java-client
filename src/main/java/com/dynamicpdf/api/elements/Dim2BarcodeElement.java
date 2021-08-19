@@ -2,6 +2,8 @@ package com.dynamicpdf.api.elements;
 
 import java.util.Base64;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class Dim2BarcodeElement extends BarcodeElement {
 
     private ValueType valueType = ValueType.STRING;
@@ -18,6 +20,7 @@ public abstract class Dim2BarcodeElement extends BarcodeElement {
         setYOffset(yOffset);
     }
 
+    @JsonProperty
     ValueType getValueType() {
         return valueType;
     }

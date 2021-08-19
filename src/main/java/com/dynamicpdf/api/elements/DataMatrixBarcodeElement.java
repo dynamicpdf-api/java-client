@@ -26,7 +26,19 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
     public DataMatrixBarcodeElement(String value, ElementPlacement placement) {
         this(value, placement, 0, 0, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
     }
+    
+    public DataMatrixBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
+        this(value, placement, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+    }
 
+    public DataMatrixBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize) {
+        this(value, placement, xOffset, yOffset, symbolSize, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+    }
+    
+    public DataMatrixBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize, DataMatrixEncodingType encodingType) {
+        this(value, placement, xOffset, yOffset, symbolSize, encodingType, DataMatrixFunctionCharacter.NONE);
+    }
+    
     public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize, DataMatrixEncodingType encodingType, DataMatrixFunctionCharacter functionCharacter) {
         super(value, placement, xOffset, yOffset);
         
@@ -39,6 +51,18 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
         this(value, placement, 0, 0, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
     }
 
+    public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset) {
+        this(value, placement, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+    }
+    
+    public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize) {
+        this(value, placement, xOffset, yOffset, symbolSize, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+    }
+    
+    public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset, DataMatrixSymbolSize symbolSize, DataMatrixEncodingType encodingType) {
+        this(value, placement, xOffset, yOffset, symbolSize, encodingType, DataMatrixFunctionCharacter.NONE);
+    }
+    
     @JsonProperty("type")
     ElementType getType() {
         return ElementType.DATAMATRIXBARCODE;

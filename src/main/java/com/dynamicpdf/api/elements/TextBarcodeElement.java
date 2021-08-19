@@ -4,6 +4,7 @@ import com.dynamicpdf.api.Color;
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class TextBarcodeElement extends BarcodeElement {
@@ -14,7 +15,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
     private Resource resource;
     private String textColorName;
     private float fontSize;
-    private boolean showText;
+    private boolean showText = true;
 
     TextBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
         super(value, placement, xOffset, yOffset);
@@ -86,6 +87,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
         fontSize = value;
     }
 
+    @JsonInclude
     public boolean getShowText() {
         return showText;
     }

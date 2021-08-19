@@ -2,10 +2,10 @@ package com.dynamicpdf.api;
 
 public enum ColorSpaceType {
 
-    Monochrome,
-    Grayscale,
+    MONOCHROME,
+    GRAYSCALE,
     RGB,
     CMYK,
-    Indexed,
-    Unknown
+    INDEXED,
+    UNKNOWN
 }

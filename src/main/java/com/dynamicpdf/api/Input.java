@@ -37,6 +37,7 @@ public abstract class Input {
     @JsonProperty("type")
     abstract InputType getType();
 
+    @JsonProperty
     String getTemplateId() {
         return templateId;
     }

@@ -1,5 +1,7 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class GoToAction extends Action {
 
     private String inputID;
@@ -15,9 +17,13 @@ public class GoToAction extends Action {
     }
 
     public GoToAction(Input input) {
-        this(input, 0, PageZoom.FitPage);
+        this(input, 0, PageZoom.FITPAGE);
     }
 
+    public GoToAction(Input input, int pageOffset) {
+        this(input, pageOffset, PageZoom.FITPAGE);
+    }
+    
     Input getInput() {
         return input;
     }
@@ -26,6 +32,7 @@ public class GoToAction extends Action {
         input = value;
     }
 
+    @JsonProperty("inputID")
     String getInputID() {
         return inputID;
     }

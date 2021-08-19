@@ -2,31 +2,62 @@ package com.dynamicpdf.api;
 
 import java.io.InputStream;
 
+/**
+ * Represents an image resource used to create an <code>ImageInput</code> 
+ * object to create PDF from images.
+ */
 public class ImageResource extends Resource {
 
-    ResourceType resourceType = ResourceType.Image;
+    ResourceType resourceType = ResourceType.IMAGE;
     String mimeType;
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param filePath The image file path.
+     * @param resourceName The name of the resource.
+     */
     public ImageResource(String filePath, String resourceName) {
         super(filePath, resourceName);
     }
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param filePath The image file path.
+     */
     public ImageResource(String filePath) {
         super(filePath, null);
     }
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param value The byte array of the image file.
+     * @param resourceName The name of the resource.
+     */
     public ImageResource(byte[] value, String resourceName) {
         super(value, resourceName);
     }
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param value The byte array of the image file.
+     */
     public ImageResource(byte[] value) {
         super(value, null);
     }
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param data The stream of the image file.
+     * @param resourceName The name of the resource.
+     */
     public ImageResource(InputStream data, String resourceName) {
         super(data, resourceName);
     }
 
+    /**
+     * Initializes a new instance of the <code>ImageResource</code> class.
+     * @param data The stream of the image file.
+     */
     public ImageResource(InputStream data) {
         super(data, null);
     }

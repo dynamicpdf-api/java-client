@@ -2,24 +2,24 @@ package com.dynamicpdf.api;
 
 import java.io.InputStream;
 
-public class FontResource extends Resource {
+class FontResource extends Resource {
 
-    ResourceType resourceType = ResourceType.Font;
+    ResourceType resourceType = ResourceType.FONT;
     String mimeType;
 
-    public FontResource(String filePath, String resourceName) {
+    FontResource(String filePath, String resourceName) {
         super(filePath, resourceName);
     }
 
-    public FontResource(String filePath) {
+    FontResource(String filePath) {
         super(filePath, null);
     }
 
-    public FontResource(InputStream data, String resourceName) {
+    FontResource(InputStream data, String resourceName) {
         super(data, resourceName);
     }
 
-    public FontResource(InputStream data) {
+    FontResource(InputStream data) {
         super(data, null);
     }
 

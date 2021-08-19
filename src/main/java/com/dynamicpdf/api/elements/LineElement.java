@@ -16,8 +16,6 @@ public class LineElement extends Element {
     private Color color;
     private LineStyle lineStyle;
     private String colorName = null;
-    private float x1Offset;
-    private float y1Offset;
     private float x2Offset;
     private float y2Offset;
     private float width;
@@ -60,14 +58,6 @@ public class LineElement extends Element {
     public void setColor(Color value) {
         color = value;
         colorName = color.getColorString();
-    }
-
-    public float getY1Offset() {
-        return y1Offset;
-    }
-
-    public void setY1Offset(float value) {
-        y1Offset = value;
     }
 
     public float getX2Offset() {

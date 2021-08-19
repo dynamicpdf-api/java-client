@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.NON_NULL)
 public class Outline {
 
     private Color color;
@@ -19,6 +22,16 @@ public class Outline {
 
     public Outline(PdfInput input) {
         fromInputID = input.getId();
+        if (input.getMergeOptions() == null)
+        {
+        	MergeOptions mergeOptions =new MergeOptions() ;
+        	mergeOptions.setOutlines(false);
+            input.setMergeOptions(mergeOptions);
+        }
+        else 
+        {
+            input.getMergeOptions().setOutlines(false);
+        }
     }
 
     public Outline(String text, Action action) {
@@ -71,6 +84,7 @@ public class Outline {
         children = value;
     }
 
+    @JsonProperty("linkTo")
     public Action getAction() {
         return action;
     }
@@ -79,6 +93,7 @@ public class Outline {
         action = value;
     }
 
+    @JsonProperty()
     String getFromInputID() {
         return fromInputID;
     }
