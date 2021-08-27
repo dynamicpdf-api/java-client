@@ -33,13 +33,12 @@ public class PdfXmp extends Endpoint
              {
         		 xmlResponse = new XmlResponse(response.asString());
         		 xmlResponse.setIsSuccessful(true);
+        		 xmlResponse.setStatusCode(response.getStatusCode());
              }
              else
              {
             	 xmlResponse = new XmlResponse();
             	 xmlResponse.setErrorJson(response.asString()); 
-            	 //xmlResponse.setErrorId(response.getSErrorId);
-            	 //xmlResponse.setErrorMessage(response.ErrorMessage);
             	 xmlResponse.setIsSuccessful(false);
             	 xmlResponse.setStatusCode(response.getStatusCode());
              }

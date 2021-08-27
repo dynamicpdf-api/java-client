@@ -42,13 +42,12 @@ public class DlexLayout extends Endpoint
 		{
 			pdfResponse = new PdfResponse(response.asByteArray());
 			pdfResponse.setIsSuccessful(true);
+			pdfResponse.setStatusCode(response.getStatusCode());
 		}
 		else
 		{
 			pdfResponse = new PdfResponse();
 			pdfResponse.setErrorJson(response.asString()); 
-			//xmlResponse.setErrorId(response.getSErrorId);
-			//xmlResponse.setErrorMessage(response.ErrorMessage);
 			pdfResponse.setIsSuccessful(false);
 			pdfResponse.setStatusCode(response.getStatusCode());
 		}

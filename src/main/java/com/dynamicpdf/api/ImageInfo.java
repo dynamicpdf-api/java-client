@@ -32,13 +32,12 @@ public class ImageInfo extends Endpoint
              {
         		 imageResponse = new ImageResponse(response.asString());
         		 imageResponse.setIsSuccessful(true);
+        		 imageResponse.setStatusCode(response.getStatusCode());
              }
              else
              {
             	 imageResponse = new ImageResponse();
             	 imageResponse.setErrorJson(response.asString()); 
-            	 //xmlResponse.setErrorId(response.getSErrorId);
-            	 //xmlResponse.setErrorMessage(response.ErrorMessage);
             	 imageResponse.setIsSuccessful(false);
             	 imageResponse.setStatusCode(response.getStatusCode());
              }

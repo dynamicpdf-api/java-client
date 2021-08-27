@@ -49,13 +49,12 @@ public class PdfText extends Endpoint
              {
         		 pdfTextResponse = new PdfTextResponse(response.asString());
         		 pdfTextResponse.setIsSuccessful(true);
+        		 pdfTextResponse.setStatusCode(response.getStatusCode());
              }
              else
              {
             	 pdfTextResponse = new PdfTextResponse();
             	 pdfTextResponse.setErrorJson(response.asString()); 
-            	 //xmlResponse.setErrorId(response.getSErrorId);
-            	 //xmlResponse.setErrorMessage(response.ErrorMessage);
             	 pdfTextResponse.setIsSuccessful(false);
             	 pdfTextResponse.setStatusCode(response.getStatusCode());
              }

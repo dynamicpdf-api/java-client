@@ -205,7 +205,6 @@ public class Pdf extends Endpoint
 		HashSet<Resource> finalResources = new HashSet<Resource>();
 		String jsonText = null;
 		ObjectMapper basicMapper = new ObjectMapper();
-		//basicMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.PROTECTED_AND_PUBLIC);
 		
 		for (Input input : instructions.getInputs()) {
 			if (input.getType() == InputType.PAGE) {
@@ -271,13 +270,12 @@ public class Pdf extends Endpoint
 		{
 			pdfResponse = new PdfResponse(response.asByteArray());
 			pdfResponse.setIsSuccessful(true);
+			pdfResponse.setStatusCode(response.getStatusCode());
 		}
 		else
 		{
 			pdfResponse = new PdfResponse();
 			pdfResponse.setErrorJson(response.asString()); 
-			//xmlResponse.setErrorId(response.getSErrorId);
-			//xmlResponse.setErrorMessage(response.ErrorMessage);
 			pdfResponse.setIsSuccessful(false);
 			pdfResponse.setStatusCode(response.getStatusCode());
 		}

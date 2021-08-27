@@ -33,13 +33,12 @@ public class PdfInfo extends Endpoint
              {
         		 pdfInfoResponse = new PdfInfoResponse(response.asString());
         		 pdfInfoResponse.setIsSuccessful(true);
+        		 pdfInfoResponse.setStatusCode(response.getStatusCode());
              }
              else
              {
             	 pdfInfoResponse = new PdfInfoResponse();
             	 pdfInfoResponse.setErrorJson(response.asString()); 
-            	 //xmlResponse.setErrorId(response.getSErrorId);
-            	 //xmlResponse.setErrorMessage(response.ErrorMessage);
             	 pdfInfoResponse.setIsSuccessful(false);
             	 pdfInfoResponse.setStatusCode(response.getStatusCode());
              }
