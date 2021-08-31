@@ -2,59 +2,99 @@ package com.dynamicpdf.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Represents a goto action in a PDF document that navigates 
+ * to a specific page using page number and zoom options.
+ */
+
 public class GoToAction extends Action {
 
-    private String inputID;
-    private int pageOffset;
-    private PageZoom pageZoom;
-    private Input input;
+	private String inputID;
+	private int pageOffset;
+	private PageZoom pageZoom;
+	private Input input;
 
-    public GoToAction(Input input, int pageOffset, PageZoom pageZoom) {
-        this.input = input;
-        this.inputID = input.getId();
-        this.pageOffset = pageOffset;
-        this.pageZoom = pageZoom;
-    }
+	/**
+	 * Initializes a new instance of the  <code>GoToAction</code> class 
+	 * using an input to create the PDF, page number, and a zoom option.
+	 * @param input Any of the <code>ImageInput</code>,  <code>DlexInput</code>,  <code>PdfInput</code> or  <code>PageInput</code> objects to create PDF.
+	 * @param pageOffset Page number to navigate.
+	 * @param pageZoom <code>PageZoom</code> to display the destination.
+	 */
 
-    public GoToAction(Input input) {
-        this(input, 0, PageZoom.FITPAGE);
-    }
+	public GoToAction(Input input, int pageOffset, PageZoom pageZoom) {
+		this.input = input;
+		this.inputID = input.getId();
+		this.pageOffset = pageOffset;
+		this.pageZoom = pageZoom;
+	}
 
-    public GoToAction(Input input, int pageOffset) {
-        this(input, pageOffset, PageZoom.FITPAGE);
-    }
-    
-    Input getInput() {
-        return input;
-    }
+	/**
+	 * Initializes a new instance of the  <code>GoToAction</code> class 
+	 * using an input to create the PDF, page number, and a zoom option. 
+	 * @param input Any of the <code>ImageInput</code>,  <code>DlexInput</code>,  <code>PdfInput</code> or  <code>PageInput</code> objects to create PDF.
+	 */
+	public GoToAction(Input input) {
+		this(input, 0, PageZoom.FITPAGE);
+	}
 
-    void setInput(Input value) {
-        input = value;
-    }
+	/**
+	 * Initializes a new instance of the  <code>GoToAction</code> class 
+	 * using an input to create the PDF, page number, and a zoom option. 
+	 * @param input Any of the <code>ImageInput</code>,  <code>DlexInput</code>,  <code>PdfInput</code> or  <code>PageInput</code> objects to create PDF.
+	 * @param pageOffset Page number to navigate.
+	 */
+	public GoToAction(Input input, int pageOffset) {
+		this(input, pageOffset, PageZoom.FITPAGE);
+	}
 
-    @JsonProperty("inputID")
-    String getInputID() {
-        return inputID;
-    }
+	Input getInput() {
+		return input;
+	}
 
-    void setInputID(String value) {
-        inputID = value;
-    }
+	void setInput(Input value) {
+		input = value;
+	}
 
-    public int getPageOffset() {
-        return pageOffset;
-    }
+	@JsonProperty("inputID")
+	String getInputID() {
+		return inputID;
+	}
 
-    public void setPageOffset(int value) {
-        this.pageOffset = value;
-    }
+	void setInputID(String value) {
+		inputID = value;
+	}
 
-    public PageZoom getPageZoom() {
-        return pageZoom;
-    }
+	/**
+	 * Gets page Offset.
+	 * @return Page Offset.
+	 */
+	public int getPageOffset() {
+		return pageOffset;
+	}
 
-    public void setPageZoom(PageZoom value) {
-        this.pageZoom = value;
-    }
+	/**
+	 * Sets page Offset.
+	 * @param value Page Offset.
+	 */
+	public void setPageOffset(int value) {
+		this.pageOffset = value;
+	}
+
+	/**
+	 * Gets <code>PageZoom</code> to display the destination.
+	 * @return <code>PageZoom</code> to display the destination.
+	 */
+	public PageZoom getPageZoom() {
+		return pageZoom;
+	}
+
+	/**
+	 * Sets <code>PageZoom</code> to display the destination.
+	 * @param value <code>PageZoom</code> to display the destination.
+	 */
+	public void setPageZoom(PageZoom value) {
+		this.pageZoom = value;
+	}
 
 }

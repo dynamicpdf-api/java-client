@@ -1,7 +1,20 @@
 package com.dynamicpdf.api;
 
+/**
+ * Specifies type of the Choice Field.
+ */
+
 public enum ChoiceFieldType {
 
-    LISTBOX,
-    COMBOBOX
+	/**
+	 * Represents a List box.
+	 */
+
+	LISTBOX,
+
+	/**
+	 * Represents a Combo box.
+	 */
+
+	COMBOBOX
 }

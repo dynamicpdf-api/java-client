@@ -9,119 +9,193 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Represents a rectangle page element.
+ * 
+ * <p>This class can be used to place rectangles of any size or color on a page.</p>
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class RectangleElement extends Element {
 
-    private Color fillColor;
-    private Color borderColor;
-    private LineStyle borderStyle;
-    private float width;
-    private float height;
-    private float borderWidth;
-    private float cornerRadius;
-    private String fillColorName;
-    private String borderColorName;
+	private Color fillColor;
+	private Color borderColor;
+	private LineStyle borderStyle;
+	private float width;
+	private float height;
+	private float borderWidth;
+	private float cornerRadius;
+	private String fillColorName;
+	private String borderColorName;
 
-    private String borderStyleName;
+	private String borderStyleName;
 
-    public RectangleElement(ElementPlacement placement, float width, float height) {
-        setPlacement(placement);
-        this.width = width;
-        this.height = height;
-    }
+	/**
+	 * Initializes a new instance of the <code>RectangleElement</code> class.
+	 * 
+	 * @param placement The placement of the rectangle on the page.
+	 * @param width Width of the rectangle.
+	 * @param height Height of the rectangle.
+	 */
+	public RectangleElement(ElementPlacement placement, float width, float height) {
+		setPlacement(placement);
+		this.width = width;
+		this.height = height;
+	}
 
-    @JsonProperty("type")
-    ElementType getType() {
-        return ElementType.RECTANGLE;
-    }
+	@JsonProperty("type")
+	ElementType getType() {
+		return ElementType.RECTANGLE;
+	}
 
-    public float getWidth() {
-        return width;
-    }
+	/**
+	 * Gets the width of the rectangle.
+	 * @return The width of the rectangle.
+	 */
+	public float getWidth() {
+		return width;
+	}
 
-    public void setWidth(float value) {
-        width = value;
-    }
+	/**
+	 * Sets the width of the rectangle.
+	 * @param value The width of the rectangle.
+	 */
+	public void setWidth(float value) {
+		width = value;
+	}
 
-    public float getHeight() {
-        return height;
-    }
+	/**
+	 * Gets the height of the rectangle.
+	 * @return The height of the rectangle.
+	 */
+	public float getHeight() {
+		return height;
+	}
 
-    public void setHeight(float value) {
-        height = value;
-    }
+	/**
+	 * Sets the height of the rectangle.
+	 * @param value The height of the rectangle.
+	 */
+	public void setHeight(float value) {
+		height = value;
+	}
 
-    public float getBorderWidth() {
-        return borderWidth;
-    }
+	/**
+	 * Gets the border width of the rectangle.
+	 * <p>To force the borders not to appear set the border width to any value 0 or less.</p>
+	 * @return The border width of the rectangle.
+	 */
+	public float getBorderWidth() {
+		return borderWidth;
+	}
 
-    public void setBorderWidth(float value) {
-        borderWidth = value;
-    }
+	/**
+	 * Sets the border width of the rectangle.
+	 * <p>To force the borders not to appear set the border width to any value 0 or less.</p>
+	 * @param value The border width of the rectangle.
+	 */
+	public void setBorderWidth(float value) {
+		borderWidth = value;
+	}
 
-    public float getCornerRadius() {
-        return cornerRadius;
-    }
+	/**
+	 * Gets the corner radius of the rectangle.
+	 * @return The corner radius of the rectangle.
+	 */
+	public float getCornerRadius() {
+		return cornerRadius;
+	}
 
-    public void setCornerRadius(float value) {
-        cornerRadius = value;
-    }
+	/**
+	 * Sets the corner radius of the rectangle.
+	 * @param value The corner radius of the rectangle.
+	 */
+	public void setCornerRadius(float value) {
+		cornerRadius = value;
+	}
 
-    @JsonProperty("fillColor")
-    String getFillColorName() {
-        return fillColorName;
-    }
+	@JsonProperty("fillColor")
+	String getFillColorName() {
+		return fillColorName;
+	}
 
-    void setFillColorName(String value) {
-        fillColorName = value;
-    }
+	void setFillColorName(String value) {
+		fillColorName = value;
+	}
 
-    @JsonProperty("borderColor")
-    String getBorderColorName() {
-        return borderColorName;
-    }
+	@JsonProperty("borderColor")
+	String getBorderColorName() {
+		return borderColorName;
+	}
 
-    void setBorderColorName(String value) {
-        borderColorName = value;
-    }
+	void setBorderColorName(String value) {
+		borderColorName = value;
+	}
 
-    @JsonProperty("borderStyle")
-    String getBorderStyleName() {
-        return borderStyleName;
-    }
+	@JsonProperty("borderStyle")
+	String getBorderStyleName() {
+		return borderStyleName;
+	}
 
-    void setBorderStyleName(String value) {
-        borderStyleName = value;
-    }
+	void setBorderStyleName(String value) {
+		borderStyleName = value;
+	}
 
-    @JsonIgnore
-    public Color getFillColor() {
-        return fillColor;
-    }
+	/**
+	 * Gets the <code>Color</code>object to use for the fill of the rectangle.
+	 *
+	 * <p>To force no color to appear in the rectangle (only borders) set the fill color to null (Nothing in Visual Basic).</p>
+	 * @return The <code>Color</code>object to use for the fill of the rectangle.
+	 */
+	@JsonIgnore
+	public Color getFillColor() {
+		return fillColor;
+	}
 
-    public void setFillColor(Color value) {
-        fillColor = value;
-        fillColorName = fillColor.getColorString();
-    }
+	/**
+	 * Sets the <code>Color</code>object to use for the fill of the rectangle.
+	 *
+	 * <p>To force no color to appear in the rectangle (only borders) set the fill color to null (Nothing in Visual Basic).</p>
+	 * @param value The <code>Color</code>object to use for the fill of the rectangle.
+	 */
+	public void setFillColor(Color value) {
+		fillColor = value;
+		fillColorName = fillColor.getColorString();
+	}
 
-    @JsonIgnore
-    public Color getBorderColor() {
-        return borderColor;
-    }
+	/**
+	 * Gets the <code>Color</code>object to use for the border of the rectangle.
+	 * @return The <code>Color</code>object to use for the border of the rectangle.
+	 */
+	@JsonIgnore
+	public Color getBorderColor() {
+		return borderColor;
+	}
 
-    public void setBorderColor(Color value) {
-        borderColor = value;
-        borderColorName = borderColor.getColorString();
-    }
+	/**
+	 * Sets the <code>Color</code>object to use for the border of the rectangle.
+	 * @param value The <code>Color</code>object to use for the border of the rectangle.
+	 */
+	public void setBorderColor(Color value) {
+		borderColor = value;
+		borderColorName = borderColor.getColorString();
+	}
 
-    @JsonIgnore
-    public LineStyle getBorderStyle() {
-        return borderStyle;
-    }
+	/**
+	 * Gets the <code>LineStyle</code> object used to specify the border style of the rectangle.
+	 * @return The <code>LineStyle</code> object used to specify the border style of the rectangle.
+	 */
+	@JsonIgnore
+	public LineStyle getBorderStyle() {
+		return borderStyle;
+	}
 
-    public void setBorderStyle(LineStyle value) {
-        borderStyle = value;
-        borderStyleName = borderStyle.getLineStyleString();
-    }
+	/**
+	 * Sets the <code>LineStyle</code> object used to specify the border style of the rectangle.
+	 * @param value The <code>LineStyle</code> object used to specify the border style of the rectangle.
+	 */
+	public void setBorderStyle(LineStyle value) {
+		borderStyle = value;
+		borderStyleName = borderStyle.getLineStyleString();
+	}
 }

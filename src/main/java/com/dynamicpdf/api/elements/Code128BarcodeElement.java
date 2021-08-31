@@ -6,49 +6,111 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Represents a Code 128 barcode element.
+ * 
+ * <p> This class can be used to place a Code 128 barcode on a page.</p>
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class Code128BarcodeElement extends TextBarcodeElement {
 
-    private float height;
-    private boolean uccEan128;
-    private boolean processTilde;
+	private float height;
+	private boolean uccEan128;
+	private boolean processTilde;
 
-    public Code128BarcodeElement(String value, ElementPlacement placement, float height, float xOffset, float yOffset) {
-        super(value, placement, xOffset, yOffset);
-        this.height = height;
-    }
+	/**
+	 * Initializes a new instance of the <code>Code128BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param placement The placement of the barcode on the page.
+	 * @param height The height of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 * 
+	 * <p>Code sets can be specified along with data, in order to do this <code>ProcessTilde</code> property needs to be set to <b>true</b>.
+	 * Example value: "~BHello ~AWORLD 1~C2345", where ~A, ~B and ~C representing code sets A, B and C respectively.
+	 * However if any inline code set has invalid characters it will be shifted to an appropriate code set.</p>
+	 */
+	public Code128BarcodeElement(String value, ElementPlacement placement, float height, float xOffset, float yOffset) {
+		super(value, placement, xOffset, yOffset);
+		this.height = height;
+	}
 
-    public Code128BarcodeElement(String value, ElementPlacement placement, float height) {
-        this(value, placement, height, 0, 0);
-    }
+	/**
+	 * Initializes a new instance of the <code>Code128BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param placement The placement of the barcode on the page.
+	 * @param height The height of the barcode.
+	 */
+	public Code128BarcodeElement(String value, ElementPlacement placement, float height) {
+		this(value, placement, height, 0, 0);
+	}
 
-    @JsonProperty("type")
-    ElementType getType() {
-        return ElementType.CODE128BARCODE;
-    }
+	@JsonProperty("type")
+	ElementType getType() {
+		return ElementType.CODE128BARCODE;
+	}
 
-    public float getHeight() {
-        return height;
-    }
+	/**
+	 * Gets the height of the barcode. 
+	 * @return The height of the barcode. 
+	 */
+	public float getHeight() {
+		return height;
+	}
 
-    public void setHeight(float value) {
-        height = value;
-    }
+	/**
+	 * Sets the height of the barcode. 
+	 * @param value The height of the barcode. 
+	 */
+	public void setHeight(float value) {
+		height = value;
+	}
 
-    public boolean getUccEan128() {
-        return uccEan128;
-    }
+	/**
+	 * Gets a boolean representing if the barcode is a UCC / EAN Code 128 barcode.
+	 * 
+	 * <p>If <b>true</b> an FNC1 code will be the first character in the barcode.</p>
+	 * @return A boolean representing if the barcode is a UCC / EAN Code 128 barcode.
+	 */
+	public boolean getUccEan128() {
+		return uccEan128;
+	}
 
-    public void setUccEan128(boolean value) {
-        uccEan128 = value;
-    }
+	/**
+	 * Sets a boolean representing if the barcode is a UCC / EAN Code 128 barcode.
+	 * 
+	 * <p>If <b>true</b> an FNC1 code will be the first character in the barcode.</p>
+	 * @param value A boolean representing if the barcode is a UCC / EAN Code 128 barcode.
+	 */
+	public void setUccEan128(boolean value) {
+		uccEan128 = value;
+	}
 
-    public boolean getProcessTilde() {
-        return processTilde;
-    }
+	/**
+	 * Gets a boolean indicating whether to process the tilde character.
+	 * 
+	 * <p>If <b>true</b> checks for fnc1 (~1) character in the barcode Value and checks for the inline code sets if present in the data to process.
+	 * Example value: "~BHello ~AWORLD 1~C2345", where ~A, ~B and ~C representing code sets A, B and C respectively.
+	 * However if any inline code set has invalid characters it will be shifted to an appropriate code set.
+	 * "\" is used as an escape character to add ~.</p> 
+	 * @return A boolean indicating whether to process the tilde character.
+	 */
+	public boolean getProcessTilde() {
+		return processTilde;
+	}
 
-    public void setProcessTilde(boolean value) {
-        processTilde = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to process the tilde character.
+	 * 
+	 * <p>If <b>true</b> checks for fnc1 (~1) character in the barcode Value and checks for the inline code sets if present in the data to process.
+	 * Example value: "~BHello ~AWORLD 1~C2345", where ~A, ~B and ~C representing code sets A, B and C respectively.
+	 * However if any inline code set has invalid characters it will be shifted to an appropriate code set.
+	 * @param value A boolean indicating whether to process the tilde character.
+	 */
+	public void setProcessTilde(boolean value) {
+		processTilde = value;
+	}
 }

@@ -2,63 +2,116 @@ package com.dynamicpdf.api;
 
 import java.util.List;
 
+/**
+ * Represents the form field information containing the collection 
+ * of different types of field informations.
+ */
+
 public class FormFieldInformation {
 
-    private List<SignatureFieldInformation> signatureFields;
-    private List<TextFieldInformation> textFields;
-    private List<ChoiceFieldInformation> choiceFields;
-    private List<ButtonFieldInformation> buttonFields;
-    private List<PushButtonInformation> pushButtons;
-    private List<MultiSelectListBoxInformation> multiSelectListBoxFields;
+	private List<SignatureFieldInformation> signatureFields;
+	private List<TextFieldInformation> textFields;
+	private List<ChoiceFieldInformation> choiceFields;
+	private List<ButtonFieldInformation> buttonFields;
+	private List<PushButtonInformation> pushButtons;
+	private List<MultiSelectListBoxInformation> multiSelectListBoxFields;
 
-    FormFieldInformation() {
-    }
+	FormFieldInformation() {
+	}
 
-    public List<SignatureFieldInformation> getSignatureFields() {
-        return signatureFields;
-    }
+	/**
+	 * Gets a collection of <code>SignatureFieldInformation</code>.
+	 * @return A collection of <code>SignatureFieldInformation</code>.
+	 */
+	public List<SignatureFieldInformation> getSignatureFields() {
+		return signatureFields;
+	}
 
-    public void setSignatureFields(List<SignatureFieldInformation> value) {
-        signatureFields = value;
-    }
+	/**
+	 * Sets a collection of <code>SignatureFieldInformation</code>.
+	 * @param value A collection of <code>SignatureFieldInformation</code>.
+	 */
+	public void setSignatureFields(List<SignatureFieldInformation> value) {
+		signatureFields = value;
+	}
 
-    public List<TextFieldInformation> getTextFields() {
-        return textFields;
-    }
+	/**
+	 * Gets a collection of <code>TextFieldInformation</code>.
+	 * @return A collection of <code>TextFieldInformation</code>.
+	 */
+	public List<TextFieldInformation> getTextFields() {
+		return textFields;
+	}
 
-    public void setTextFields(List<TextFieldInformation> value) {
-        textFields = value;
-    }
+	/**
+	 * Sets a collection of <code>TextFieldInformation</code>.
+	 * @param value A collection of <code>TextFieldInformation</code>.
+	 */
+	public void setTextFields(List<TextFieldInformation> value) {
+		textFields = value;
+	}
 
-    public List<ChoiceFieldInformation> getChoiceFields() {
-        return choiceFields;
-    }
+	/**
+	 * Gets a collection of <code>ChoiceFieldInformation</code>.
+	 * @return A collection of <code>ChoiceFieldInformation</code>.
+	 */
+	public List<ChoiceFieldInformation> getChoiceFields() {
+		return choiceFields;
+	}
 
-    public void setChoiceFields(List<ChoiceFieldInformation> value) {
-        choiceFields = value;
-    }
+	/**
+	 * Sets a collection of <code>ChoiceFieldInformation</code>.
+	 * @param value A collection of <code>ChoiceFieldInformation</code>.
+	 */
+	public void setChoiceFields(List<ChoiceFieldInformation> value) {
+		choiceFields = value;
+	}
 
-    public List<ButtonFieldInformation> getButtonFields() {
-        return buttonFields;
-    }
+	/**
+	 * Gets a collection of <code>ButtonFieldInformation</code>.
+	 * @return A collection of <code>ButtonFieldInformation</code>.
+	 */
+	public List<ButtonFieldInformation> getButtonFields() {
+		return buttonFields;
+	}
 
-    public void setButtonFields(List<ButtonFieldInformation> value) {
-        buttonFields = value;
-    }
+	/**
+	 * Gets a collection of <code>ButtonFieldInformation</code>.
+	 * @param value A collection of <code>ButtonFieldInformation</code>.
+	 */
+	public void setButtonFields(List<ButtonFieldInformation> value) {
+		buttonFields = value;
+	}
 
-    public List<PushButtonInformation> getPushButtons() {
-        return pushButtons;
-    }
+	/**
+	 * Gets a collection of <code>PushButtonInformation</code>.
+	 * @return A collection of <code>PushButtonInformation</code>.
+	 */
+	public List<PushButtonInformation> getPushButtons() {
+		return pushButtons;
+	}
 
-    public void setPushButtons(List<PushButtonInformation> value) {
-        pushButtons = value;
-    }
+	/**
+	 * Sets a collection of <code>PushButtonInformation</code>.
+	 * @param value A collection of <code>PushButtonInformation</code>.
+	 */
+	public void setPushButtons(List<PushButtonInformation> value) {
+		pushButtons = value;
+	}
 
-    public List<MultiSelectListBoxInformation> getMultiSelectListBoxFields() {
-        return multiSelectListBoxFields;
-    }
+	/**
+	 * Gets a collection of <code>MultiSelectListBoxInformation</code>.
+	 * @return A collection of <code>MultiSelectListBoxInformation</code>.
+	 */
+	public List<MultiSelectListBoxInformation> getMultiSelectListBoxFields() {
+		return multiSelectListBoxFields;
+	}
 
-    public void setMultiSelectListBoxFields(List<MultiSelectListBoxInformation> value) {
-        multiSelectListBoxFields = value;
-    }
+	/**
+	 * Sets a collection of <code>MultiSelectListBoxInformation</code>.
+	 * @param value A collection of <code>MultiSelectListBoxInformation</code>.
+	 */
+	public void setMultiSelectListBoxFields(List<MultiSelectListBoxInformation> value) {
+		multiSelectListBoxFields = value;
+	}
 }

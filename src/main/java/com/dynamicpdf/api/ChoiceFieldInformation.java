@@ -1,68 +1,129 @@
 package com.dynamicpdf.api;
 
+/**
+ * Represents the information of a choice field in interactive forms.
+ * A choice field contains several text items,
+ * one or more of which may be selected as the field value.
+ */
 public class ChoiceFieldInformation {
 
-    private String name;
-    private ChoiceFieldType type;
-    private String value;
-    private String defaultValue;
-    private String exportValue;
-    private String[] items;
-    private String[] itemExportValues;
+	private String name;
+	private ChoiceFieldType type;
+	private String value;
+	private String defaultValue;
+	private String exportValue;
+	private String[] items;
+	private String[] itemExportValues;
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * Gets the name of the choice field.
+	 * @return The name of the form field.
+	 */
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String value) {
-        name = value;
-    }
+	/**
+	 * Sets the name of the choice field.
+	 * @param value The name of the form field.
+	 */
+	public void setName(String value) {
+		name = value;
+	}
 
-    public ChoiceFieldType getType() {
-        return type;
-    }
+	/**
+	 * Gets the <code>ChoiceFieldType</code> . ex: ListBox, ComboBox etc.
+	 * @return The type of the form field.
+	 */
+	public ChoiceFieldType getType() {
+		return type;
+	}
 
-    public void setType(ChoiceFieldType value) {
-        type = value;
-    }
+	/**
+	 * Sets the <code>ChoiceFieldType</code> . ex: ListBox, ComboBox etc.
+	 * @param value The type of the form field.
+	 */
+	public void setType(ChoiceFieldType value) {
+		type = value;
+	}
 
-    public String getValue() {
-        return this.value;
-    }
+	/**
+	 ** Gets the value of the choice field.
+	 * @return The value of the form field.
+	 */
+	public String getValue() {
+		return this.value;
+	}
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+	/**
+	 ** sets the value of the choice field.
+	 * @param value The value of the form field.
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    public String getDefaultValue() {
-        return defaultValue;
-    }
+	/**
+	 * Gets the default value of the choice field.
+	 * @return The Default value of the form field.
+	 */
+	public String getDefaultValue() {
+		return defaultValue;
+	}
 
-    public void setDefaultValue(String value) {
-        defaultValue = value;
-    }
+	/**
+	 * Sets the default value of the choice field.
+	 * @param value The Default value of the form field.
+	 */
+	public void setDefaultValue(String value) {
+		defaultValue = value;
+	}
 
-    public String getExportValue() {
-        return exportValue;
-    }
+	/**
+	 * Gets the export value.
+	 * @return The export value of the form field.
+	 */
+	public String getExportValue() {
+		return exportValue;
+	}
 
-    public void setExportValue(String value) {
-        exportValue = value;
-    }
+	/**
+	 * Sets the export value.
+	 * @param value The export value of the form field.
+	 */
+	public void setExportValue(String value) {
+		exportValue = value;
+	}
 
-    public String[] getItems() {
-        return items;
-    }
+	/**
+	 * Gets the collection of items.
+	 * @return The collection of items in the form field.
+	 */
+	public String[] getItems() {
+		return items;
+	}
 
-    public void setItems(String[] value) {
-        items = value;
-    }
+	/**
+	 * Sets the collection of items.
+	 * @param value The collection of items for the form field.
+	 */
+	public void setItems(String[] value) {
+		items = value;
+	}
 
-    public String[] getItemExportValues() {
-        return itemExportValues;
-    }
+	/**
+	 * Gets the collection of export values of the items present in the choice field.
+	 * @return The collection of export values of the items in the form field.
+	 */
+	public String[] getItemExportValues() {
+		return itemExportValues;
+	}
 
-    public void setItemExportValues(String[] value) {
-        itemExportValues = value;
-    }
+	/**
+	 * Sets the collection of export values of the items present in the choice field.
+	 * @param value The collection of export values of the items for the form field.
+	 */
+	public void setItemExportValues(String[] value) {
+		itemExportValues = value;
+	}
 }

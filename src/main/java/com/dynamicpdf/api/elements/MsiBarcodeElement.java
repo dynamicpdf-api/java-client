@@ -6,41 +6,76 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ *  Represents a MSI Barcode element (also known as Modified Plessey).
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class MsiBarcodeElement extends TextBarcodeElement {
 
-    private MsiBarcodeCheckDigitMode appendCheckDigit = null;
-    private float height;
+	private MsiBarcodeCheckDigitMode appendCheckDigit = null;
+	private float height;
 
-    public MsiBarcodeElement(String value, ElementPlacement placement, float height, float xOffset, float yOffset) {
-        super(value, placement, xOffset, yOffset);
-        this.height = height;
-    }
+	/**
+	 * Initializes a new instance of the <code>MsiBarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param placement The placement of the barcode on the page.
+	 * @param height The height of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public MsiBarcodeElement(String value, ElementPlacement placement, float height, float xOffset, float yOffset) {
+		super(value, placement, xOffset, yOffset);
+		this.height = height;
+	}
 
-    public MsiBarcodeElement(String value, ElementPlacement placement, float height) {
-        this(value, placement, height, 0, 0);
-    }
+	/**
+	 * Initializes a new instance of the <code>MsiBarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param placement The placement of the barcode on the page.
+	 * @param height The height of the barcode.
+	 */
+	public MsiBarcodeElement(String value, ElementPlacement placement, float height) {
+		this(value, placement, height, 0, 0);
+	}
 
-    @JsonProperty("type")
-    ElementType getType() {
-        return ElementType.MSIBARCODE;
-    }
+	@JsonProperty("type")
+	ElementType getType() {
+		return ElementType.MSIBARCODE;
+	}
 
-    public MsiBarcodeCheckDigitMode getAppendCheckDigit() {
-        return appendCheckDigit;
-    }
+	/**
+	 * Gets a value specifying if the check digit should calculated.
+	 * @return A value specifying if the check digit should calculated.
+	 */
+	public MsiBarcodeCheckDigitMode getAppendCheckDigit() {
+		return appendCheckDigit;
+	}
 
-    public void setAppendCheckDigit(MsiBarcodeCheckDigitMode value) {
-        appendCheckDigit = value;
-    }
+	/**
+	 * Sets a value specifying if the check digit should calculated.
+	 * @param value A value specifying if the check digit should calculated.
+	 */
+	public void setAppendCheckDigit(MsiBarcodeCheckDigitMode value) {
+		appendCheckDigit = value;
+	}
 
-    public float getHeight() {
-        return height;
-    }
+	/**
+	 * Gets the height of the barcode.
+	 * @return The height of the barcode.
+	 */
+	public float getHeight() {
+		return height;
+	}
 
-    public void setHeight(float value) {
-        height = value;
-    }
+	/**
+	 * Sets the height of the barcode.
+	 * @param value The height of the barcode.
+	 */
+	public void setHeight(float value) {
+		height = value;
+	}
 
 }

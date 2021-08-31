@@ -1,7 +1,20 @@
 package com.dynamicpdf.api;
 
+/**
+ * Specifies the type of a button field.
+ */
+
 public enum ButtonFieldType {
 
-    RADIOBUTTON,
-    CHECKBOX
+	/**
+	 * Represents a Radio Button.
+	 */
+
+	RADIOBUTTON,
+
+	/**
+	 * Represents a Checkbox.
+	 */
+
+	CHECKBOX
 }

@@ -1,32 +1,60 @@
 package com.dynamicpdf.api;
 
+/**
+ * Represents a page information.
+ */
+
 public class PageInformation {
 
-    private int pageNumber;
-    private float width;
-    private float height;
+	private int pageNumber;
+	private float width;
+	private float height;
 
-    public int getPageNumber() {
-        return pageNumber;
-    }
+	/**
+	 * Gets the page number.
+	 * @return The page number.
+	 */
+	public int getPageNumber() {
+		return pageNumber;
+	}
 
-    public void setPageNumber(int value) {
-        pageNumber = value;
-    }
+	/**
+	 * sets the page number.
+	 * @param value The page number.
+	 */
+	public void setPageNumber(int value) {
+		pageNumber = value;
+	}
 
-    public float getWidth() {
-        return width;
-    }
+	/**
+	 * Gets the width of the page.
+	 * @return The width of the page.
+	 */
+	public float getWidth() {
+		return width;
+	}
 
-    public void setWidth(float value) {
-        width = value;
-    }
+	/**
+	 * sets the width of the page.
+	 * @param value The width of the page.
+	 */
+	public void setWidth(float value) {
+		width = value;
+	}
 
-    public float getHeight() {
-        return height;
-    }
+	/**
+	 * Gets the height of the page.
+	 * @return The height of the page.
+	 */
+	public float getHeight() {
+		return height;
+	}
 
-    public void setHeight(float value) {
-        height = value;
-    }
+	/**
+	 * sets the height of the page.
+	 * @param value The height of the page.
+	 */
+	public void setHeight(float value) {
+		height = value;
+	}
 }

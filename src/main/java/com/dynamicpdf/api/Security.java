@@ -4,108 +4,195 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Base class from which all security classes are derived.
+ */
 @JsonInclude(Include.NON_NULL)
 public abstract class Security {
 
-    private String userPassword = "";
-    private String ownerPassword = "";
-    private boolean allowCopy = true;
-    private boolean allowEdit = true;
-    private boolean allowPrint = true;
-    private boolean allowUpdateAnnotsAndFields = true;
-    private boolean allowAccessibility = true;
-    private boolean allowFormFilling;
-    private boolean allowHighResolutionPrinting = true;
-    private boolean allowDocumentAssembly;
+	private String userPassword = "";
+	private String ownerPassword = "";
+	private boolean allowCopy = true;
+	private boolean allowEdit = true;
+	private boolean allowPrint = true;
+	private boolean allowUpdateAnnotsAndFields = true;
+	private boolean allowAccessibility = true;
+	private boolean allowFormFilling;
+	private boolean allowHighResolutionPrinting = true;
+	private boolean allowDocumentAssembly;
 
-    Security() {
-    }
+	Security() {
+	}
 
-    Security(String userPwd, String ownerPwd) {
-        userPassword = userPwd;
-        ownerPassword = ownerPwd;
-    }
+	Security(String userPwd, String ownerPwd) {
+		userPassword = userPwd;
+		ownerPassword = ownerPwd;
+	}
 
-    @JsonProperty("type")
-    abstract SecurityType getType();
+	@JsonProperty("type")
+	abstract SecurityType getType();
 
-    public boolean getAllowCopy() {
-        return allowCopy;
-    }
+	/**
+	 * Gets if text and images can be copied to the clipboard by the user.
+	 * @return If text and images can be copied to the clipboard by the user.
+	 */
+	public boolean getAllowCopy() {
+		return allowCopy;
+	}
 
-    public void setAllowCopy(boolean value) {
-        allowCopy = value;
-    }
+	/**
+	 * Sets if text and images can be copied to the clipboard by the user.
+	 * @param value If text and images can be copied to the clipboard by the user.
+	 */
+	public void setAllowCopy(boolean value) {
+		allowCopy = value;
+	}
 
-    public boolean getAllowEdit() {
-        return allowEdit;
-    }
+	/**
+	 * Gets if the document can be edited by the user.
+	 * @return If the document can be edited by the user.
+	 */
+	public boolean getAllowEdit() {
+		return allowEdit;
+	}
 
-    public void setAllowEdit(boolean value) {
-        allowEdit = value;
-    }
+	/**
+	 * Sets if the document can be edited by the user.
+	 * @param value If the document can be edited by the user.
+	 */
+	public void setAllowEdit(boolean value) {
+		allowEdit = value;
+	}
 
-    public boolean getAllowPrint() {
-        return allowPrint;
-    }
+	/**
+	 * Gets if the document can be printed by the user.
+	 * @return If the document can be printed by the user.
+	 */
+	public boolean getAllowPrint() {
+		return allowPrint;
+	}
 
-    public void setAllowPrint(boolean value) {
-        allowPrint = value;
-    }
+	/**
+	 * Sets if the document can be printed by the user.
+	 * @param value If the document can be printed by the user.
+	 */
+	public void setAllowPrint(boolean value) {
+		allowPrint = value;
+	}
 
-    public boolean getAllowUpdateAnnotsAndFields() {
-        return allowUpdateAnnotsAndFields;
-    }
+	/**
+	 * Gets if annotations and form fields can be added, edited
+	 * and modified by the user.
+	 * @return If annotations and form fields can be added, edited
+	 */
+	public boolean getAllowUpdateAnnotsAndFields() {
+		return allowUpdateAnnotsAndFields;
+	}
 
-    public void setAllowUpdateAnnotsAndFields(boolean value) {
-        allowUpdateAnnotsAndFields = value;
-    }
+	/**
+	 * Sets if annotations and form fields can be added, edited
+	 * and modified by the user.
+	 * @param value If annotations and form fields can be added, edited
+	 */
+	public void setAllowUpdateAnnotsAndFields(boolean value) {
+		allowUpdateAnnotsAndFields = value;
+	}
 
-    public String getOwnerPassword() {
-        return ownerPassword;
-    }
+	/**
+	 * Gets the owner password.
+	 * @return The owner password.
+	 */
+	public String getOwnerPassword() {
+		return ownerPassword;
+	}
 
-    public void setOwnerPassword(String value) {
-        ownerPassword = value;
-    }
+	/**
+	 * Sets the owner password.
+	 * @param value The owner password.
+	 */
+	public void setOwnerPassword(String value) {
+		ownerPassword = value;
+	}
 
-    public String getUserPassword() {
-        return userPassword;
-    }
+	/**
+	 * Gets the user password.
+	 * @return The user password.
+	 */
+	public String getUserPassword() {
+		return userPassword;
+	}
 
-    public void setUserPassword(String value) {
-        userPassword = value;
-    }
+	/**
+	 * Sets the user password.
+	 * @param value The user password.
+	 */
+	public void setUserPassword(String value) {
+		userPassword = value;
+	}
 
-    public boolean getAllowAccessibility() {
-        return allowAccessibility;
-    }
+	/**
+	 * Gets if accessibility programs should be able to read
+	 * the documents text and images for the user.
+	 * @return If accessibility programs should be able to read
+	 */
+	public boolean getAllowAccessibility() {
+		return allowAccessibility;
+	}
 
-    public void setAllowAccessibility(boolean value) {
-        allowAccessibility = value;
-    }
+	/**
+	 * Sets if accessibility programs should be able to read
+	 * the documents text and images for the user.
+	 * @param value If accessibility programs should be able to read
+	 */
+	public void setAllowAccessibility(boolean value) {
+		allowAccessibility = value;
+	}
 
-    public boolean getAllowFormFilling() {
-        return allowFormFilling;
-    }
+	/**
+	 * Gets if form filling should be allowed by the user.
+	 * @return If form filling should be allowed by the user.
+	 */
+	public boolean getAllowFormFilling() {
+		return allowFormFilling;
+	}
 
-    public void setAllowFormFilling(boolean value) {
-        allowFormFilling = value;
-    }
+	/**
+	 * Sets if form filling should be allowed by the user.
+	 * @param value If form filling should be allowed by the user.
+	 */
+	public void setAllowFormFilling(boolean value) {
+		allowFormFilling = value;
+	}
 
-    public boolean getAllowHighResolutionPrinting() {
-        return allowHighResolutionPrinting;
-    }
+	/**
+	 * Gets if the document can be printed at a high resolution by the user.
+	 * @return If the document can be printed at a high resolution by the user.
+	 */
+	public boolean getAllowHighResolutionPrinting() {
+		return allowHighResolutionPrinting;
+	}
 
-    public void setAllowHighResolutionPrinting(boolean value) {
-        allowHighResolutionPrinting = value;
-    }
+	/**
+	 * Sets if the document can be printed at a high resolution by the user.
+	 * @param value If the document can be printed at a high resolution by the user.
+	 */
+	public void setAllowHighResolutionPrinting(boolean value) {
+		allowHighResolutionPrinting = value;
+	}
 
-    public boolean getAllowDocumentAssembly() {
-        return allowDocumentAssembly;
-    }
+	/**
+	 * Gets if the document can be assembled and manipulated by the user.
+	 * @return If the document can be assembled and manipulated by the user.
+	 */
+	public boolean getAllowDocumentAssembly() {
+		return allowDocumentAssembly;
+	}
 
-    public void setAllowDocumentAssembly(boolean value) {
-        allowDocumentAssembly = value;
-    }
+	/**
+	 * Sets if the document can be assembled and manipulated by the user.
+	 * @param value If the document can be assembled and manipulated by the user.
+	 */
+	public void setAllowDocumentAssembly(boolean value) {
+		allowDocumentAssembly = value;
+	}
 }

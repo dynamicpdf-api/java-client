@@ -1,77 +1,145 @@
 package com.dynamicpdf.api;
 
+/**
+ * Represents an image information.
+ */
+
 public class ImageInformation {
 
-    private int pageNumber;
-    private float width;
-    private float height;
-    private float horizondalDpi;
-    private float verticalDpi;
-    private float numberOfComponents;
-    private float bitsPerComponent;
-    private ColorSpaceType colorSpace;
+	private int pageNumber;
+	private float width;
+	private float height;
+	private float horizondalDpi;
+	private float verticalDpi;
+	private float numberOfComponents;
+	private float bitsPerComponent;
+	private ColorSpaceType colorSpace;
 
-    public int getPageNumber() {
-        return pageNumber;
-    }
+	/**
+	 * Gets page number of the pdf where the image is present.
+	 * @return Page number of the pdf where the image is present.
+	 */
+	public int getPageNumber() {
+		return pageNumber;
+	}
 
-    public void setPageNumber(int value) {
-        pageNumber = value;
-    }
+	/**
+	 * Sets page number of the pdf where the image is present.
+	 * @param value Page number of the pdf where the image is present.
+	 */
+	public void setPageNumber(int value) {
+		pageNumber = value;
+	}
 
-    public float getWidth() {
-        return width;
-    }
+	/**
+	 * Gets the width of the image.
+	 * @return The width of the image.
+	 */
+	public float getWidth() {
+		return width;
+	}
 
-    public void setWidth(float value) {
-        width = value;
-    }
+	/**
+	 * Sets the width of the image.
+	 * @param value The width of the image.
+	 */
+	public void setWidth(float value) {
+		width = value;
+	}
 
-    public float getHeight() {
-        return height;
-    }
+	/**
+	 * Gets the height of the image.
+	 * @return The height of the image.
+	 */
+	public float getHeight() {
+		return height;
+	}
 
-    public void setHeight(float value) {
-        height = value;
-    }
+	/**
+	 * Sets the height of the image.
+	 * @param value The height of the image.
+	 */
+	public void setHeight(float value) {
+		height = value;
+	}
 
-    public float getHorizondalDpi() {
-        return horizondalDpi;
-    }
+	/**
+	 * Gets the horizondalDpi of the image.
+	 * @return The horizondalDpi of the image.
+	 */
+	public float getHorizondalDpi() {
+		return horizondalDpi;
+	}
 
-    public void setHorizondalDpi(float value) {
-        horizondalDpi = value;
-    }
+	/**
+	 * Sets the horizondalDpi of the image.
+	 * @param value The horizondalDpi of the image.
+	 */
+	public void setHorizondalDpi(float value) {
+		horizondalDpi = value;
+	}
 
-    public float getVerticalDpi() {
-        return verticalDpi;
-    }
+	/**
+	 * Gets the verticalDpi of the image.
+	 * @return The verticalDpi of the image.
+	 */
+	public float getVerticalDpi() {
+		return verticalDpi;
+	}
 
-    public void setVerticalDpi(float value) {
-        verticalDpi = value;
-    }
+	/**
+	 * Sets the verticalDpi of the image.
+	 * @param value The verticalDpi of the image.
+	 */
+	public void setVerticalDpi(float value) {
+		verticalDpi = value;
+	}
 
-    public float getNumberOfComponents() {
-        return numberOfComponents;
-    }
+	/**
+	 * Gets the number of color components present in the image.
+	 * @return The number of color components present in the image.
+	 */
+	public float getNumberOfComponents() {
+		return numberOfComponents;
+	}
 
-    public void setNumberOfComponents(float value) {
-        numberOfComponents = value;
-    }
+	/**
+	 * Sets the number of color components present in the image.
+	 * @param value The number of color components present in the image.
+	 */
+	public void setNumberOfComponents(float value) {
+		numberOfComponents = value;
+	}
 
-    public float getBitsPerComponent() {
-        return bitsPerComponent;
-    }
+	/**
+	 * Gets the bits per component of the image.
+	 * @return The bits per component of the image.
+	 */
+	public float getBitsPerComponent() {
+		return bitsPerComponent;
+	}
 
-    public void setBitsPerComponent(float value) {
-        bitsPerComponent = value;
-    }
+	/**
+	 * Sets the bits per component of the image.
+	 * @param value The bits per component of the image.
+	 */
+	public void setBitsPerComponent(float value) {
+		bitsPerComponent = value;
+	}
 
-    public ColorSpaceType getColorSpace() {
-        return colorSpace;
-    }
+	/**
+	 * Gets the clor space of the image.
+	 * @return The clor space of the image.
+	 */
+	public ColorSpaceType getColorSpace() {
+		return colorSpace;
+	}
 
-    public void setColorSpace(ColorSpaceType value) {
-        colorSpace = value;
-    }
+	/**
+	 * Sets the clor space of the image.
+	 * @param value The clor space of the image.
+	 */
+	public void setColorSpace(ColorSpaceType value) {
+		colorSpace = value;
+	}
 }

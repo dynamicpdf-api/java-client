@@ -2,51 +2,74 @@ package com.dynamicpdf.api;
 
 import java.util.UUID;
 
+/**
+ * Represents the base class for response.
+ */
 public class Response {
 
-    private boolean isSuccessful;
-    private String errorJson;
-    private String errorMessage;
-    private UUID errorId = null;
-    private int statusCode;
+	private boolean isSuccessful;
+	private String errorJson;
+	private String errorMessage;
+	private UUID errorId = null;
+	private int statusCode;
 
-    public boolean getIsSuccessful() {
-        return isSuccessful;
-    }
+	/**
+	 * Gets the boolean, indicating the response's status.
+	 * @return The boolean, indicating the response's status.
+	 */
+	public boolean getIsSuccessful() {
+		return isSuccessful;
+	}
 
-    void setIsSuccessful(boolean value) {
-        isSuccessful = value;
-    }
+	void setIsSuccessful(boolean value) {
+		isSuccessful = value;
+	}
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
+	/**
+	 * Gets the error message.
+	 * @return The error message.
+	 */
+	public String getErrorMessage() {
+		return errorMessage;
+	}
 
-    void setErrorMessage(String value) {
-        errorMessage = value;
-    }
+	void setErrorMessage(String value) {
+		errorMessage = value;
+	}
 
-    public UUID getErrorId() {
-        return errorId;
-    }
+	/**
+	 * Gets the error id.
+	 * @return The error id.
+	 */
+	public UUID getErrorId() {
+		return errorId;
+	}
 
-    void setErrorId(UUID value) {
-        errorId = value;
-    }
+	void setErrorId(UUID value) {
+		errorId = value;
+	}
 
-    public int getStatusCode() {
-        return statusCode;
-    }
+	/**
+	 * Gets the status code.
+	 * @return The status code.
+	 */
+	public int getStatusCode() {
+		return statusCode;
+	}
 
-    void setStatusCode(int value) {
-        statusCode = value;
-    }
+	void setStatusCode(int value) {
+		statusCode = value;
+	}
 
-    public String getErrorJson() {
-        return errorJson;
-    }
+	/**
+	 * Gets the error json.
+	 * @return The error json.
+	 */
+	public String getErrorJson() {
+		return errorJson;
+	}
 
-    void setErrorJson(String value) {
-        errorJson = value;
-    }
+	void setErrorJson(String value) {
+		errorJson = value;
+	}
 }

@@ -6,116 +6,214 @@ import java.util.List;
 
 public class PdfInformation {
 
-    private String author;
-    private String subject;
-    private String keywords;
-    private String creator;
-    private String producer;
-    private String title;
+	private String author;
+	private String subject;
+	private String keywords;
+	private String creator;
+	private String producer;
+	private String title;
 
-    private List<PageInformation> pages = new ArrayList<PageInformation>();
-    private FormFieldInformation formFields;
-    private Dictionary<String, String> customProperties;
-    private boolean xmpMetaData;
-    private boolean signed;
-    private boolean tagged;
+	private List<PageInformation> pages = new ArrayList<PageInformation>();
+	private FormFieldInformation formFields;
+	private Dictionary<String, String> customProperties;
+	private boolean xmpMetaData;
+	private boolean signed;
+	private boolean tagged;
 
-    PdfInformation() {
-    }
+	/**
+	 * Represents the pdf inforamtion.
+	 */
+	PdfInformation() {
+	}
 
-    public String getAuthor() {
-        return author;
-    }
+	/**
+	 * Gets the author.
+	 * @return The author.
+	 */
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setAuthor(String value) {
-        author = value;
-    }
+	/**
+	 * Sets the author.
+	 * @param value The author.
+	 */
+	public void setAuthor(String value) {
+		author = value;
+	}
 
-    public String getSubject() {
-        return subject;
-    }
+	/**
+	 * Gets the subject.
+	 * @return The subject.
+	 */
+	public String getSubject() {
+		return subject;
+	}
 
-    public void setSubject(String value) {
-        subject = value;
-    }
+	/**
+	 * Sets the subject.
+	 * @param value The subject.
+	 */
+	public void setSubject(String value) {
+		subject = value;
+	}
 
-    public String getKeywords() {
-        return keywords;
-    }
+	/**
+	 * Gets the keywords.
+	 * @return The keywords.
+	 */
+	public String getKeywords() {
+		return keywords;
+	}
 
-    public void setKeywords(String value) {
-        keywords = value;
-    }
+	/**
+	 * Sets the keywords.
+	 * @param value The keywords.
+	 */
+	public void setKeywords(String value) {
+		keywords = value;
+	}
 
-    public String getCreator() {
-        return creator;
-    }
+	/**
+	 * Gets the creator.
+	 * @return The creator.
+	 */
+	public String getCreator() {
+		return creator;
+	}
 
-    public void setCreator(String value) {
-        creator = value;
-    }
+	/**
+	 * Sets the creator.
+	 * @param value The creator.
+	 */
+	public void setCreator(String value) {
+		creator = value;
+	}
 
-    public String getProducer() {
-        return producer;
-    }
+	/**
+	 * Gets the producer.
+	 * @return The producer.
+	 */
+	public String getProducer() {
+		return producer;
+	}
 
-    public void setProducer(String value) {
-        producer = value;
-    }
+	/**
+	 * Sets the producer.
+	 * @param value The producer.
+	 */
+	public void setProducer(String value) {
+		producer = value;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	/**
+	 * Gets the title.
+	 * @return The title.
+	 */
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String value) {
-        title = value;
-    }
+	/**
+	 * Sets the title.
+	 * @param value The title.
+	 */
+	public void setTitle(String value) {
+		title = value;
+	}
 
-    public List<PageInformation> getPages() {
-        return pages;
-    }
+	/**
+	 * Gets the collection of PageInformation.
+	 * @return The collection of PageInformation.
+	 */
+	public List<PageInformation> getPages() {
+		return pages;
+	}
 
-    public void setPages(List<PageInformation> value) {
-        pages = value;
-    }
+	/**
+	 * Sets the collection of PageInformation.
+	 * @param value The collection of PageInformation.
+	 */
+	public void setPages(List<PageInformation> value) {
+		pages = value;
+	}
 
-    public FormFieldInformation getFormFields() {
-        return formFields;
-    }
+	/**
+	 * Gets the form fields.
+	 * @return The form fields.
+	 */
+	public FormFieldInformation getFormFields() {
+		return formFields;
+	}
 
-    public void setFormFields(FormFieldInformation value) {
-        formFields = value;
-    }
+	/**
+	 * Sets the form fields.
+	 * @param value The form fields.
+	 */
+	public void setFormFields(FormFieldInformation value) {
+		formFields = value;
+	}
 
-    public Dictionary<String, String> getCustomProperties() {
-        return customProperties;
-    }
+	/**
+	 * Gets the custom properties.
+	 * @return The custom properties.
+	 */
+	public Dictionary<String, String> getCustomProperties() {
+		return customProperties;
+	}
 
-    public void setCustomProperties(Dictionary<String, String> value) {
-        customProperties = value;
-    }
+	/**
+	 * Sets the custom properties.
+	 */
+	public void setCustomProperties(Dictionary<String, String> value) {
+		customProperties = value;
+	}
 
-    public boolean getXmpMetaData() {
-        return xmpMetaData;
-    }
+	/**
+	 * Gets the boolean representing xmp meta data.
+	 * @return The boolean representing xmp meta data.
+	 */
+	public boolean getXmpMetaData() {
+		return xmpMetaData;
+	}
 
-    public void setXmpMetaData(boolean value) {
-        xmpMetaData = value;
-    }
+	/**
+	 * Sets the boolean representing xmp meta data.
+	 * @param value The boolean representing xmp meta data.
+	 */
+	public void setXmpMetaData(boolean value) {
+		xmpMetaData = value;
+	}
 
-    public boolean getSigned() {
-        return signed;
-    }
+	/**
+	 * Gets the boolean, indicating whether the pdf is signed.
+	 * @return The boolean, indicating whether the pdf is signed.
+	 */
+	public boolean getSigned() {
+		return signed;
+	}
 
-    public void setSigned(boolean value) {
-        signed = value;
-    }
+	/**
+	 * Sets the boolean, indicating whether the pdf is signed.
+	 * @param value The boolean, indicating whether the pdf is signed.
+	 */
+	public void setSigned(boolean value) {
+		signed = value;
+	}
 
-    public boolean getTagged() {
-        return tagged;
-    }
+	/**
+	 * Gets the boolean, indicating whether the pdf is tagged.
+	 * @return  The boolean, indicating whether the pdf is tagged.
+	 */
+	public boolean getTagged() {
+		return tagged;
+	}
 
-    public void setTagged(boolean value) {
-        tagged = value;
-    }
+	/**
+	 * Sets the boolean, indicating whether the pdf is tagged.
+	 * @param value The boolean, indicating whether the pdf is tagged.
+	 */
+	public void setTagged(boolean value) {
+		tagged = value;
+	}
 }

@@ -6,58 +6,103 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Represents a pdf input.
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class PdfInput extends Input {
 
-    private MergeOptions mergeOptions = null;
-    private int startPage;
-    private int pageCount;
+	private MergeOptions mergeOptions = null;
+	private int startPage;
+	private int pageCount;
 
-    public PdfInput(PdfResource resource, MergeOptions options) {
-        super(resource);
-        mergeOptions = options;
-    }
+	/**
+	 * Initializes a new instance of the <code>PdfInput</code> class.
+	 * @param resource The resource of type <code>PdfResource</code>.
+	 * @param options The merge options for the pdf.
+	 */
+	public PdfInput(PdfResource resource, MergeOptions options) {
+		super(resource);
+		mergeOptions = options;
+	}
 
-    public PdfInput(PdfResource resource) {
-        super(resource);
-    }
+	/**
+	 * Initializes a new instance of the <code>PdfInput</code> class.
+	 * @param resourceName The name of the resource present in cloud resource manager.
+	 */
+	public PdfInput(PdfResource resource) {
+		super(resource);
+	}
 
-    public PdfInput(String cloudResourcePath, MergeOptions options) {
-        super(cloudResourcePath);
-        mergeOptions = options;
-    }
+	/**
+	 * Returns a <code>PdfInput</code> object containing the input pdf.
+	 * @param cloudResourcePath The resource path in cloud resource manager.
+	 * @param options The merge options for the pdf.
+	 */
+	public PdfInput(String cloudResourcePath, MergeOptions options) {
+		super(cloudResourcePath);
+		mergeOptions = options;
+	}
 
-    public PdfInput(String cloudResourcePath) {
-        super(cloudResourcePath);
-    }
+	/**
+	 * 
+	 * @param cloudResourcePath The resource path in cloud resource manager.
+	 */
+	public PdfInput(String cloudResourcePath) {
+		super(cloudResourcePath);
+	}
 
-    @JsonProperty("type")
-    InputType getType() {
-        return InputType.PDF;
-    }
+	@JsonProperty("type")
+	InputType getType() {
+		return InputType.PDF;
+	}
 
-    public MergeOptions getMergeOptions() {
-        return mergeOptions;
-    }
+	/**
+	 * Gets the merge options <code>MergeOptions</code>.
+	 * @return The merge options <code>MergeOptions</code>.
+	 */
+	public MergeOptions getMergeOptions() {
+		return mergeOptions;
+	}
 
-    public void setMergeOptions(MergeOptions value) {
-        mergeOptions = value;
-    }
+	/**
+	 * Sets the merge options <code>MergeOptions</code>.
+	 * @param value The merge options <code>MergeOptions</code>.
+	 */
+	public void setMergeOptions(MergeOptions value) {
+		mergeOptions = value;
+	}
 
-    public int getStartPage() {
-        return startPage;
-    }
+	/**
+	 * Gets the start page.
+	 * @return The start page.
+	 */
+	public int getStartPage() {
+		return startPage;
+	}
 
-    public void setStartPage(int value) {
-        startPage = value;
-    }
+	/**
+	 * Sets the start page.
+	 * @param value The start page.
+	 */
+	public void setStartPage(int value) {
+		startPage = value;
+	}
 
-    public int getPageCount() {
-        return pageCount;
-    }
+	/**
+	 * Gets the page count.
+	 * @return The page count.
+	 */
+	public int getPageCount() {
+		return pageCount;
+	}
 
-    public void setPageCount(int value) {
-        pageCount = value;
-    }
+	/**
+	 * Sets the page count.
+	 * @param value The page count.
+	 */
+	public void setPageCount(int value) {
+		pageCount = value;
+	}
 }

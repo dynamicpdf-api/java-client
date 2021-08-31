@@ -1,21 +1,33 @@
 package com.dynamicpdf.api;
 
+/**
+ * Represents the base class for json response.
+ */
+
 public abstract class JsonResponse extends Response {
 
-    private String jsonContent;
+	private String jsonContent;
 
-    JsonResponse() {
-    }
+	JsonResponse() {
+	}
 
-    JsonResponse(String jsonContent) {
-        this.jsonContent = jsonContent;
-    }
+	JsonResponse(String jsonContent) {
+		this.jsonContent = jsonContent;
+	}
 
-    public String getJsonContent() {
-        return jsonContent;
-    }
+	/**
+	 * Gets the json content.
+	 * @return The json content.
+	 */
+	public String getJsonContent() {
+		return jsonContent;
+	}
 
-    private void setJsonContent(String value) {
-        jsonContent = value;
-    }
+	/**
+	 * Sets the json content.
+	 * @param value The json content.
+	 */
+	private void setJsonContent(String value) {
+		jsonContent = value;
+	}
 }

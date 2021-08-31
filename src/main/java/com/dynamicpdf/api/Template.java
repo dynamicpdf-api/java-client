@@ -5,36 +5,63 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Represents a document template.
+ */
 public class Template {
 
-    private String id = null;
-    private List<Element> elements = new ArrayList<Element>();
+	private String id = null;
+	private List<Element> elements = new ArrayList<Element>();
 
-    public Template(String id) {
-        if (id == null) {
-            this.id = UUID.randomUUID().toString();
-        } else {
-            this.id = id;
-        }
-    }
+	/**
+	 * Initializes a new instance of the <code>Template</code> class.
+	 * 
+	 * @param id The id string representing id for the template.
+	 */
+	public Template(String id) {
+		if (id == null) {
+			this.id = UUID.randomUUID().toString();
+		} else {
+			this.id = id;
+		}
+	}
 
-    public Template() {
-        this(null);
-    }
+	/**
+	 * Initializes a new instance of the <code>Template</code> class.
+	 */
+	public Template() {
+		this(null);
+	}
 
-    public String getId() {
-        return id;
-    }
+	/**
+	 * Gets the id for the template.
+	 * @return The id for the template.
+	 */
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String value) {
-        id = value;
-    }
+	/**
+	 * Sets the id for the template.
+	 * @param value The id for the template.
+	 */
+	public void setId(String value) {
+		id = value;
+	}
 
-    public List<Element> getElements() {
-        return elements;
-    }
+	/**
+	 * Gets the elements for the template.
+	 * @return The elements for the template.
+	 */
+	public List<Element> getElements() {
+		return elements;
+	}
 
-    public void setElements(List<Element> value) {
-        elements = value;
-    }
+	/**
+	 * Sets the elements for the template.
+	 * @param value The elements for the template.
+	 */
+	public void setElements(List<Element> value) {
+		elements = value;
+	}
 }

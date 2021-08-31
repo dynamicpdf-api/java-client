@@ -12,72 +12,101 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
+
+/**
+ * Represents the base class for inputs.
+ */
+
 public abstract class Input {
 
-    private String templateId = null;
-    private List<Resource> resources = new ArrayList<Resource>();
-    private Template template;
-    private InputType inputType;
-    private String resourceName;
-    private String id;
+	private String templateId = null;
+	private List<Resource> resources = new ArrayList<Resource>();
+	private Template template;
+	private InputType inputType;
+	private String resourceName;
+	private String id;
 
-    Input() {
-    }
+	Input() {
+	}
 
-    Input(String cloudResourcePath) {
-        resourceName = cloudResourcePath;
-    }
+	Input(String cloudResourcePath) {
+		resourceName = cloudResourcePath;
+	}
 
-    Input(Resource resource) {
-        resources.add(resource);
-        resourceName = resource.getResourceName();
-    }
+	Input(Resource resource) {
+		resources.add(resource);
+		resourceName = resource.getResourceName();
+	}
 
-    @JsonInclude
-    @JsonProperty("type")
-    abstract InputType getType();
+	@JsonInclude
+	@JsonProperty("type")
+	abstract InputType getType();
 
-    @JsonProperty
-    String getTemplateId() {
-        return templateId;
-    }
+	@JsonProperty
+	String getTemplateId() {
+		return templateId;
+	}
 
-    void setTemplateId(String value) {
-        templateId = value;
-    }
+	void setTemplateId(String value) {
+		templateId = value;
+	}
 
-    @JsonIgnore
-    List<Resource> getResources() {
-        return resources;
-    }
-    
-    void setResources(List<Resource> value) {
-        resources = value;
-    }
+	@JsonIgnore
+	List<Resource> getResources() {
+		return resources;
+	}
 
-    public String getResourceName() {
-        return resourceName;
-    }
+	void setResources(List<Resource> value) {
+		resources = value;
+	}
 
-    public void setResourceName(String value) {
-        resourceName = value;
-    }
+	/**
+	 * Gets  the resource name.
+	 * @return The resource name.
+	 */
+	public String getResourceName() {
+		return resourceName;
+	}
 
-    public String getId() {
-        return id;
-    }
+	/**
+	 * Sets  the resource name.
+	 * @param value The resource name.
+	 */
+	public void setResourceName(String value) {
+		resourceName = value;
+	}
 
-    public void setId(String value) {
-        id = value;
-    }
+	/**
+	 * Gets the id.
+	 * @return The id.
+	 */
+	public String getId() {
+		return id;
+	}
 
-    @JsonIgnore
-    public Template getTemplate() {
-        return this.template;
-    }
+	/**
+	 * Sets the id.
+	 * @param value The id.
+	 */
+	public void setId(String value) {
+		id = value;
+	}
 
-    public void setTemplate(Template value) {
-        this.template = value;
-        setTemplateId(template.getId());
-    }
+	/**
+	 * Gets the template.
+	 * @return The template.
+	 */
+	@JsonIgnore
+	public Template getTemplate() {
+		return this.template;
+	}
+
+	/**
+	 * Sets the template.
+	 * @param value The template.
+	 */
+	public void setTemplate(Template value) {
+		this.template = value;
+		setTemplateId(template.getId());
+	}
 }

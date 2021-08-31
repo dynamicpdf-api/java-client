@@ -3,142 +3,274 @@ package com.dynamicpdf.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Represents different options for merging PDF documents.
+ */
+
 @JsonInclude(Include.NON_DEFAULT)
 public class MergeOptions {
 
-    private boolean documentInfo = true;
-    private boolean documentJavaScript = true;
-    private boolean documentProperties = true;
-    private boolean embeddedFiles = true;
-    private boolean formFields = true;
-    private boolean formsXfaData = true;
-    private boolean logicalStructure = true;
-    private boolean openAction = true;
-    private boolean optionalContentInfo = true;
-    private boolean outlines = true;
-    private boolean outputIntent = true;
-    private boolean pageAnnotations = true;
-    private boolean pageLabelsAndSections = true;
-    private String rootFormField = null;
-    private boolean xmpMetadata = true;
+	private boolean documentInfo = true;
+	private boolean documentJavaScript = true;
+	private boolean documentProperties = true;
+	private boolean embeddedFiles = true;
+	private boolean formFields = true;
+	private boolean formsXfaData = true;
+	private boolean logicalStructure = true;
+	private boolean openAction = true;
+	private boolean optionalContentInfo = true;
+	private boolean outlines = true;
+	private boolean outputIntent = true;
+	private boolean pageAnnotations = true;
+	private boolean pageLabelsAndSections = true;
+	private String rootFormField = null;
+	private boolean xmpMetadata = true;
 
-    public boolean getDocumentInfo() {
-        return documentInfo;
-    }
+	/**
+	 * Gets a boolean indicating whether to import document information when merging.
+	 * @return A boolean indicating whether to import document information when merging.
+	 */
+	public boolean getDocumentInfo() {
+		return documentInfo;
+	}
 
-    public void setDocumentInfo(boolean value) {
-        documentInfo = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import document information when merging.
+	 * @param value A boolean indicating whether to import document information when merging.
+	 */
+	public void setDocumentInfo(boolean value) {
+		documentInfo = value;
+	}
 
-    public boolean getDocumentJavaScript() {
-        return documentJavaScript;
-    }
+	/**
+	 * Gets a boolean indicating whether to import document level JavaScript when merging.
+	 * @return A boolean indicating whether to import document level JavaScript when merging.
+	 */
+	public boolean getDocumentJavaScript() {
+		return documentJavaScript;
+	}
 
-    public void setDocumentJavaScript(boolean value) {
-        documentJavaScript = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import document level JavaScript when merging.
+	 * @param value A boolean indicating whether to import document level JavaScript when merging.
+	 */
+	public void setDocumentJavaScript(boolean value) {
+		documentJavaScript = value;
+	}
 
-    public boolean getDocumentProperties() {
-        return documentProperties;
-    }
+	/**
+	 * Gets a boolean indicating whether to import document properties when merging.
+	 * @return A boolean indicating whether to import document properties when merging.
+	 */
+	public boolean getDocumentProperties() {
+		return documentProperties;
+	}
 
-    public void setDocumentProperties(boolean value) {
-        documentProperties = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import document properties when merging.
+	 * @param value A boolean indicating whether to import document properties when merging.
+	 */
+	public void setDocumentProperties(boolean value) {
+		documentProperties = value;
+	}
 
-    public boolean getEmbeddedFiles() {
-        return embeddedFiles;
-    }
+	/**
+	 * Gets a boolean indicating whether to import embedded files when merging.
+	 * @return A boolean indicating whether to import embedded files when merging.
+	 */
+	public boolean getEmbeddedFiles() {
+		return embeddedFiles;
+	}
 
-    public void setEmbeddedFiles(boolean value) {
-        embeddedFiles = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import embedded files when merging.
+	 * @param value A boolean indicating whether to import embedded files when merging.
+	 */
+	public void setEmbeddedFiles(boolean value) {
+		embeddedFiles = value;
+	}
 
-    public boolean getFormFields() {
-        return formFields;
-    }
+	/**
+	 * Gets a boolean indicating whether to import form fields when merging.
+	 * @return A boolean indicating whether to import form fields when merging.
+	 */
+	public boolean getFormFields() {
+		return formFields;
+	}
 
-    public void setFormFields(boolean value) {
-        formFields = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import form fields when merging.
+	 * @param value A boolean indicating whether to import form fields when merging.
+	 */
+	public void setFormFields(boolean value) {
+		formFields = value;
+	}
 
-    public boolean getFormsXfaData() {
-        return formsXfaData;
-    }
+	/**
+	 * Gets a boolean indicating whether to import XFA form data when merging.
+	 * @return A boolean indicating whether to import XFA form data when merging.
+	 */
+	public boolean getFormsXfaData() {
+		return formsXfaData;
+	}
 
-    public void setFormsXfaData(boolean value) {
-        formsXfaData = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import XFA form data when merging.
+	 * @param value A boolean indicating whether to import XFA form data when merging.
+	 */
+	public void setFormsXfaData(boolean value) {
+		formsXfaData = value;
+	}
 
-    public boolean getLogicalStructure() {
-        return logicalStructure;
-    }
+	/**
+	 * Gets a boolean indicating whether to import logical structure 
+	 * (tagging information) when merging.
+	 * @return A boolean indicating whether to import logical structure
+	 */
+	public boolean getLogicalStructure() {
+		return logicalStructure;
+	}
 
-    public void setLogicalStructure(boolean value) {
-        logicalStructure = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import logical structure 
+	 * (tagging information) when merging.
+	 * @param value A boolean indicating whether to import logical structure 
+	 */
+	public void setLogicalStructure(boolean value) {
+		logicalStructure = value;
+	}
 
-    public boolean getOpenAction() {
-        return openAction;
-    }
+	/**
+	 * Gets a boolean indicating whether to import document's opening 
+	 * action (initial page and zoom settings) when merging.
+	 * @return A boolean indicating whether to import document's opening 
+	 */
+	public boolean getOpenAction() {
+		return openAction;
+	}
 
-    public void setOpenAction(boolean value) {
-        openAction = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import document's opening 
+	 * action (initial page and zoom settings) when merging.
+	 * @param value A boolean indicating whether to import document's opening 
+	 */
+	public void setOpenAction(boolean value) {
+		openAction = value;
+	}
 
-    public boolean getOptionalContentInfo() {
-        return optionalContentInfo;
-    }
+	/**
+	 * Gets a boolean indicating whether to import optional content when merging.
+	 * @return A boolean indicating whether to import optional content when merging.
+	 */
+	public boolean getOptionalContentInfo() {
+		return optionalContentInfo;
+	}
 
-    public void setOptionalContentInfo(boolean value) {
-        optionalContentInfo = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import optional content when merging.
+	 * @param value A boolean indicating whether to import optional content when merging.
+	 */
+	public void setOptionalContentInfo(boolean value) {
+		optionalContentInfo = value;
+	}
 
-    public boolean getOutlines() {
-        return outlines;
-    }
+	/**
+	 * Gets a boolean indicating whether to import outlines and bookmarks when merging.
+	 * @return A boolean indicating whether to import outlines and bookmarks when merging.
+	 */
+	public boolean getOutlines() {
+		return outlines;
+	}
 
-    public void setOutlines(boolean value) {
-        outlines = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import outlines and bookmarks when merging.
+	 * @param value A boolean indicating whether to import outlines and bookmarks when merging.
+	 */
+	public void setOutlines(boolean value) {
+		outlines = value;
+	}
 
-    public boolean getOutputIntent() {
-        return outputIntent;
-    }
+	/**
+	 * Gets a boolean indicating whether to import OutputIntent when merging.
+	 * @return A boolean indicating whether to import OutputIntent when merging.
+	 */
+	public boolean getOutputIntent() {
+		return outputIntent;
+	}
 
-    public void setOutputIntent(boolean value) {
-        outputIntent = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import OutputIntent when merging.
+	 * @param value A boolean indicating whether to import OutputIntent when merging.
+	 */
+	public void setOutputIntent(boolean value) {
+		outputIntent = value;
+	}
 
-    public boolean getPageAnnotations() {
-        return pageAnnotations;
-    }
+	/**
+	 * Gets a boolean indicating whether to import PageAnnotations when merging.
+	 * @return A boolean indicating whether to import PageAnnotations when merging.
+	 */
+	public boolean getPageAnnotations() {
+		return pageAnnotations;
+	}
 
-    public void setPageAnnotations(boolean value) {
-        pageAnnotations = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import PageAnnotations when merging.
+	 * @param value A boolean indicating whether to import PageAnnotations when merging.
+	 */
+	public void setPageAnnotations(boolean value) {
+		pageAnnotations = value;
+	}
 
-    public boolean getPageLabelsAndSections() {
-        return pageLabelsAndSections;
-    }
+	/**
+	 * Gets a boolean indicating whether to import PageLabelsAndSections when merging.
+	 * @return A boolean indicating whether to import PageLabelsAndSections when merging.
+	 */
+	public boolean getPageLabelsAndSections() {
+		return pageLabelsAndSections;
+	}
 
-    public void setPageLabelsAndSections(boolean value) {
-        pageLabelsAndSections = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import PageLabelsAndSections when merging.
+	 * @param value A boolean indicating whether to import PageLabelsAndSections when merging.
+	 */
+	public void setPageLabelsAndSections(boolean value) {
+		pageLabelsAndSections = value;
+	}
 
-    public String getRootFormField() {
-        return rootFormField;
-    }
+	/**
+	 * Gets the root form field for imported form fields. 
+	 * Useful when merging a PDF repeatedly to have a better 
+	 * contorl on the form field names.
+	 * @return The root form field for imported form fields. 
+	 */
+	public String getRootFormField() {
+		return rootFormField;
+	}
 
-    public void setRootFormField(String value) {
-        rootFormField = value;
-    }
+	/**
+	 * Gets the root form field for imported form fields. 
+	 * Useful when merging a PDF repeatedly to have a better 
+	 * contorl on the form field names.
+	 * @param value The root form field for imported form fields. 
+	 */
+	public void setRootFormField(String value) {
+		rootFormField = value;
+	}
 
-    public boolean getXmpMetadata() {
-        return xmpMetadata;
-    }
+	/**
+	 * Gets a boolean indicating whether to import XmpMetadata when merging.
+	 * @return A boolean indicating whether to import XmpMetadata when merging.
+	 */
+	public boolean getXmpMetadata() {
+		return xmpMetadata;
+	}
 
-    public void setXmpMetadata(boolean value) {
-        xmpMetadata = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to import XmpMetadata when merging.
+	 * @param value A boolean indicating whether to import XmpMetadata when merging.
+	 */
+	public void setXmpMetadata(boolean value) {
+		xmpMetadata = value;
+	}
 }

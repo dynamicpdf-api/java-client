@@ -12,122 +12,122 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 class PdfInstructions {
 
-    private List<FormField> formFields = null;
-    private List<Template> templates = null;
-    private List<Font> fonts = null;
-    private List<Outline> outlines = null;
+	private List<FormField> formFields = null;
+	private List<Template> templates = null;
+	private List<Font> fonts = null;
+	private List<Outline> outlines = null;
 
-    private String author = "CeteSoftware";
-    private String title;
-    private String subject;
-    private String creator = "DynmaicPDF Cloud Api";
-    private String keywords;
-    private Security security = null;
-    private boolean flattenAllFormFields;
-    private boolean retainSignatureFormFields;
-    private List<Input> inputs = new ArrayList<Input>();
-    
-    PdfInstructions(){    	
-    }
+	private String author = "CeteSoftware";
+	private String title;
+	private String subject;
+	private String creator = "DynmaicPDF Cloud Api";
+	private String keywords;
+	private Security security = null;
+	private boolean flattenAllFormFields;
+	private boolean retainSignatureFormFields;
+	private List<Input> inputs = new ArrayList<Input>();
 
-    List<Template> getTemplates() {
-        if (templates == null) {
-            templates = new ArrayList<Template>();
-        }
-        return templates;
-    }
+	PdfInstructions(){    	
+	}
 
-    List<Font> getFonts() {
-        if (fonts == null) {
-            fonts = new ArrayList<Font>();
-        }
-        return fonts;
-    }
+	List<Template> getTemplates() {
+		if (templates == null) {
+			templates = new ArrayList<Template>();
+		}
+		return templates;
+	}
 
-    String getAuthor() {
-        return author;
-    }
+	List<Font> getFonts() {
+		if (fonts == null) {
+			fonts = new ArrayList<Font>();
+		}
+		return fonts;
+	}
 
-    void setAuthor(String value) {
-        author = value;
-    }
+	String getAuthor() {
+		return author;
+	}
 
-    String getTitle() {
-        return title;
-    }
+	void setAuthor(String value) {
+		author = value;
+	}
 
-    void setTitle(String value) {
-        title = value;
-    }
+	String getTitle() {
+		return title;
+	}
 
-    String getSubject() {
-        return subject;
-    }
+	void setTitle(String value) {
+		title = value;
+	}
 
-    void setSubject(String value) {
-        subject = value;
-    }
+	String getSubject() {
+		return subject;
+	}
 
-    String getCreator() {
-        return creator;
-    }
+	void setSubject(String value) {
+		subject = value;
+	}
 
-    void setCreator(String value) {
-        creator = value;
-    }
+	String getCreator() {
+		return creator;
+	}
 
-    String getKeywords() {
-        return keywords;
-    }
+	void setCreator(String value) {
+		creator = value;
+	}
 
-    void setKeywords(String value) {
-        keywords = value;
-    }
+	String getKeywords() {
+		return keywords;
+	}
 
-    Security getSecurity() {
-        return security;
-    }
+	void setKeywords(String value) {
+		keywords = value;
+	}
 
-    void setSecurity(Security value) {
-        security = value;
-    }
+	Security getSecurity() {
+		return security;
+	}
 
-    boolean getFlattenAllFormFields() {
-        return flattenAllFormFields;
-    }
+	void setSecurity(Security value) {
+		security = value;
+	}
 
-    void setFlattenAllFormFields(boolean value) {
-        flattenAllFormFields = value;
-    }
+	boolean getFlattenAllFormFields() {
+		return flattenAllFormFields;
+	}
 
-    boolean getRetainSignatureFormFields() {
-        return retainSignatureFormFields;
-    }
+	void setFlattenAllFormFields(boolean value) {
+		flattenAllFormFields = value;
+	}
 
-    void setRetainSignatureFormFields(boolean value) {
-        retainSignatureFormFields = value;
-    }
+	boolean getRetainSignatureFormFields() {
+		return retainSignatureFormFields;
+	}
 
-    List<Input> getInputs() {
-        return inputs;
-    }
+	void setRetainSignatureFormFields(boolean value) {
+		retainSignatureFormFields = value;
+	}
 
-    void setInputs(List<Input> value) {
-        inputs = value;
-    }
+	List<Input> getInputs() {
+		return inputs;
+	}
 
-    List<FormField> getFormFields() {
-        if (formFields == null) {
-            formFields = new ArrayList<FormField>();
-        }
-        return formFields;
-    }
+	void setInputs(List<Input> value) {
+		inputs = value;
+	}
 
-    List<Outline> getOutlines() {
-        if (outlines == null) {
-            outlines = new ArrayList<Outline>();
-        }
-        return outlines;
-    }
+	List<FormField> getFormFields() {
+		if (formFields == null) {
+			formFields = new ArrayList<FormField>();
+		}
+		return formFields;
+	}
+
+	List<Outline> getOutlines() {
+		if (outlines == null) {
+			outlines = new ArrayList<Outline>();
+		}
+		return outlines;
+	}
 
 }

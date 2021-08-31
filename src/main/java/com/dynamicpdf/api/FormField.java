@@ -4,52 +4,102 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_DEFAULT)
+
+/**
+ * Represents a form field in the PDF document.
+ */
+
 public class FormField {
 
-    private String name;
-    private String value = null;
-    private boolean flatten;
-    private boolean remove;
+	private String name;
+	private String value = null;
+	private boolean flatten;
+	private boolean remove;
 
-    public FormField(String name) {
-        this.name = name;
-    }
+	/**
+	 * Initializes a new instance of the <code>FormField</code> class 
+	 * using the name of the form field as a parameter.
+	 * @param name The name of the form field.
+	 */
 
-    public FormField(String name, String value) {
-        this.name = name;
-        this.value = value;
-    }
+	public FormField(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * Initializes a new instance of the <code>FormField</code> class 
+	 * using the name and the value of the form field as parameters.
+	 * @param name The name of the form field.
+	 * @param value The value of the form field.
+	 */
 
-    public void setName(String value) {
-        name = value;
-    }
+	public FormField(String name, String value) {
+		this.name = name;
+		this.value = value;
+	}
 
-    public String getValue() {
-        return value;
-    }
+	/**
+	 * Gets name of the form field.
+	 * @return Name of the form field.
+	 */
+	public String getName() {
+		return name;
+	}
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+	/**
+	 * Sets name of the form field.
+	 * @param value Name of the form field.
+	 */
+	public void setName(String value) {
+		name = value;
+	}
 
-    public boolean getFlatten() {
-        return flatten;
-    }
+	/**
+	 * Gets value of the form field.
+	 * @return Value of the form field.
+	 */
+	public String getValue() {
+		return value;
+	}
 
-    public void setFlatten(boolean value) {
-        flatten = value;
-    }
+	/**
+	 * Sets value of the form field.
+	 * @param value Value of the form field.
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    public boolean getRemove() {
-        return remove;
-    }
+	/**
+	 * Gets a boolean indicating whether to flatten the form field.
+	 * @return A boolean indicating whether to flatten the form field.
+	 */
+	public boolean getFlatten() {
+		return flatten;
+	}
 
-    public void setRemove(boolean value) {
-        remove = value;
-    }
+	/**
+	 * Sets a boolean indicating whether to flatten the form field.
+	 * @param value A boolean indicating whether to flatten the form field.
+	 */
+	public void setFlatten(boolean value) {
+		flatten = value;
+	}
+
+	/**
+	 * Gets a boolean indicating whether to remove the form field.
+	 * @return A boolean indicating whether to remove the form field.
+	 */
+	public boolean getRemove() {
+		return remove;
+	}
+
+	/**
+	 * Sets a boolean indicating whether to remove the form field.
+	 * @param value A boolean indicating whether to remove the form field.
+	 */
+	public void setRemove(boolean value) {
+		remove = value;
+	}
 
 }

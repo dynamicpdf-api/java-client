@@ -1,59 +1,111 @@
 package com.dynamicpdf.api;
 
+/**
+ * Represents information of a MultiSelectListBox.
+ */
+
 public class MultiSelectListBoxInformation {
 
-    private String name;
-    private String[] values;
-    private String[] defaultValues;
-    private String[] exportValues;
-    private String[] items;
-    private String[] itemsExportValues;
+	private String name;
+	private String[] values;
+	private String[] defaultValues;
+	private String[] exportValues;
+	private String[] items;
+	private String[] itemsExportValues;
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * Gets the name of a MultiSelectListBox.
+	 * @return  The name of a MultiSelectListBox.
+	 */
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String value) {
-        name = value;
-    }
+	/**
+	 * Sets the name of a MultiSelectListBox.
+	 * @param value The name of a MultiSelectListBox.
+	 */
+	public void setName(String value) {
+		name = value;
+	}
 
-    public String[] getValues() {
-        return values;
-    }
+	/**
+	 * Gets a collection of values of the MultiSelectListBox.
+	 * @return A collection of values of the MultiSelectListBox.
+	 */
+	public String[] getValues() {
+		return values;
+	}
 
-    public void setValues(String[] value) {
-        values = value;
-    }
+	/**
+	 * Sets a collection of values of the MultiSelectListBox.
+	 * @param value A collection of values of the MultiSelectListBox.
+	 */
+	public void setValues(String[] value) {
+		values = value;
+	}
 
-    public String[] getDefaultValues() {
-        return defaultValues;
-    }
+	/**
+	 * Gets a collection of default values of the MultiSelectListBox.
+	 * @return A collection of default values of the MultiSelectListBox.
+	 */
+	public String[] getDefaultValues() {
+		return defaultValues;
+	}
 
-    public void setDefaultValues(String[] value) {
-        defaultValues = value;
-    }
+	/**
+	 * Sets a collection of default values of the MultiSelectListBox.
+	 * @param value A collection of default values of the MultiSelectListBox.
+	 */
+	public void setDefaultValues(String[] value) {
+		defaultValues = value;
+	}
 
-    public String[] getExportValues() {
-        return exportValues;
-    }
+	/**
+	 * Gets a collection of export values of the MultiSelectListBox.
+	 * @return A collection of export values of the MultiSelectListBox.
+	 */
+	public String[] getExportValues() {
+		return exportValues;
+	}
 
-    public void setExportValues(String[] value) {
-        exportValues = value;
-    }
+	/**
+	 * Sets a collection of export values of the MultiSelectListBox.
+	 * @param value A collection of export values of the MultiSelectListBox.
+	 */
+	public void setExportValues(String[] value) {
+		exportValues = value;
+	}
 
-    public String[] getItems() {
-        return items;
-    }
+	/**
+	 * Gets a collection of items of the MultiSelectListBox.
+	 * @return A collection of items of the MultiSelectListBox.
+	 */
+	public String[] getItems() {
+		return items;
+	}
 
-    public void setItems(String[] value) {
-        items = value;
-    }
+	/**
+	 * Sets a collection of items of the MultiSelectListBox.
+	 * @param value A collection of items of the MultiSelectListBox.
+	 */
+	public void setItems(String[] value) {
+		items = value;
+	}
 
-    public String[] getItemsExportValues() {
-        return itemsExportValues;
-    }
+	/**
+	 * Gets a collection of export values of the MultiSelectListBox.
+	 * @return A collection of export values of the MultiSelectListBox.
+	 */
+	public String[] getItemsExportValues() {
+		return itemsExportValues;
+	}
 
-    public void setItemsExportValues(String[] value) {
-        itemsExportValues = value;
-    }
+	/**
+	 * Sets a collection of export values of the MultiSelectListBox.
+	 * @param value A collection of export values of the MultiSelectListBox.
+	 */
+	public void setItemsExportValues(String[] value) {
+		itemsExportValues = value;
+	}
 }

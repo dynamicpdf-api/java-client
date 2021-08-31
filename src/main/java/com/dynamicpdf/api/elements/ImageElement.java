@@ -9,94 +9,155 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Represents an image element.
+ *
+ * <p>This class can be used to place images on a page.</p>
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class ImageElement extends Element {
 
-    private Resource resource;
-    private String resourceName;
-    private float scaleX;
-    private float scaleY;
-    private float maxHeight;
-    private float maxWidth;
+	private Resource resource;
+	private String resourceName;
+	private float scaleX;
+	private float scaleY;
+	private float maxHeight;
+	private float maxWidth;
 
-    public ImageElement(ImageResource resource, ElementPlacement placement, float xOffset, float yOffset) {
-        super();
-        this.resource = resource;
-        this.resourceName = resource.getResourceName();
-        setPlacement(placement);
-        setXOffset(xOffset);
-        setYOffset(yOffset);
-    }
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resource <code>ImageResource</code> object containing the image resource.
+	 * @param placement The placement of the image on the page.
+	 * @param xOffset X coordinate of the image.
+	 * @param yOffset Y coordinate of the image.
+	 */
+	public ImageElement(ImageResource resource, ElementPlacement placement, float xOffset, float yOffset) {
+		super();
+		this.resource = resource;
+		this.resourceName = resource.getResourceName();
+		setPlacement(placement);
+		setXOffset(xOffset);
+		setYOffset(yOffset);
+	}
 
-    public ImageElement(ImageResource resource, ElementPlacement placement) {
-        this(resource, placement, 0, 0);
-    }
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resource <code>ImageResource</code> object containing the image resource.
+	 * @param placement The placement of the image on the page
+	 */
+	public ImageElement(ImageResource resource, ElementPlacement placement) {
+		this(resource, placement, 0, 0);
+	}
 
-    public ImageElement(String resourceName, ElementPlacement placement, float xOffset, float yOffset) {
-        super();
-        this.resourceName = resourceName;
-        setPlacement(placement);
-        setXOffset(xOffset);
-        setYOffset(yOffset);
-    }
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resourceName The name of the image resource.
+	 * @param placement The placement of the image on the page.
+	 * @param xOffset X coordinate of the image.
+	 * @param yOffset Y coordinate of the image.
+	 */
+	public ImageElement(String resourceName, ElementPlacement placement, float xOffset, float yOffset) {
+		super();
+		this.resourceName = resourceName;
+		setPlacement(placement);
+		setXOffset(xOffset);
+		setYOffset(yOffset);
+	}
 
-    public ImageElement(String resourceName, ElementPlacement placement) {
-        this(resourceName, placement, 0, 0);
-    }
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resourceName The name of the image resource.
+	 * @param placement The placement of the image on the page.
+	 */
+	public ImageElement(String resourceName, ElementPlacement placement) {
+		this(resourceName, placement, 0, 0);
+	}
 
-    @JsonProperty("type")
-    ElementType getType() {
-        return ElementType.IMAGE;
-    }
+	@JsonProperty("type")
+	ElementType getType() {
+		return ElementType.IMAGE;
+	}
 
-    @JsonIgnore
-    public Resource getResource() {
-        return resource;
-    }
+	@JsonIgnore
+	public Resource getResource() {
+		return resource;
+	}
 
-    void setResource(Resource value) {
-        resource = value;
-    }
+	void setResource(Resource value) {
+		resource = value;
+	}
 
-    @JsonProperty("resourceName")
-    String getResourceName() {
-        return resourceName;
-    }
+	@JsonProperty("resourceName")
+	String getResourceName() {
+		return resourceName;
+	}
 
-    void setResourceName(String value) {
-        resourceName = value;
-    }
+	void setResourceName(String value) {
+		resourceName = value;
+	}
 
-    public float getScaleX() {
-        return scaleX;
-    }
+	/**
+	 * Gets horizontal scale of the image.
+	 * @return The horizontal scale of the image.
+	 */
+	public float getScaleX() {
+		return scaleX;
+	}
 
-    public void setScaleX(float value) {
-        scaleX = value;
-    }
+	/**
+	 * Sets the horizontal scale of the image.
+	 * @param value The horizontal scale of the image.
+	 */
+	public void setScaleX(float value) {
+		scaleX = value;
+	}
 
-    public float getScaleY() {
-        return scaleY;
-    }
+	/**
+	 * Gets the vertical scale of the image.
+	 * @return The vertical scale of the image.
+	 */
+	public float getScaleY() {
+		return scaleY;
+	}
 
-    public void setScaleY(float value) {
-        scaleY = value;
-    }
+	/**
+	 * Sets the vertical scale of the image.
+	 * @param value The vertical scale of the image.
+	 */
+	public void setScaleY(float value) {
+		scaleY = value;
+	}
 
-    public float getMaxHeight() {
-        return maxHeight;
-    }
+	/**
+	 * Gets the maximum height of the image.
+	 * @return The maximum height of the image.
+	 */
+	public float getMaxHeight() {
+		return maxHeight;
+	}
 
-    public void setMaxHeight(float value) {
-        maxHeight = value;
-    }
+	/**
+	 * Sets the maximum height of the image.
+	 * @param value The maximum height of the image.
+	 */
+	public void setMaxHeight(float value) {
+		maxHeight = value;
+	}
 
-    public float getMaxWidth() {
-        return maxWidth;
-    }
+	/**
+	 * Gets the maximum width of the image.
+	 * @return The maximum width of the image.
+	 */
+	public float getMaxWidth() {
+		return maxWidth;
+	}
 
-    public void setMaxWidth(float value) {
-        maxWidth = value;
-    }
+	/**
+	 * Sets the maximum width of the image.
+	 * @param value The maximum width of the image.
+	 */
+	public void setMaxWidth(float value) {
+		maxWidth = value;
+	}
 }

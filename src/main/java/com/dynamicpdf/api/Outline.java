@@ -8,108 +8,175 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Represents an outline.
+ */
+
 @JsonInclude(Include.NON_NULL)
 public class Outline {
 
-    private Color color;
-    private String colorName;
-    private String text;
-    private OutlineStyle style;
-    private boolean expanded;
-    private List<Outline> children = new ArrayList<Outline>();
-    private Action action;
-    private String fromInputID;
+	private Color color;
+	private String colorName;
+	private String text;
+	private OutlineStyle style;
+	private boolean expanded;
+	private List<Outline> children = new ArrayList<Outline>();
+	private Action action;
+	private String fromInputID;
 
-    public Outline(PdfInput input) {
-        fromInputID = input.getId();
-        if (input.getMergeOptions() == null)
-        {
-        	MergeOptions mergeOptions =new MergeOptions() ;
-        	mergeOptions.setOutlines(false);
-            input.setMergeOptions(mergeOptions);
-        }
-        else 
-        {
-            input.getMergeOptions().setOutlines(false);
-        }
-    }
+	/**
+	 * Initializes a new instance of the <code>Outline</code> class.
+	 * @param input The input of type <code>PdfInput</code> .
+	 */
 
-    public Outline(String text, Action action) {
-        this.text = text;
-        this.action = action;
-    }
+	public Outline(PdfInput input) {
+		fromInputID = input.getId();
+		if (input.getMergeOptions() == null)
+		{
+			MergeOptions mergeOptions =new MergeOptions() ;
+			mergeOptions.setOutlines(false);
+			input.setMergeOptions(mergeOptions);
+		}
+		else 
+		{
+			input.getMergeOptions().setOutlines(false);
+		}
+	}
 
-    public Outline(String text) {
-        this(text, null);
-    }
+	/**
+	 * Initializes a new instance of the <code>Outline</code> class.
+	 * @param text text for the outline.
+	 * @param action Action of the outline.
+	 */
 
-    @JsonProperty("color")
-    String getColorName() {
-        return colorName;
-    }
+	public Outline(String text, Action action) {
+		this.text = text;
+		this.action = action;
+	}
 
-    void setColorName(String value) {
-        colorName = value;
-    }
+	/**
+	 * 
+	 * @param text text for the outline.
+	 */
+	public Outline(String text) {
+		this(text, null);
+	}
 
-    public String getText() {
-        return text;
-    }
+	@JsonProperty("color")
+	String getColorName() {
+		return colorName;
+	}
 
-    public void setText(String value) {
-        text = value;
-    }
+	void setColorName(String value) {
+		colorName = value;
+	}
 
-    public OutlineStyle getStyle() {
-        return style;
-    }
+	/**
+	 * Gets the text of the outline.
+	 * @return The text of the outline.
+	 */
+	public String getText() {
+		return text;
+	}
 
-    public void setStyle(OutlineStyle value) {
-        style = value;
-    }
+	/**
+	 * Sets the text of the outline.
+	 * @param value The text of the outline.
+	 */
+	public void setText(String value) {
+		text = value;
+	}
 
-    public boolean getExpanded() {
-        return expanded;
-    }
+	/**
+	 * Gets the style of the outline.
+	 * @return The style of the outline.
+	 */
+	public OutlineStyle getStyle() {
+		return style;
+	}
 
-    public void setExpanded(boolean value) {
-        expanded = value;
-    }
+	/**
+	 * Sets the style of the outline.
+	 * @param value The style of the outline.
+	 */
+	public void setStyle(OutlineStyle value) {
+		style = value;
+	}
 
-    public List<Outline> getChildren() {
-        return children;
-    }
+	/**
+	 * Gets a value specifying if the outline is expanded.
+	 * @return A value specifying if the outline is expanded.
+	 */
+	public boolean getExpanded() {
+		return expanded;
+	}
 
-    public void setChildren(List<Outline> value) {
-        children = value;
-    }
+	/**
+	 * Sets a value specifying if the outline is expanded.
+	 * @param value A value specifying if the outline is expanded.
+	 */
+	public void setExpanded(boolean value) {
+		expanded = value;
+	}
 
-    @JsonProperty("linkTo")
-    public Action getAction() {
-        return action;
-    }
+	/**
+	 * Gets a collection of child outlines.
+	 * @return A collection of child outlines.
+	 */
+	public List<Outline> getChildren() {
+		return children;
+	}
 
-    public void setAction(Action value) {
-        action = value;
-    }
+	/**
+	 * Sets a collection of child outlines.
+	 * @param value A collection of child outlines.
+	 */
+	public void setChildren(List<Outline> value) {
+		children = value;
+	}
 
-    @JsonProperty()
-    String getFromInputID() {
-        return fromInputID;
-    }
+	/**
+	 * Gets the Action of the outline.
+	 * @return The Action of the outline.
+	 */
+	@JsonProperty("linkTo")
+	public Action getAction() {
+		return action;
+	}
 
-    void setFromInputID(String value) {
-        fromInputID = value;
-    }
+	/**
+	 * Sets the Action of the outline.
+	 * @param value The Action of the outline.
+	 */
+	public void setAction(Action value) {
+		action = value;
+	}
 
-    @JsonIgnore
-    public Color getColor() {
-        return color;
-    }
+	@JsonProperty()
+	String getFromInputID() {
+		return fromInputID;
+	}
 
-    public void setColor(Color value) {
-        color = value;
-        colorName = color.getColorString();
-    }
+	void setFromInputID(String value) {
+		fromInputID = value;
+	}
+
+	/**
+	 * Gets the color of the outline.
+	 * @return  The color of the outline.
+	 */
+	@JsonIgnore
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * Sets the color of the outline.
+	 * @param value The color of the outline.
+	 */
+	public void setColor(Color value) {
+		color = value;
+		colorName = color.getColorString();
+	}
 
 }

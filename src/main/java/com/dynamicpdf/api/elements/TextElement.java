@@ -10,97 +10,148 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Represents a text element.
+ * 
+ * <p>This class can be used to place text on a page.</</p>
+ */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class TextElement extends Element {
 
-    private Color color;
-    private Font font;
-    private String fontName;
-    private Resource resource;
-    private String colorName;
-    private float fontSize;
+	private Color color;
+	private Font font;
+	private String fontName;
+	private Resource resource;
+	private String colorName;
+	private float fontSize;
 
-    public TextElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
-        super(value, placement, xOffset, yOffset);
-    }
+	/**
+	 * Initializes a new instance of the <code>TextElement</code> class
+	 * 
+	 * @param value Text to display in the text element.
+	 * @param placement The placement of the text element on the page.
+	 * @param xOffset X coordinate of the text element.
+	 * @param yOffset Y coordinate of the text element.
+	 */
+	public TextElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
+		super(value, placement, xOffset, yOffset);
+	}
 
-    public TextElement(String value, ElementPlacement placement) {
-        this(value, placement, 0, 0);
-    }
+	/**
+	 * Initializes a new instance of the <code>TextElement</code> class
+	 * 
+	 * @param value Text to display in the text element.
+	 * @param placement The placement of the text element on the page.
+	 */
+	public TextElement(String value, ElementPlacement placement) {
+		this(value, placement, 0, 0);
+	}
 
-    @JsonProperty("type")
-    ElementType getType() {
-        return ElementType.TEXT;
-    }
+	@JsonProperty("type")
+	ElementType getType() {
+		return ElementType.TEXT;
+	}
 
-    @JsonProperty("font")
-    String getFontName() {
-        return fontName;
-    }
+	@JsonProperty("font")
+	String getFontName() {
+		return fontName;
+	}
 
-    void setFontName(String value) {
-        fontName = value;
-    }
+	void setFontName(String value) {
+		fontName = value;
+	}
 
-    @JsonProperty("color")
-    String getColorName() {
-        return colorName;
-    }
+	@JsonProperty("color")
+	String getColorName() {
+		return colorName;
+	}
 
-    void setColorName(String value) {
-        colorName = value;
-    }
+	void setColorName(String value) {
+		colorName = value;
+	}
 
-    @JsonIgnore
-    public Resource getResource() {
-        return resource;
-    }
+	@JsonIgnore
+	public Resource getResource() {
+		return resource;
+	}
 
-    void setResource(Resource value) {
-        resource = value;
-    }
+	void setResource(Resource value) {
+		resource = value;
+	}
 
-    @JsonIgnore
-    public Font getTextFont() {
-        return font;
-    }
+	@JsonIgnore
+	public Font getTextFont() {
+		return font;
+	}
 
-    public String getText() {
-        return getInputValue();
-    }
+	/**
+	 * Gets the text to display in the text element.
+	 * @return The text to display in the text element.
+	 */
+	public String getText() {
+		return getInputValue();
+	}
 
-    public void setText(String value) {
-        setInputValue(value);
-    }
+	/**
+	 * Sets the text to display in the text element.
+	 * @param value The text to display in the text element.
+	 */
+	public void setText(String value) {
+		setInputValue(value);
+	}
 
-    @JsonIgnore
-    public Color getColor() {
-        return color;
-    }
+	/**
+	 * Gets the <code>Color</code> object to use for the text of the text element.
+	 * @return The <code>Color</code> object to use for the text of the text element.
+	 */
+	@JsonIgnore
+	public Color getColor() {
+		return color;
+	}
 
-    public void setColor(Color value) {
-        color = value;
-        colorName = color.getColorString();
-    }
+	/**
+	 * Sets the <code>Color</code> object to use for the text of the text element.
+	 * @param value The <code>Color</code> object to use for the text of the text element.
+	 */
+	public void setColor(Color value) {
+		color = value;
+		colorName = color.getColorString();
+	}
 
-    @JsonIgnore
-    public Font getFont() {
-        return font;
-    }
+	/**
+	 * Gets the <code>Font</code> object used to specify the font of the text for the text element.
+	 * @return The <code>Font</code> object used to specify the font of the text for the text element.
+	 */
+	@JsonIgnore
+	public Font getFont() {
+		return font;
+	}
 
-    public void setFont(Font value) {
-        font = value;
-        fontName = font.getName();
-        resource = font.getResource();
-    }
+	/**
+	 * Sets the <code>Font</code> object used to specify the font of the text for the text element.
+	 * @param value The <code>Font</code> object used to specify the font of the text for the text element.
+	 */
+	public void setFont(Font value) {
+		font = value;
+		fontName = font.getName();
+		resource = font.getResource();
+	}
 
-    public float getFontSize() {
-        return fontSize;
-    }
+	/**
+	 * Gets the font size for the text of the text element.
+	 * @return The font size for the text of the text element.
+	 */
+	public float getFontSize() {
+		return fontSize;
+	}
 
-    public void setFontSize(float value) {
-        fontSize = value;
-    }
+	/**
+	 * Sets the font size for the text of the text element.
+	 * @param value The font size for the text of the text element.
+	 */
+	public void setFontSize(float value) {
+		fontSize = value;
+	}
 
 }
