@@ -59,6 +59,11 @@ public class DlexLayout extends Endpoint
 		return null;
 	}
 
+	/**
+     *  Process the DLEX and layout data to create PDF report.
+     * 
+     * @return collection of <code>PdfResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+     */
 	public CompletableFuture<PdfResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {

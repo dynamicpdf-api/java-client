@@ -88,6 +88,11 @@ public class PdfText extends Endpoint {
 		return null;
 	}
 
+	/**
+     * Process the pdf resource to get pdf's text.
+     * 
+     * @return collection of <code>PdfTextResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+     */
 	public CompletableFuture<PdfTextResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {

@@ -43,6 +43,11 @@ public class PdfInfo extends Endpoint
 		return null;
 	}
 
+	/**
+     * Process the pdf resource to get pdf's information.
+     * 
+     * @return collection of <code>PdfInfoResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+     */
 	public CompletableFuture<PdfInfoResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {

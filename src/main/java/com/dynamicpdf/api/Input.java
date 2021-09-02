@@ -2,6 +2,7 @@ package com.dynamicpdf.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -81,6 +82,10 @@ public abstract class Input {
 	 * @return The id.
 	 */
 	public String getId() {
+		if (id == null)
+        {
+            id = UUID.randomUUID().toString();
+        }
 		return id;
 	}
 

@@ -20,7 +20,7 @@ public class Outline {
 	private String text;
 	private OutlineStyle style;
 	private boolean expanded;
-	private List<Outline> children = new ArrayList<Outline>();
+	private OutlineList children;
 	private Action action;
 	private String fromInputID;
 
@@ -29,7 +29,7 @@ public class Outline {
 	 * @param input The input of type <code>PdfInput</code> .
 	 */
 
-	public Outline(PdfInput input) {
+	Outline(PdfInput input) {
 		fromInputID = input.getId();
 		if (input.getMergeOptions() == null)
 		{
@@ -49,7 +49,7 @@ public class Outline {
 	 * @param action Action of the outline.
 	 */
 
-	public Outline(String text, Action action) {
+	Outline(String text, Action action) {
 		this.text = text;
 		this.action = action;
 	}
@@ -58,7 +58,7 @@ public class Outline {
 	 * 
 	 * @param text text for the outline.
 	 */
-	public Outline(String text) {
+	Outline(String text) {
 		this(text, null);
 	}
 
@@ -123,7 +123,10 @@ public class Outline {
 	 * Gets a collection of child outlines.
 	 * @return A collection of child outlines.
 	 */
-	public List<Outline> getChildren() {
+	@JsonIgnore
+	public OutlineList getChildren() {
+		if (children == null)
+            children = new OutlineList();
 		return children;
 	}
 
@@ -131,7 +134,9 @@ public class Outline {
 	 * Sets a collection of child outlines.
 	 * @param value A collection of child outlines.
 	 */
-	public void setChildren(List<Outline> value) {
+	public void setChildren(OutlineList value) {
+		if (children == null)
+			children = new OutlineList();
 		children = value;
 	}
 
@@ -177,6 +182,15 @@ public class Outline {
 	public void setColor(Color value) {
 		color = value;
 		colorName = color.getColorString();
+	}
+
+	@JsonProperty("children")
+	List<Outline> getInstructionChildren()
+	{
+		if (children != null)
+			return children.getOutlines();
+		return null;
+
 	}
 
 }

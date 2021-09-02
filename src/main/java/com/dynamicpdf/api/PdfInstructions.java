@@ -1,21 +1,24 @@
 package com.dynamicpdf.api;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 class PdfInstructions {
 
 	private List<FormField> formFields = null;
-	private List<Template> templates = null;
-	private List<Font> fonts = null;
-	private List<Outline> outlines = null;
+	private HashSet<Template> templates = null;
+	private HashSet<Font> fonts = null;
+	private OutlineList outlines = null;
 
 	private String author = "CeteSoftware";
 	private String title;
@@ -30,16 +33,16 @@ class PdfInstructions {
 	PdfInstructions(){    	
 	}
 
-	List<Template> getTemplates() {
+	HashSet<Template> getTemplates() {
 		if (templates == null) {
-			templates = new ArrayList<Template>();
+			templates = new HashSet<Template>();
 		}
 		return templates;
 	}
 
-	List<Font> getFonts() {
+	HashSet<Font> getFonts() {
 		if (fonts == null) {
-			fonts = new ArrayList<Font>();
+			fonts = new HashSet<Font>();
 		}
 		return fonts;
 	}
@@ -123,11 +126,21 @@ class PdfInstructions {
 		return formFields;
 	}
 
-	List<Outline> getOutlines() {
-		if (outlines == null) {
-			outlines = new ArrayList<Outline>();
+	@JsonIgnore
+	OutlineList getOutlines()
+    {
+        if (outlines == null)
+            outlines = new OutlineList();
+        return outlines;
+        
+    }
+	
+	@JsonProperty("outlines")
+	List<Outline> getInstructionsOutlines() {
+		if (outlines != null) {
+			return outlines.getOutlines();
 		}
-		return outlines;
+		return null;
 	}
 
 }

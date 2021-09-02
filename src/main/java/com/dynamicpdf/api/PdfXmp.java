@@ -43,6 +43,11 @@ public class PdfXmp extends Endpoint
 		return null;
 	}
 
+	/**
+     * Process the pdf resource to get pdf's xmp data.
+     * 
+     * @return collection of <code>XmlResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+     */
 	public CompletableFuture<XmlResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {

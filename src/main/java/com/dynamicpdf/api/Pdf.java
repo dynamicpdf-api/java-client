@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import com.dynamicpdf.api.elements.Element;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -341,7 +342,7 @@ public class Pdf extends Endpoint
 	 * Gets the templates.
 	 * @return The templates.
 	 */
-	public List<Template> getTemplates()
+	public HashSet<Template> getTemplates()
 	{
 		return this.instructions.getTemplates();
 	}
@@ -350,7 +351,7 @@ public class Pdf extends Endpoint
 	 * Gets the fonts.
 	 * @return The fonts.
 	 */
-	public List<Font> getFonts()
+	public HashSet<Font> getFonts()
 	{
 		return this.instructions.getFonts();
 	}
@@ -368,10 +369,48 @@ public class Pdf extends Endpoint
 	 * Gets the outlines.
 	 * @return The outlines.
 	 */
-	public List<Outline> getOutlines()
+	@JsonIgnore
+	public OutlineList getOutlines()
 	{
 		return this.instructions.getOutlines();
 	}
+
+	/*
+	 * Gets the instructions json based on the inputs passed.
+	 * @return The json string.
+	 */
+	public String getInstructonsJson() {
+		for (Input input : instructions.getInputs()) { 
+			if (input.getType() == InputType.PAGE) {
+				PageInput pageInput = (PageInput)input; 
+				for (Element element : pageInput.getElements()) {
+					if (element.getTextFont() != null) {
+						instructions.getFonts().add(element.getTextFont());
+					}
+				} 
+			} 
+			if (input.getTemplate() != null) {
+				instructions.getTemplates().add(input.getTemplate());
+				if (input.getTemplate().getElements() != null && input.getTemplate().getElements().size() > 0) { 
+					for (Element element : input.getTemplate().getElements()) { 
+						if (element.getTextFont() != null) {
+							instructions.getFonts().add(element.getTextFont()); 
+						}
+					}
+				} 
+			} 
+		}
+
+		String jsonText = null; 
+		ObjectMapper basicMapper = new ObjectMapper();
+		try {
+			jsonText = basicMapper.writeValueAsString(this.instructions);
+		} catch(JsonProcessingException e1) {
+			e1.printStackTrace();
+		}
+		return jsonText;
+	}
+
 
 	/**
 	 * Process to create pdf.
@@ -387,7 +426,12 @@ public class Pdf extends Endpoint
 		}
 		return null;
 	}
-	
+
+	/**
+	 * Process to create pdf.
+	 * 
+	 * @return collection of <code>PdfResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+	 */
 	public CompletableFuture<PdfResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {

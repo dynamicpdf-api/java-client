@@ -43,6 +43,11 @@ public class ImageInfo extends Endpoint
 		return null;
 	}
 
+	/**
+     * Process the pdf resource to get image's information.
+     * 
+     * @return collection of <code>ImageResponse</code> as multithreading tasks <code>CompletableFuture</code>.
+     */
 	public CompletableFuture<ImageResponse> processAsync()
 	{
 		return CompletableFuture.supplyAsync(() -> {
