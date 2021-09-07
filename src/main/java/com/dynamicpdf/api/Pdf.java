@@ -379,7 +379,7 @@ public class Pdf extends Endpoint
 	 * Gets the instructions json based on the inputs passed.
 	 * @return The json string.
 	 */
-	public String getInstructonsJson() {
+	public String getInstructionsJson() {
 		for (Input input : instructions.getInputs()) { 
 			if (input.getType() == InputType.PAGE) {
 				PageInput pageInput = (PageInput)input; 
