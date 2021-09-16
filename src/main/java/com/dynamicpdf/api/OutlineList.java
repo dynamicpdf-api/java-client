@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Represents a list of outlines
+ */
 public class OutlineList {
 
 	private List<Outline> outlines = null;

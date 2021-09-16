@@ -29,7 +29,7 @@ public class PdfInput extends Input {
 
 	/**
 	 * Initializes a new instance of the <code>PdfInput</code> class.
-	 * @param resourceName The name of the resource present in cloud resource manager.
+	 * @param resource The resource of type <code>PdfResource</code>.
 	 */
 	public PdfInput(PdfResource resource) {
 		super(resource);

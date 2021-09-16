@@ -11,13 +11,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_DEFAULT)
-@JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
-
 /**
  * Represents the base class for inputs.
  */
-
+@JsonInclude(Include.NON_DEFAULT)
+@JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public abstract class Input {
 
 	private String templateId = null;

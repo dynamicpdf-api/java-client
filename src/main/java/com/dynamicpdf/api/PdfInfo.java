@@ -30,7 +30,7 @@ public class PdfInfo extends Endpoint
 
 	/**
 	 * Process the pdf resource to get pdf's information.
-	 * Returns collection of <code>PdfInfoResponse</code> as multithreading tasks <code>Task</code>.
+	 * @return collection of <code>PdfInfoResponse</code> as multithreading tasks <code>Task</code>.
 	 */
 	public PdfInfoResponse process()
 	{

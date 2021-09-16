@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_NULL)
-
 /**
  * Represents AES 128 bit PDF document security.
  * AES 128 bit PDF security is compatible with PDF version 1.5 and higher and, 
  * Adobe Acrobat Reader version 7 or higher is needed to open these documents. 
  * Older readers will not be able to read documents encrypted with this security.
  */
+@JsonInclude(Include.NON_NULL)
 public class Aes128Security extends Security {
 
 	private EncryptDocumentComponents documentComponents;

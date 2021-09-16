@@ -15,44 +15,47 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * 
  * <p>This class can be used to add page numbering to a PDF document. The following tokens can be used within the
  * text of a PageNumberingLabel. They will be replaced with the appropriate value when the PDF is output.<br><br>
- * <table cellspacing="0" border="2">
+ * 
+ * <table style="border-collapse:collapse; border-spacing:0;" border="1">
+ * <caption>The following table shows how to use the tokens</caption>
  * <tr class='TableRowColor'><th class='TableHeadingColor'>Token</th><th class='TableHeadingColor'>Description</th></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>CP</b></td><td>Current page. The default numbering style is numeric.</td></tr>
+ * <tr class='TableRowColor'><td style="text-align:center"><b>CP</b></td><td>Current page. The default numbering style is numeric.</td></tr>
+
+ * <tr class='TableRowColor'><td style="text-align:center"><b>TP</b></td><td>Total pages. The default numbering style is numeric.</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>TP</b></td><td>Total pages. The default numbering style is numeric.</td></tr>
+ * <tr class='TableRowColor'><td style="text-align:center"><b>SP</b></td><td>Section page.</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>SP</b></td><td>Section page.</td></tr>
+ * <tr class='TableRowColor'><td style="text-align:center"><b>ST</b></td><td>Section Total.</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>ST</b></td><td>Section Total.</td></tr>
- *
- * <tr class='TableRowColor'><td align="center"><b>PR</b></td><td>Prefix.</td></tr>
+ * <tr class='TableRowColor'><td style="text-align:center"><b>PR</b></td><td>Prefix.</td></tr>
  * </table>
  *
  * <br>All tokens except the %%PR%% token can also contain a numbering style specifier. The numbering style specifier
  * is placed in parenthesis after the token.<br><br>
  *
- * <table cellspacing="0" border="2">
+ * <table style="border-collapse:collapse; border-spacing:0;" border="1">
+ * <caption>The following table shows the Numbering Styles</caption>
  * <tr class='TableRowColor'><th class='TableHeadingColor'>Numbering Style</th><th class='TableHeadingColor'>Description</th></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>1</b></td><td>Numeric. Arabic numbers are used: 1, 2, 3, etc. Example: "%%CP(1)%%"</td></tr>
+ * <tr class='TableRowColor'><td style="text-align:center"><b>1</b></td><td>Numeric. Arabic numbers are used: 1, 2, 3, etc. Example: "%%CP(1)%%"</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>i</b></td><td>Lower Case Roman Numerals. Lower case roman numerals are used: i, ii, iii, etc.
+ * <tr class='TableRowColor'><td style="text-align:center"><b>i</b></td><td>Lower Case Roman Numerals. Lower case roman numerals are used: i, ii, iii, etc.
  * Example: "%%CP(i)%%".</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>I</b></td><td>Upper Case Roman Numerals. Upper case roman numerals are used: I, II, III, etc.
+ * <tr class='TableRowColor'><td style="text-align:center"><b>I</b></td><td>Upper Case Roman Numerals. Upper case roman numerals are used: I, II, III, etc.
  * Example: "%%CP(I)%%".</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>a</b></td><td>Lower Latin Letters. Lower case Latin letters are used: a, b, c, etc. After z, aa is used
+ * <tr class='TableRowColor'><td style="text-align:center"><b>a</b></td><td>Lower Latin Letters. Lower case Latin letters are used: a, b, c, etc. After z, aa is used
  * followed by bb, cc, ect. Example: "%%CP(a)%%".</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>A</b></td><td>Upper Latin Letters. Upper case Latin letters are used: A, B, C, etc. After Z, AA is used
+ * <tr class='TableRowColor'><td style="text-align:center"><b>A</b></td><td>Upper Latin Letters. Upper case Latin letters are used: A, B, C, etc. After Z, AA is used
  * followed by BB, CC, ect. Example: "%%CP(A)%%".</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>b</b></td><td>Lower Latin Letters. Lower case Latin letters are used: a, b, c, etc. After z, aa is used
+ * <tr class='TableRowColor'><td style="text-align:center"><b>b</b></td><td>Lower Latin Letters. Lower case Latin letters are used: a, b, c, etc. After z, aa is used
  * followed by ab, ac, ect. Example: "%%CP(b)%%".</td></tr>
  *
- * <tr class='TableRowColor'><td align="center"><b>B</b></td><td>Lower Latin Letters. Lower case Latin letters are used: A, B, C, etc. After Z, AA is used
+ * <tr class='TableRowColor'><td style="text-align:center"><b>B</b></td><td>Lower Latin Letters. Lower case Latin letters are used: A, B, C, etc. After Z, AA is used
  * followed by AB, AC, ect. Example: "%%CP(B)%%".</td></tr>
  * </table>
  * <p>There should be no spaces within a token, only the token and optional numbering style specifier. This 
@@ -62,7 +65,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * <li>%%SP(I)%%</li>
  * <li>%%PR%%</li>
  * <li>%%ST(B)%%</li>
- * </ul></p>
+ * </ul>
  */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)

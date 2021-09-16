@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Represents a text element.
  * 
- * <p>This class can be used to place text on a page.</</p>
+ * <p>This class can be used to place text on a page.</p>
  */
 @JsonInclude(Include.NON_DEFAULT)
 @JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)

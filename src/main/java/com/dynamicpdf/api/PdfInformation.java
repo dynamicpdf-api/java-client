@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
 
+/**
+ * Represents the pdf inforamtion.
+ */
 public class PdfInformation {
 
 	private String author;
@@ -164,6 +167,7 @@ public class PdfInformation {
 
 	/**
 	 * Sets the custom properties.
+	 * @param value The collection of keys and values of customProperties
 	 */
 	public void setCustomProperties(Dictionary<String, String> value) {
 		customProperties = value;

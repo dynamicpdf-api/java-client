@@ -3,12 +3,10 @@ package com.dynamicpdf.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_DEFAULT)
-
 /**
  * Represents a form field in the PDF document.
  */
-
+@JsonInclude(Include.NON_DEFAULT)
 public class FormField {
 
 	private String name;

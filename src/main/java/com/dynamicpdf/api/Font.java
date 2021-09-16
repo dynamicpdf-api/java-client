@@ -17,13 +17,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_DEFAULT)
-@JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 
 /**
  * Represents font.
  */
-
+@JsonInclude(Include.NON_DEFAULT)
+@JsonAutoDetect(fieldVisibility = Visibility.NON_PRIVATE)
 public class Font {
 
 	private static Font timesRoman = null;

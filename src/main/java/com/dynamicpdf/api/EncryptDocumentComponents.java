@@ -1,25 +1,21 @@
 package com.dynamicpdf.api;
 
-/**
- * Specifies the document components to be encrypted. 
- */
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Specifies the document components to be encrypted.
+ */
 public enum EncryptDocumentComponents {
 
-	@JsonProperty("all")
-
-	/**
-	 * Encrypts all document contents.
-	 */
-
-	ALL,
-	@JsonProperty("allExceptMetadata")
-
-	/**
-	 * Encrypts all document contents except metadata.
-	 */
-
-	ALLEXCEPTMETADATA
+    /**
+     * Encrypts all document contents.
+     */
+    @JsonProperty("all")
+    ALL,
+    
+    /**
+     * Encrypts all document contents except metadata.
+     */
+    @JsonProperty("allExceptMetadata")
+    ALLEXCEPTMETADATA
 }

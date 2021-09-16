@@ -6,13 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_DEFAULT)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
-
 /**
  * Represents an image input.
  */
-
+@JsonInclude(Include.NON_DEFAULT)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class ImageInput extends Input {
 
 	private float scaleX;

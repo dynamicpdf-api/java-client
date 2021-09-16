@@ -194,6 +194,7 @@ public class Pdf extends Endpoint
 	 * Returns a <code>PdfInput</code> object containing the input pdf.
 	 * @param resource The resource of type <code>PdfResource</code>.
 	 * @param options The merge options for the pdf.
+	 * @return Added pdf pages
 	 */
 
 	public PdfInput addPdf(PdfResource resource, MergeOptions options)
