@@ -27,7 +27,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * 
 	 * @param value String to be encoded.
 	 * @param placement The placement of the barcode on the page.
-	 * @param columns >Columns of the PDF417 barcode.
+	 * @param columns Columns of the PDF417 barcode.
 	 * @param xOffset The X coordinate of the PDF417 barcode.
 	 * @param yOffset The Y coordinate of the PDF417 barcode.
 	 */
@@ -41,7 +41,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * 
 	 * @param value String to be encoded.
 	 * @param placement The placement of the barcode on the page.
-	 * @param columns >Columns of the PDF417 barcode.
+	 * @param columns Columns of the PDF417 barcode.
 	 */
 	public Pdf417BarcodeElement(String value, ElementPlacement placement, int columns) {
 		this(value, placement, columns, 0, 0);
@@ -52,7 +52,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * 
 	 * @param value String to be encoded.
 	 * @param placement The placement of the barcode on the page.
-	 * @param columns >Columns of the PDF417 barcode.
+	 * @param columns Columns of the PDF417 barcode.
 	 * @param xOffset The X coordinate of the PDF417 barcode.
 	 * @param yOffset The Y coordinate of the PDF417 barcode.
 	 */
@@ -66,7 +66,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * 
 	 * @param value String to be encoded.
 	 * @param placement The placement of the barcode on the page.
-	 * @param columns >Columns of the PDF417 barcode.
+	 * @param columns Columns of the PDF417 barcode.
 	 */
 	public Pdf417BarcodeElement(byte[] value, ElementPlacement placement, int columns) {
 		this(value, placement, columns, 0, 0);
