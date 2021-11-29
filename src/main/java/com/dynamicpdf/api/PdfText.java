@@ -106,7 +106,7 @@ public class PdfText extends Endpoint {
 					.queryParam("StartPage", String.valueOf(startPage))
 					.queryParam("PageCount", String.valueOf(pageCount))
 					.body(resource.getData())
-					.post(getDefaultBaseUrl() + "/" + getEndpointName());
+					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
 			if (response.getStatusCode() == 200) {
 				pdfTextResponse = new PdfTextResponse(response.asString());

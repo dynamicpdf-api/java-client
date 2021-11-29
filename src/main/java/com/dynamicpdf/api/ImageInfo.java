@@ -59,7 +59,7 @@ public class ImageInfo extends Endpoint
 					.header("content-type", resource.mimeType)
 					.spec(requestSpec)
 					.body(resource.getData())
-					.post(getDefaultBaseUrl() + "/" + getEndpointName());
+					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
 			if (response.getStatusCode() == 200)
 			{

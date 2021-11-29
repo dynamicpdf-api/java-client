@@ -81,7 +81,7 @@ public class DlexLayout extends Endpoint
 					.header("Content-Type","multipart/form-data")
 					.spec(requestSpec)
 					.body(resource.getData())
-					.post(getDefaultBaseUrl() + "/" + getEndpointName());
+					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
 			if (response.getStatusCode() == 200)
 			{

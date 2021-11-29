@@ -59,7 +59,7 @@ public class PdfXmp extends Endpoint
 					.header("content-type", "application/pdf")
 					.spec(requestSpec)
 					.body(resource.getData())
-					.post(getDefaultBaseUrl() + "/" + getEndpointName());
+					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
 			if (response.getStatusCode() == 200)
 			{

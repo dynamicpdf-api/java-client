@@ -499,7 +499,7 @@ public class Pdf extends Endpoint
 					.header("Accept", "*/*")
 					.header("Content-Type","multipart/form-data")
 					.spec(spec)
-					.post(getDefaultBaseUrl() + "/" + getEndpointName());
+					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
 
 			if (response.getStatusCode() == 200)
