@@ -13,7 +13,7 @@ public abstract class Endpoint {
 
 	private RequestSpecification requestSpec;;
 
-	private static String endPointVersion = "v1.0";
+	private final String endpointVersion = "v1.0";
 	private static String defaultBaseUrl = "https://api.dynamicpdf.com";
 	private static String defaultApiKey;
 	private String baseUrl = defaultBaseUrl;
@@ -29,7 +29,7 @@ public abstract class Endpoint {
 	abstract String getEndpointName();
 
     String getEndpointVersion() { 
-		return endPointVersion;
+		return endpointVersion;
 	}
 	/**
 	 * Gets default base url.
