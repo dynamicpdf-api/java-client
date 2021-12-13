@@ -23,6 +23,20 @@ public class DlexInput extends Input {
 		getResources().add(layoutData);
 
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>DlexInput</code> class by posting the
+	 * DLEX file and the JSON data file from the client to the API to create the PDF report.
+	 * @param dlexResource The <code>DlexResource</code>, dlex file created as per the desired PDF report layout design.
+	 * @param layoutData The json data string used to create the PDF report.
+	 */
+	public DlexInput(DlexResource dlexResource, String layoutData) {
+		setResourceName(dlexResource.getResourceName());
+		LayoutDataResource layoutDataResource = new LayoutDataResource(layoutData);
+		layoutDataResourceName = layoutDataResource.getLayoutDataResourceName();
+		getResources().add(dlexResource);
+		getResources().add(layoutDataResource);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>DlexInput</code> class by taking the 
@@ -41,13 +55,15 @@ public class DlexInput extends Input {
 	/**
 	 * Initializes a new instance of the <code>DlexInput</code> class.
 	 * @param cloudResourcePath The DLEX file path present in the resource manager.
-	 * @param cloudLayoutDataPath The JSON data file path present in the resource manager used to create the PDF report.
+	 * @param layoutData The json data string used to create the PDF report.
 	 */
 
-	public DlexInput(String cloudResourcePath, String cloudLayoutDataPath) {
+	public DlexInput(String cloudResourcePath, String layoutData) {
 		super();
 		setResourceName(cloudResourcePath);
-		layoutDataResourceName = cloudLayoutDataPath;
+		LayoutDataResource layoutDataResource = new LayoutDataResource(layoutData);
+        layoutDataResourceName = layoutDataResource.getLayoutDataResourceName();
+        getResources().add(layoutDataResource);
 	}
 
 	InputType getType() {

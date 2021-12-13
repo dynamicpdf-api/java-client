@@ -294,13 +294,25 @@ public class Pdf extends Endpoint
 	/**
 	 * Returns a <code>DlexInput</code> object containing the input pdf.
 	 * @param cloudResourcePath The resource path in cloud resource manager.
-	 * @param cloudLayoutDataPat The layout data resource path in cloud resource manager.
+	 * @param layoutData The json data string used to create the PDF report.
 	 * @return Added pdf pages
 	 */
 
-	public DlexInput addDlex(String cloudResourcePath, String cloudLayoutDataPat)
+	public DlexInput addDlex(String cloudResourcePath, String layoutData)
 	{
-		DlexInput input = new DlexInput(cloudResourcePath, cloudLayoutDataPat);
+		DlexInput input = new DlexInput(cloudResourcePath, layoutData);
+		this.getInputs().add(input);
+		return input;
+	}
+	
+	/**
+	 * Returns a <code>DlexInput</code> object containing the input pdf.
+	 * @param dlexResource The resource path in cloud resource manager.
+	 * @param layoutData The json data string used to create the PDF report.
+	 * @return Added pdf pages
+	 */
+	public DlexInput addDlex(DlexResource dlexResource, String layoutData) {
+		DlexInput input = new DlexInput(dlexResource, layoutData);
 		this.getInputs().add(input);
 		return input;
 	}

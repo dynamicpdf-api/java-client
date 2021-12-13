@@ -57,13 +57,20 @@ public class LayoutDataResource extends Resource {
 	/**
 	 * Initializes a new instance of the <code>LayoutDataResource</code> class 
 	 * using a JSON file with data and a resource name.
-	 * @param layoutData The layout data JSON file path.
+	 * @param layoutData The layout data JSON file path or JSON string.
 	 * @param layoutDataResourceName The name for layout data resource.
 	 */
 
 	public LayoutDataResource(String layoutData, String layoutDataResourceName) {
 		super();
-		setData(Resource.getUTF8FileData(layoutData));
+		if (layoutData.endsWith(".json")) {
+			setData(Resource.getUTF8FileData(layoutData));
+		} else {
+			try {
+				setData(layoutData.getBytes("UTF8"));
+			} catch (UnsupportedEncodingException ex) {
+			}
+		}
 		if (layoutDataResourceName == null) {
 			this.layoutDataResourceName = UUID.randomUUID().toString() + ".json";
 		} else {
@@ -74,7 +81,7 @@ public class LayoutDataResource extends Resource {
 	/**
 	 * Initializes a new instance of the <code>LayoutDataResource</code> class 
 	 * using a JSON file with data.
-	 * @param layoutData The layout data JSON file path.
+	 * @param layoutData The layout data JSON file path or JSON string.
 	 */
 
 	public LayoutDataResource(String layoutData) {
