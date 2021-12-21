@@ -1,6 +1,8 @@
 
 package com.dynamicpdf.api;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -39,6 +41,62 @@ public class Pdf extends Endpoint
 	 */
 	String getEndpointName() { return "pdf";}
 
+	/**
+     * Adds additional resource to the endpoint.
+     * @param resourcePath The resource file path.
+     * @param type The type of the resource.
+     * @param resourceName The name of the resource.
+     */
+    public void addAdditionalResource(String resourcePath, String resourceName)
+    {
+        if( resourceName == null) {
+        	Path path = Paths.get(resourcePath);
+            Path resourceFileName = path.getFileName();
+            resourceName = resourceFileName.toString();
+        }
+        AdditionalResource resource = new AdditionalResource( resourcePath, resourceName);
+        getResources().add(resource);
+    }
+    
+    /**
+     * Adds additional resource to the endpoint.
+     * @param resourcePath The resource file path.
+     */
+    public void addAdditionalResource(String resourcePath)
+    {
+    	Path path = Paths.get(resourcePath);
+        Path resourceFileName = path.getFileName();
+        String resourceName = resourceFileName.toString();
+        AdditionalResource resource = new AdditionalResource( resourcePath, resourceName);
+        getResources().add(resource);
+    }
+
+    /**
+     * Adds additional resource to the endpoint.
+     * @resourceData The resource data.
+     * @param additionalResourceType The type of the resource.
+     * @param resourceName The name of the resource.
+     */
+    public void addAdditionalResource(byte[] resourceData,AdditionalResourceType additionalResourceType, String resourceName)
+    {
+    	ResourceType type = ResourceType.PDF;
+        switch(additionalResourceType)
+        {
+            case FONT:
+                type = ResourceType.FONT;
+                break;
+            case IMAGE:
+                type = ResourceType.IMAGE;
+                break;
+            case PDF:
+                type = ResourceType.PDF;
+                break;
+        }
+        AdditionalResource resource = new AdditionalResource(resourceData, resourceName, type);
+        getResources().add(resource);
+    }
+    
+    
 	/**
 	 * Sets the collection of resource.
 	 * @return The collection of resource.
@@ -486,6 +544,9 @@ public class Pdf extends Endpoint
 
 			}
 
+			for (Resource resource : getResources()) {
+				finalResources.add(resource);
+			}
 			try {
 				jsonText =  basicMapper.writeValueAsString(this.instructions);
 			} catch (JsonProcessingException e1) {
