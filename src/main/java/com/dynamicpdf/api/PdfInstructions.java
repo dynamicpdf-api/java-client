@@ -23,7 +23,7 @@ class PdfInstructions {
 	private String author = "CeteSoftware";
 	private String title;
 	private String subject;
-	private String creator = "DynmaicPDF Cloud Api";
+	private String creator = "DynamicPDF Cloud Api";
 	private String keywords;
 	private Security security = null;
 	private boolean flattenAllFormFields;
