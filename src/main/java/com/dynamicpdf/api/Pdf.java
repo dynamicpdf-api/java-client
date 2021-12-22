@@ -44,7 +44,6 @@ public class Pdf extends Endpoint
 	/**
      * Adds additional resource to the endpoint.
      * @param resourcePath The resource file path.
-     * @param type The type of the resource.
      * @param resourceName The name of the resource.
      */
     public void addAdditionalResource(String resourcePath, String resourceName)
@@ -73,7 +72,7 @@ public class Pdf extends Endpoint
 
     /**
      * Adds additional resource to the endpoint.
-     * @resourceData The resource data.
+     * @param resourceData The resource data.
      * @param additionalResourceType The type of the resource.
      * @param resourceName The name of the resource.
      */
