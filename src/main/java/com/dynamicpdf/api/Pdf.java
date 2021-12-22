@@ -445,7 +445,7 @@ public class Pdf extends Endpoint
 		return this.instructions.getOutlines();
 	}
 
-	/*
+	/**
 	 * Gets the instructions json based on the inputs passed.
 	 * @return The json string.
 	 */

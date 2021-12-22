@@ -2,9 +2,9 @@ package com.dynamicpdf.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//<summary>
-/// Specifies additional resource type.
-/// </summary>
+/**
+ * Specifies additional resource type.
+ */
 public enum AdditionalResourceType {
 
 	/**

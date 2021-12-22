@@ -1,6 +1,6 @@
 package com.dynamicpdf.api;
 
-public class AdditionalResource extends Resource{
+class AdditionalResource extends Resource{
 
 	private String mimeType ="";
 	private ResourceType type = ResourceType.LAYOUTDATA;
