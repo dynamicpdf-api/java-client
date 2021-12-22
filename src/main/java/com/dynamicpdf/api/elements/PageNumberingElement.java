@@ -105,6 +105,9 @@ public class PageNumberingElement extends Element {
 		return ElementType.PAGENUMBERING;
 	}
 
+    /**
+    * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+    */
 	@JsonIgnore
 	public Resource getResource() {
 		return resource;
@@ -114,6 +117,9 @@ public class PageNumberingElement extends Element {
 		resource = value;
 	}
 
+    /**
+    * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+    */
 	@JsonIgnore
 	public Font getTextFont() {
 		return font;

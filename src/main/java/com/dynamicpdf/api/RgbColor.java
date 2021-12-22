@@ -31,7 +31,10 @@ public class RgbColor extends Color {
 		this.green = green;
 		this.blue = blue;
 	}
-
+	
+    /**
+    * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+    */
 	public String getColorString() {
 		if (colorString != null) {
 			return colorString;
