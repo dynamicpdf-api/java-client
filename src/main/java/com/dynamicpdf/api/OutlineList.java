@@ -83,6 +83,10 @@ public class OutlineList {
 		return add(text, input, 0, PageZoom.FITPAGE);
 	}
 	
+	/**
+     * Adds an <code>Outline</code> object to the outline list.
+     * @param pdfInput PdfInput of type <code>PdfInput</code>  object to import outlines to the PDF.
+     */
 	public void addPdfOutlines(PdfInput pdfInput)
 	{
 		outlines.add(new Outline(pdfInput));
