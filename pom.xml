@@ -1,40 +1,32 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.dynamicpdf.api</groupId>
 	<artifactId>dynamicpdf-api</artifactId>
-	<version>0.9.0</version>
-
+	<version>1.1.0</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
-
 	<name>Dynamicpdf.Api</name>
-	<description>A client library for access the DynamicPDF API.</description>
+	<description>A Java Client API that uses the DynamicPDF Cloud API to create, merge, split, form fill, stamp, secure/encrypt PDF documents.</description>
 	<url>https://github.com/dynamicpdf-api/java-client</url>
 	<inceptionYear>2021</inceptionYear>
-
 	<organization>
 		<name>ceTeSoftware</name>
 		<url>https://cloud.dynamicpdf.com/</url>
 	</organization>
-
 	<licenses>
 		<license>
 			<name>MIT License</name>
 			<url>http://www.opensource.org/licenses/mit-license.php</url>
 		</license>
 	</licenses>
-
 	<scm>
 		<connection>scm:git:git://github.com/dynamicpdf-api/java-client.git</connection>
 		<developerConnection>scm:git:ssh://github.com:dynamicpdf-api/java-client.git</developerConnection>
 		<url>https://github.com/dynamicpdf-api/java-client</url>
 	</scm>
-	
 	<developers>
 		<developer>
 			<name>Java Dev Team</name>
@@ -43,14 +35,12 @@
 			<organizationUrl>http://www.dynamicpdf.com</organizationUrl>
 		</developer>
 	</developers>
-
 	<distributionManagement>
 		<repository>
 			<id>ossrh</id>
 			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -73,7 +63,6 @@
 			<version>2.12.1</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -85,7 +74,6 @@
 					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -96,7 +84,6 @@
 					</includes>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -108,7 +95,6 @@
 					<autoReleaseAfterClose>false</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -154,5 +140,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

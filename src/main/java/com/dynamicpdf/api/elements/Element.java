@@ -35,6 +35,9 @@ public abstract class Element {
 
 	abstract ElementType getType();
 
+    /**
+    * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+    */
 	public Resource getResource() {
 		return null;
 	}
@@ -51,6 +54,9 @@ public abstract class Element {
 		inputValue = value;
 	}
 
+    /**
+    * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+    */
 	public Font getTextFont() {
 		return textFont;
 	}
