@@ -1,5 +1,7 @@
 package PdfText;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ResourceBundle;
@@ -22,42 +24,15 @@ public class PdfTextSamples {
 	}
 
 	@Test
-	public static void PdfTextSample()
-	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\3PagesWithText.pdf");
-
-		PdfText text = new PdfText(resource);
-		PdfTextResponse response = text.process();
-
-		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text.json");
-			try {
-				FileWriter fw=new FileWriter(file);    
-				fw.write(response.getJsonContent());    
-				fw.close();  
-			}
-			catch (Exception e) {
-				System.out.println("Exception: " + e);
-			}
-		}
-	}
-
-	@Test
 	public static void TextExtraction()
 	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\Test_Textmarker_Serienbrief(2).pdf");
+		PdfResource resource = new PdfResource("src\\test\\resources\\TimeMachine.pdf");
 
 		PdfText text = new PdfText(resource);
 		PdfTextResponse response = text.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text1.json");
+			File file = new File("src\\test\\outputs\\PdfTextExtraction.json");
 			try {
 				FileWriter fw=new FileWriter(file);    
 				fw.write(response.getJsonContent());    
@@ -67,15 +42,13 @@ public class PdfTextSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 
 	@Test
 	public static void TextExtractionWithSinglePage()
 	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\Test_Textmarker_Serienbrief(2).pdf");
+		PdfResource resource = new PdfResource("src\\test\\resources\\TimeMachine.pdf");
 
 		PdfText text = new PdfText(resource);
 		text.setStartPage(5);
@@ -84,7 +57,7 @@ public class PdfTextSamples {
 		PdfTextResponse response = text.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text2.json");
+			File file = new File("src\\test\\outputs\\PdfTextExtractionWithSinglePage.json");
 			try {
 				FileWriter fw=new FileWriter(file);    
 				fw.write(response.getJsonContent());    
@@ -94,21 +67,21 @@ public class PdfTextSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 
 	@Test
 	public static void TextExtractionWithMultipage()
 	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\Test_Textmarker_Serienbrief(2).pdf");
+		PdfResource resource = new PdfResource("src\\test\\resources\\TimeMachine.pdf");
 
 		PdfText text = new PdfText(resource);
+		text.setStartPage(2);
+		text.setPageCount(3);
 		PdfTextResponse response = text.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text3.json");
+			File file = new File("src\\test\\outputs\\PdfTextExtractionWithMultipage.json");
 			try {
 				FileWriter fw=new FileWriter(file);    
 				fw.write(response.getJsonContent());    
@@ -118,78 +91,7 @@ public class PdfTextSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
-	}
-
-	@Test
-	public static void TextExtractionCJKFonts()
-	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\pdf_font-zhcn.pdf");
-
-		PdfText text = new PdfText(resource);
-		PdfTextResponse response = text.process();
-
-		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text4.json");
-			try {
-				FileWriter fw=new FileWriter(file);    
-				fw.write(response.getJsonContent());    
-				fw.close();  
-			}
-			catch (Exception e) {
-				System.out.println("Exception: " + e);
-			}
-		}
-	}
-
-	@Test
-	public static void TextExtractionSpecialChars()
-	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\Input.pdf");
-
-		PdfText text = new PdfText(resource);
-		PdfTextResponse response = text.process();
-
-		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text5.json");
-			try {
-				FileWriter fw=new FileWriter(file);    
-				fw.write(response.getJsonContent());    
-				fw.close();  
-			}
-			catch (Exception e) {
-				System.out.println("Exception: " + e);
-			}
-		}
-	}
-
-	@Test
-	public static void TextExtractionArabic()
-	{
-
-
-
-		PdfResource resource = new PdfResource("src\\test\\resources\\PdfText\\Arabic.pdf");
-
-		PdfText text = new PdfText(resource);
-		PdfTextResponse response = text.process();
-
-		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\text6.json");
-			try {
-				FileWriter fw=new FileWriter(file);    
-				fw.write(response.getJsonContent());    
-				fw.close();  
-			}
-			catch (Exception e) {
-				System.out.println("Exception: " + e);
-			}
-		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 
 }

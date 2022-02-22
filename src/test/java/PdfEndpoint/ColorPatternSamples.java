@@ -1,5 +1,7 @@
 package PdfEndpoint;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -31,7 +33,6 @@ public class ColorPatternSamples {
 	@Test
 	public void PdfPageInput_NamedColorSample_PdfOutput()
 	{
-
 		Pdf pdf = new Pdf();
 		pdf.setAuthor("Author");
 		pdf.setTitle("Title");
@@ -48,7 +49,7 @@ public class ColorPatternSamples {
 		PdfResponse response = pdf.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\javaOutput.pdf");
+			File file = new File("src\\test\\outputs\\ColorPatternNamedColor.pdf");
 			try {
 				OutputStream os = new FileOutputStream(file);
 				os.write(response.getContent());
@@ -57,13 +58,13 @@ public class ColorPatternSamples {
 			catch (Exception e) {
 				System.out.println("Exception: " + e);
 			}
-		}
+		}		
+		assertEquals(response.getIsSuccessful(), true);
 	}
 	
 	@Test
 	public void PdfPageInput_RGBColorSample_PdfOutput()
 	{
-
 		Pdf pdf = new Pdf();
 		pdf.setAuthor("Author");
 		pdf.setTitle("Title");
@@ -80,7 +81,7 @@ public class ColorPatternSamples {
 		PdfResponse response = pdf.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\javaOutput1.pdf");
+			File file = new File("src\\test\\outputs\\ColorPatternRGBColor.pdf");
 			try {
 				OutputStream os = new FileOutputStream(file);
 				os.write(response.getContent());
@@ -90,6 +91,7 @@ public class ColorPatternSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 	
 	@Test
@@ -112,7 +114,7 @@ public class ColorPatternSamples {
 		PdfResponse response = pdf.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\javaOutput2.pdf");
+			File file = new File("src\\test\\outputs\\ColorPatternCMYKColor.pdf");
 			try {
 				OutputStream os = new FileOutputStream(file);
 				os.write(response.getContent());
@@ -122,6 +124,7 @@ public class ColorPatternSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 	
 	@Test
@@ -144,7 +147,7 @@ public class ColorPatternSamples {
 		PdfResponse response = pdf.process();
 
 		if (response.getIsSuccessful()){
-			File file = new File("C:\\Data\\outputs\\javaOutput3.pdf");
+			File file = new File("src\\test\\outputs\\ColorPatternGrayscale.pdf");
 			try {
 				OutputStream os = new FileOutputStream(file);
 				os.write(response.getContent());
@@ -154,5 +157,6 @@ public class ColorPatternSamples {
 				System.out.println("Exception: " + e);
 			}
 		}
+		assertEquals(response.getIsSuccessful(), true);
 	}
 }
