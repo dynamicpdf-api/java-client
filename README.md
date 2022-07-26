@@ -4,7 +4,9 @@ ___
 
 # Java Client Library (`java-client`)
 
-This project contains the DynamicPDF Cloud API's Java client library (`java-client`) for the following REST API endpoints. The website for this project is available at [cloud.dynamicpdf.com](https://cloud.dynamicpdf.com/).
+The Java Client library (`java-client`) uses the DynamicPDF Cloud API Java client library to create, merge, split, form fill, stamp, obtain metadata, convert, and secure/encrypt PDF documents. For more information, refer to the [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/) website.
+
+The DynamicPDF Cloud API consists of the following endpoints.
 
 * `dlex-layout`
 * `image-info`
@@ -13,9 +15,9 @@ This project contains the DynamicPDF Cloud API's Java client library (`java-clie
 * `pdf-text`
 * `pdf-xmp`
 
-## Jar
+## Client Library
 
-* Obtain the jar from sonatype at [com.dynamicpdf.api](https://search.maven.org/search?q=g:com.dynamicpdf.api). There you will find the instructions for adding java-client to your project using Maven, Gradle, and other build systems.
+* Obtain the library from sonatype at [com.dynamicpdf.api](https://search.maven.org/search?q=g:com.dynamicpdf.api). There you will find the instructions for adding the `java-client` library to your project using Maven, Gradle, and other build systems.
 
 ```
 <dependency>
@@ -72,4 +74,4 @@ Ticket support is available to Pro Plan subscribers. But we still encourage you 
 
 # License
 
-[MIT License](./LICENSE)
+The `java-client` library is licensed under the [MIT License](./LICENSE).
