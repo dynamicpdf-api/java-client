@@ -23,5 +23,11 @@ public enum AdditionalResourceType {
 	 * Font resource.
 	 */
 	@JsonProperty("font")
-	FONT
+	FONT,
+	
+	/**
+	 * Html resource.
+	 */
+	@JsonProperty("html")
+	HTML
 }
