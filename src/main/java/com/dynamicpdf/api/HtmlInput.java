@@ -30,10 +30,8 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(HtmlResource resource, String basepath, PageSize size, PageOrientation orientation, Float margins){
     	super(resource);
-        if (orientation != PageOrientation.PORTRAIT){
-            setPageOrientation(orientation);
-        }
         setPageSize(size);
+        setPageOrientation(orientation);
         if (basepath != null){
             setBasePath(basepath);
         }
@@ -55,10 +53,8 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(HtmlResource resource, String basepath, PageSize size, PageOrientation orientation){
     	super(resource);
-        if (orientation != PageOrientation.PORTRAIT){
-            setPageOrientation(orientation);
-        }
         setPageSize(size);
+        setPageOrientation(orientation);
         if (basepath != null){
             setBasePath(basepath);
         }
@@ -108,22 +104,22 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(String htmlString, String basepath, PageSize size, PageOrientation orientation, Float margins){
     	super();
-        if (orientation != PageOrientation.PORTRAIT){
-            setPageOrientation(orientation);
-        }
-        setPageSize(size);
-        if (basepath != null){
-            setBasePath(basepath);
-        }
-        if (margins != null){
-            setTopMargin(margins);
-            setBottomMargin(margins);
-            setRightMargin(margins);
-            setLeftMargin(margins);
-        }
-        if (htmlString != null){
-            setHtmlString(htmlString);
-        }
+		if (htmlString != null && htmlString.length() > 0) {
+			setHtmlString(htmlString);
+			setPageSize(size);
+			setPageOrientation(orientation);
+			if (basepath != null) {
+				setBasePath(basepath);
+			}
+			if (margins != null) {
+				setTopMargin(margins);
+				setBottomMargin(margins);
+				setRightMargin(margins);
+				setLeftMargin(margins);
+			}
+		} else {
+			throw new EndpointException("Specify valid Html string.");
+		}
     }   
     
     /**
@@ -135,16 +131,16 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(String htmlString, String basepath, PageSize size, PageOrientation orientation){
     	super();
-        if (orientation != PageOrientation.PORTRAIT){
-            setPageOrientation(orientation);
-        }
-        setPageSize(size);
-        if (basepath != null){
-            setBasePath(basepath);
-        }
-        if (htmlString != null){
-            setHtmlString(htmlString);
-        }
+		if (htmlString != null && htmlString.length() > 0) {
+			setHtmlString(htmlString);
+			setPageSize(size);
+			setPageOrientation(orientation);
+			if (basepath != null) {
+				setBasePath(basepath);
+			}
+		} else {
+			throw new EndpointException("Specify valid Html string.");
+		}
     } 
 
     /**
@@ -155,13 +151,15 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(String htmlString, String basepath, PageSize size){
     	super();
-        setPageSize(size);
-        if (basepath != null){
-            setBasePath(basepath);
-        }
-        if (htmlString != null){
-            setHtmlString(htmlString);
-        }
+		if (htmlString != null && htmlString.length() > 0) {
+			setHtmlString(htmlString);
+			setPageSize(size);
+			if (basepath != null) {
+				setBasePath(basepath);
+			}
+		} else {
+			throw new EndpointException("Specify valid Html string.");
+		}
     } 
     
     /**
@@ -171,12 +169,14 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(String htmlString, String basepath){
     	super();
-        if (basepath != null){
-            setBasePath(basepath);
-        }
-        if (htmlString != null){
-            setHtmlString(htmlString);
-        }
+		if (htmlString != null && htmlString.length() > 0) {
+			setHtmlString(htmlString);
+			if (basepath != null) {
+				setBasePath(basepath);
+			}
+		} else {
+			throw new EndpointException("Specify valid Html string.");
+		}
     } 
     
     /**
@@ -185,38 +185,36 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(String htmlString){
     	super();
-        if (htmlString != null){
-            setHtmlString(htmlString);
-        }
+		if (htmlString != null && htmlString.length() > 0) {
+			setHtmlString(htmlString);
+		} else {
+			throw new EndpointException("Specify valid Html string.");
+		}
     } 
     
     /**
-	 * Gets the Html String for Input.
-	 * @return The Html String.
+	 * Gets the html string for the input.
+	 * @return The html string.
 	 */
     public String getHtmlString() { 
     	return htmlString;
     }
     
-    /**
-	 * sets the Html String for Input.
-	 * @param value The Html String.
-	 */
-    public void setHtmlString(String value){
+    void setHtmlString(String value){
     	htmlString = value;
     }
 
     /**
-	 * Gets the Basepath option.
-	 * @return the Basepath option.
+	 * Gets the base path option.
+	 * @return the base path option.
 	 */
     public String getBasePath(){
     	return basePath;
     }
 
     /**
-	 * Sets the Basepath option.
-	 * @param value The Basepath option.
+	 * Sets the base path option.
+	 * @param value The base path option.
 	 */
     public void setBasePath(String value) {
     	basePath = value;

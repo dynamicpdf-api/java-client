@@ -67,11 +67,7 @@ public abstract class Input {
 		return resourceName;
 	}
 
-	/**
-	 * Sets  the resource name.
-	 * @param value The resource name.
-	 */
-	public void setResourceName(String value) {
+	void setResourceName(String value) {
 		resourceName = value;
 	}
 
