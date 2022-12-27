@@ -22,8 +22,8 @@ public class PageInput extends Input {
     private float bottomMargin = 0;
     private float rightMargin = 0;
     private float leftMargin = 0;
-    private PageSize pageSize;
-    private PageOrientation pageOrientation;
+    private PageSize pageSize = PageSize.LETTER;
+    private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
 	private List<Element> elements = null;
 
 	/**
@@ -200,9 +200,9 @@ public class PageInput extends Input {
 	 */
     public void setPageSize(PageSize value){
         pageSize = value;
-        double smaller = 0.0f;
-        double larger = 0.0f;
-        UnitConverter.getPaperSize(value, smaller, larger);
+        double[] paperSize = UnitConverter.getPaperSize(value);
+        double smaller = paperSize[0];
+        double larger = paperSize[1];
         if (getPageOrientation() == PageOrientation.PORTRAIT){
             setPageHeight((float)larger);
             setPageWidth((float)smaller);

@@ -9,8 +9,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class HtmlInput extends Input{
 
-	private PageSize pageSize;
-    private PageOrientation pageOrientation;
+	private PageSize pageSize = PageSize.LETTER;
+    private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
     private String htmlString = null;
     private String basePath = null;
     private float topMargin = 0;
@@ -337,9 +337,9 @@ public class HtmlInput extends Input{
 	 */
     public void setPageSize(PageSize value){
         pageSize = value;
-        double smaller = 0.0f;
-        double larger = 0.0f;
-        UnitConverter.getPaperSize(value, smaller, larger);
+        double[] paperSize = UnitConverter.getPaperSize(value);
+        double smaller = paperSize[0];
+        double larger = paperSize[1];
         if (getPageOrientation() == PageOrientation.PORTRAIT){
             setPageHeight((float)larger);
             setPageWidth((float)smaller);
