@@ -350,9 +350,7 @@ public class Pdf extends Endpoint
 	 */
     public HtmlInput AddHtml(String html, String basepath, PageSize size, PageOrientation orientation, Float margins)
     {
-        HtmlInput input = new HtmlInput(html, basepath, size, orientation, margins);
-        this.getInputs().add(input);
-        return input;
+    	return AddHtml(new HtmlResource(html), basepath, size, orientation, margins);
     }
     
 	/**

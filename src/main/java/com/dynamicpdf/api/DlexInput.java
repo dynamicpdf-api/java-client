@@ -78,7 +78,11 @@ public class DlexInput extends Input {
 		return layoutDataResourceName;
 	}
 
-	void setLayoutDataResourceName(String value) {
+	/**
+	 * sets the name for layout data resource.
+	 * @param value The name for layout data resource.
+	 */
+	public void setLayoutDataResourceName(String value) {
 		layoutDataResourceName = value;
 	}
 }

@@ -4,8 +4,13 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,7 +31,9 @@ public class HtmlInputSamples {
 
          Pdf pdf = new Pdf();
 
-         HtmlInput html = new HtmlInput("<html><body>hello</body></html>");
+         HtmlResource htmlResource = new HtmlResource("<html><body>hello</body></html>");
+         
+         HtmlInput html = new HtmlInput(htmlResource);
          html.setPageWidth(300);
          html.setPageHeight(200);
     
@@ -40,7 +47,7 @@ public class HtmlInputSamples {
          PdfResponse response = pdf.process();
 
          if (response.getIsSuccessful()) {
- 			File file = new File("src\\test\\outputs\\HtmlToPdf.pdf");
+ 			File file = new File("src\\test\\outputs\\HtmlToPdfString.pdf");
  			try {
  				OutputStream os = new FileOutputStream(file);
  				os.write(response.getContent());
@@ -56,8 +63,10 @@ public class HtmlInputSamples {
     public void HtmlStringParameters_pdfoutput(){
 
          Pdf pdf = new Pdf();
+         
+         HtmlResource htmlResource = new HtmlResource("<html><body>hello</body></html>");
 
-         HtmlInput html = new HtmlInput("<html><body>hello</body></html>", null, PageSize.LETTER, PageOrientation.PORTRAIT, 10f);
+         HtmlInput html = new HtmlInput(htmlResource, null, PageSize.LETTER, PageOrientation.PORTRAIT, 10f);
 
          pdf.getInputs().add(html);
 
@@ -80,8 +89,16 @@ public class HtmlInputSamples {
      public void HtmlResource_pdfoutput(){
          Pdf pdf = new Pdf();
 
-         HtmlResource file = new HtmlResource("src\\test\\resources\\html.html");
+         String htmlString = null;
+         try {
+        	 htmlString = Files.lines(Paths.get("src\\test\\resources\\html.html"), StandardCharsets.UTF_8)
+					   .collect(Collectors.joining(System.lineSeparator()));
+         } catch (IOException ex) {
+        	 System.out.println("Exception: " + ex);
+		 }
 
+         HtmlResource file = new HtmlResource(htmlString);
+         
          HtmlInput html = new HtmlInput(file);
          
          html.setPageSize(PageSize.B4);
@@ -97,7 +114,7 @@ public class HtmlInputSamples {
          PdfResponse response = pdf.process();
 
          if (response.getIsSuccessful()) {
-  			File file1 = new File("src\\test\\outputs\\HtmlToPdf1.pdf");
+  			File file1 = new File("src\\test\\outputs\\HtmlToPdfFile.pdf");
   			try {
   				OutputStream os = new FileOutputStream(file1);
   				os.write(response.getContent());
@@ -113,8 +130,16 @@ public class HtmlInputSamples {
      public void HtmlResourcePageSize_pdfoutput(){
          Pdf pdf = new Pdf();
 
-         HtmlResource file = new HtmlResource("src\\test\\resources\\html.html");
+         String htmlString = null;
+         try {
+        	 htmlString = Files.lines(Paths.get("src\\test\\resources\\html.html"), StandardCharsets.UTF_8)
+					   .collect(Collectors.joining(System.lineSeparator()));
+         } catch (IOException ex) {
+        	 System.out.println("Exception: " + ex);
+		 }
 
+         HtmlResource file = new HtmlResource(htmlString);
+         
          HtmlInput html = new HtmlInput(file);
          
          html.setPageSize(PageSize.POSTCARD);
@@ -140,8 +165,16 @@ public class HtmlInputSamples {
      public void HtmlResourcePageHeightPageWidth_pdfoutput(){
          Pdf pdf = new Pdf();
 
-         HtmlResource file = new HtmlResource("src\\test\\resources\\html.html");
+         String htmlString = null;
+         try {
+        	 htmlString = Files.lines(Paths.get("src\\test\\resources\\html.html"), StandardCharsets.UTF_8)
+					   .collect(Collectors.joining(System.lineSeparator()));
+         } catch (IOException ex) {
+        	 System.out.println("Exception: " + ex);
+		 }
 
+         HtmlResource file = new HtmlResource(htmlString);
+         
          HtmlInput html = new HtmlInput(file);
          html.setPageHeight(400);
          html.setPageWidth(300);
@@ -167,8 +200,16 @@ public class HtmlInputSamples {
      public void HtmlResourceParameters_pdfoutput(){
          Pdf pdf = new Pdf();
 
-         HtmlResource file = new HtmlResource("src\\test\\resources\\html.html");
+         String htmlString = null;
+         try {
+        	 htmlString = Files.lines(Paths.get("src\\test\\resources\\html.html"), StandardCharsets.UTF_8)
+					   .collect(Collectors.joining(System.lineSeparator()));
+         } catch (IOException ex) {
+        	 System.out.println("Exception: " + ex);
+		 }
 
+         HtmlResource file = new HtmlResource(htmlString);
+         
          HtmlInput html = new HtmlInput(file, null, PageSize.A3, PageOrientation.LANDSCAPE, 30f);
          
          pdf.getInputs().add(html);

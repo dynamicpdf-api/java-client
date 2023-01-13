@@ -11,7 +11,6 @@ public class HtmlInput extends Input{
 
 	private PageSize pageSize = PageSize.LETTER;
     private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
-    private String htmlString = null;
     private String basePath = null;
     private float topMargin = 0;
     private float bottomMargin = 0;
@@ -92,116 +91,6 @@ public class HtmlInput extends Input{
 	 */
     public HtmlInput(HtmlResource resource){
     	super(resource);
-    }
-    
-    /**
-	 * Initializes a new instance of the <code>HtmlInput</code> class.
-	 * @param htmlString The html string.
-	 * @param basepath The basepath options for the url.
-	 * @param size The page dimensions.
-	 * @param orientation The orientation of the page.
-	 * @param margins The margins on the page.
-	 */
-    public HtmlInput(String htmlString, String basepath, PageSize size, PageOrientation orientation, Float margins){
-    	super();
-		if (htmlString != null && htmlString.length() > 0) {
-			setHtmlString(htmlString);
-			setPageSize(size);
-			setPageOrientation(orientation);
-			if (basepath != null) {
-				setBasePath(basepath);
-			}
-			if (margins != null) {
-				setTopMargin(margins);
-				setBottomMargin(margins);
-				setRightMargin(margins);
-				setLeftMargin(margins);
-			}
-		} else {
-			throw new EndpointException("Specify valid Html string.");
-		}
-    }   
-    
-    /**
-	 * Initializes a new instance of the <code>HtmlInput</code> class.
-	 * @param htmlString The html string.
-	 * @param basepath The basepath options for the url.
-	 * @param size The page dimensions.
-	 * @param orientation The orientation of the page.
-	 */
-    public HtmlInput(String htmlString, String basepath, PageSize size, PageOrientation orientation){
-    	super();
-		if (htmlString != null && htmlString.length() > 0) {
-			setHtmlString(htmlString);
-			setPageSize(size);
-			setPageOrientation(orientation);
-			if (basepath != null) {
-				setBasePath(basepath);
-			}
-		} else {
-			throw new EndpointException("Specify valid Html string.");
-		}
-    } 
-
-    /**
-	 * Initializes a new instance of the <code>HtmlInput</code> class.
-	 * @param htmlString The html string.
-	 * @param basepath The basepath options for the url.
-	 * @param size The page dimensions.
-	 */
-    public HtmlInput(String htmlString, String basepath, PageSize size){
-    	super();
-		if (htmlString != null && htmlString.length() > 0) {
-			setHtmlString(htmlString);
-			setPageSize(size);
-			if (basepath != null) {
-				setBasePath(basepath);
-			}
-		} else {
-			throw new EndpointException("Specify valid Html string.");
-		}
-    } 
-    
-    /**
-	 * Initializes a new instance of the <code>HtmlInput</code> class.
-	 * @param htmlString The html string.
-	 * @param basepath The basepath options for the url.
-	 */
-    public HtmlInput(String htmlString, String basepath){
-    	super();
-		if (htmlString != null && htmlString.length() > 0) {
-			setHtmlString(htmlString);
-			if (basepath != null) {
-				setBasePath(basepath);
-			}
-		} else {
-			throw new EndpointException("Specify valid Html string.");
-		}
-    } 
-    
-    /**
-	 * Initializes a new instance of the <code>HtmlInput</code> class.
-	 * @param htmlString The html string.
-	 */
-    public HtmlInput(String htmlString){
-    	super();
-		if (htmlString != null && htmlString.length() > 0) {
-			setHtmlString(htmlString);
-		} else {
-			throw new EndpointException("Specify valid Html string.");
-		}
-    } 
-    
-    /**
-	 * Gets the html string for the input.
-	 * @return The html string.
-	 */
-    public String getHtmlString() { 
-    	return htmlString;
-    }
-    
-    void setHtmlString(String value){
-    	htmlString = value;
     }
 
     /**
