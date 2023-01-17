@@ -37,10 +37,10 @@ public class HtmlInputSamples {
          html.setPageWidth(300);
          html.setPageHeight(200);
     
-         html.setTopMargin(10);
-         html.setBottomMargin(10);
-         html.setRightMargin(40);
-         html.setLeftMargin(40);
+         html.setTopMargin(10f);
+         html.setBottomMargin(10f);
+         html.setRightMargin(40f);
+         html.setLeftMargin(40f);
 
          pdf.getInputs().add(html);
 
@@ -104,10 +104,10 @@ public class HtmlInputSamples {
          html.setPageSize(PageSize.B4);
          html.setPageOrientation(PageOrientation.LANDSCAPE);
 
-         html.setTopMargin(50);
-         html.setBottomMargin(50);
-         html.setRightMargin(80);
-         html.setLeftMargin(80);
+         html.setTopMargin(50f);
+         html.setBottomMargin(50f);
+         html.setRightMargin(80f);
+         html.setLeftMargin(80f);
 
          pdf.getInputs().add(html);
 

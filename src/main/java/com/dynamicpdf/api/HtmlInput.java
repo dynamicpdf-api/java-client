@@ -12,12 +12,12 @@ public class HtmlInput extends Input{
 	private PageSize pageSize = PageSize.LETTER;
     private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
     private String basePath = null;
-    private float topMargin = 0;
-    private float bottomMargin = 0;
-    private float rightMargin = 0;
-    private float leftMargin = 0;
-    private float pageWidth = 612.0f;
-    private float pageHeight = 792.0f;
+    private Float topMargin = null;
+    private Float bottomMargin = null;
+    private Float rightMargin = null;
+    private Float leftMargin = null;
+    private float pageWidth;
+    private float pageHeight;
 
     /**
 	 * Initializes a new instance of the <code>HtmlInput</code> class.
@@ -113,7 +113,7 @@ public class HtmlInput extends Input{
 	 * Gets the top margin.
 	 * @return The top margin.
 	 */
-    public float getTopMargin() { 
+    public Float getTopMargin() { 
     	return topMargin; 
     }
     
@@ -121,7 +121,7 @@ public class HtmlInput extends Input{
 	 * Sets the top margin.
 	 * @param value The top margin.
 	 */
-    public void setTopMargin(float value) {
+    public void setTopMargin(Float value) {
     	topMargin = value;
     }
     
@@ -129,7 +129,7 @@ public class HtmlInput extends Input{
    	 * Gets the left margin.
    	 * @return The left margin.
    	 */
-    public float getLeftMargin() {
+    public Float getLeftMargin() {
      return leftMargin;
     }
 
@@ -137,7 +137,7 @@ public class HtmlInput extends Input{
 	 * Sets the left margin.
 	 * @param value The left margin.
 	 */
-    public void setLeftMargin(float value) {
+    public void setLeftMargin(Float value) {
     	leftMargin = value;
     }
     
@@ -145,7 +145,7 @@ public class HtmlInput extends Input{
 	 * Gets the bottom margin.
 	 * @return The bottom margin.
 	 */
-    public float getBottomMargin() { 
+    public Float getBottomMargin() { 
     	return bottomMargin;
    	}
 
@@ -153,7 +153,7 @@ public class HtmlInput extends Input{
 	 * Sets the bottom margin.
 	 * @param value The bottom margin.
 	 */
-    public void setBottomMargin(float value) {
+    public void setBottomMargin(Float value) {
     	bottomMargin = value;
     }
     
@@ -161,7 +161,7 @@ public class HtmlInput extends Input{
 	 * Gets the right margin.
 	 * @return The right margin.
 	 */
-    public float getRightMargin() { 
+    public Float getRightMargin() { 
         return rightMargin;
     }
 
@@ -169,7 +169,7 @@ public class HtmlInput extends Input{
 	 * Sets the right margin.
 	 * @param value The right margin.
 	 */
-    public void setRightMargin(float value) {
+    public void setRightMargin(Float value) {
     	rightMargin = value;
     }
     
@@ -254,15 +254,15 @@ public class HtmlInput extends Input{
 	 */
     public void setPageOrientation(PageOrientation value){
         pageOrientation = value;
-        float smaller = (float)getPageWidth();
-        float larger = (float)getPageHeight();
+        float smaller;
+        float larger;
         if (getPageWidth() > getPageHeight()){
-            smaller = (float)getPageHeight();
-            larger = (float)getPageWidth();
+            smaller = getPageHeight();
+            larger = getPageWidth();
         }
         else {
-            smaller = (float)getPageWidth();
-            larger = (float)getPageHeight();
+            smaller = getPageWidth();
+            larger = getPageHeight();
         }
         if (getPageOrientation() == PageOrientation.PORTRAIT){
             setPageHeight(larger);

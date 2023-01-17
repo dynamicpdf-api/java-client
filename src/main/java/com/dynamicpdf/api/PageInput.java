@@ -16,15 +16,17 @@ import java.util.List;
 @JsonInclude(Include.NON_DEFAULT)
 public class PageInput extends Input {
 
-	private float pageWidth = 612.0f;
-	private float pageHeight = 792.0f;
-	private float topMargin = 0;
-    private float bottomMargin = 0;
-    private float rightMargin = 0;
-    private float leftMargin = 0;
+	private Float pageWidth = null;
+	private Float pageHeight = null;
+	private Float topMargin = null;
+    private Float bottomMargin = null;
+    private Float rightMargin = null;
+    private Float leftMargin = null;
     private PageSize pageSize = PageSize.LETTER;
     private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
 	private List<Element> elements = null;
+	private final float DefaultPageHeight = 792.0f;
+    private final float DefaultPagewidth = 612.0f;
 
 	/**
 	 * Initializes a new instance of the <code>PageInput</code> class.
@@ -33,10 +35,8 @@ public class PageInput extends Input {
 	 * @param margins The margins of the page.
 	 */
     public PageInput(PageSize size, PageOrientation orientation, Float margins) { 
-        if(orientation != PageOrientation.PORTRAIT)
-            setPageOrientation(orientation);
-        if(size != PageSize.A4) 
-            setPageSize(size);
+    	setPageSize(size);
+    	setPageOrientation(orientation); 
         if(margins != null){
             setTopMargin(margins);
             setBottomMargin(margins);
@@ -51,10 +51,8 @@ public class PageInput extends Input {
 	 * @param orientation The orientation of the page.
 	 */
     public PageInput(PageSize size, PageOrientation orientation) { 
-        if(orientation != PageOrientation.PORTRAIT)
-            setPageOrientation(orientation);
-        if(size != PageSize.A4) 
-            setPageSize(size);
+    	setPageSize(size);
+        setPageOrientation(orientation);
     }
     
     /**
@@ -62,8 +60,7 @@ public class PageInput extends Input {
 	 * @param size The size of the page.
 	 */
     public PageInput(PageSize size) { 
-        if(size != PageSize.A4) 
-            setPageSize(size);
+        setPageSize(size);
     }
     
 	/**
@@ -93,7 +90,8 @@ public class PageInput extends Input {
 	 * Gets the width of the page.
 	 * @return The width of the page.
 	 */
-	public float getPageWidth() {
+	@JsonIgnore
+	public Float getPageWidth() {
 		return pageWidth;
 	}
 
@@ -101,7 +99,7 @@ public class PageInput extends Input {
 	 * Sets the width of the page.
 	 * @param value The width of the page.
 	 */
-	public void setPageWidth(float value) {
+	public void setPageWidth(Float value) {
 		pageWidth = value;
 	}
 
@@ -109,7 +107,8 @@ public class PageInput extends Input {
 	 * Gets the height of the page.
 	 * @return The height of the page.
 	 */
-	public float getPageHeight() {
+	@JsonIgnore
+	public Float getPageHeight() {
 		return pageHeight;
 	}
 
@@ -117,15 +116,27 @@ public class PageInput extends Input {
 	 * Sets the height of the page.
 	 * @param value The height of the page.
 	 */
-	public void setPageHeight(float value) {
+	public void setPageHeight(Float value) {
 		pageHeight = value;
+	}
+	
+	@JsonInclude
+	@JsonProperty("pageWidth")
+	float getWidth() {
+		return ((getPageWidth() == null) ? DefaultPagewidth : getPageWidth());
+	}
+
+	@JsonInclude
+	@JsonProperty("pageHeight")
+	float getHeight() {
+		return ((getPageHeight() == null) ? DefaultPageHeight : getPageHeight());
 	}
 
 	/**
 	 * Gets the top margin.
 	 * @return The top margin.
 	 */
-    public float getTopMargin() { 
+    public Float getTopMargin() { 
     	return topMargin; 
     }
     
@@ -133,7 +144,7 @@ public class PageInput extends Input {
 	 * Sets the top margin.
 	 * @param value The top margin.
 	 */
-    public void setTopMargin(float value) {
+    public void setTopMargin(Float value) {
     	topMargin = value;
     }
     
@@ -141,7 +152,7 @@ public class PageInput extends Input {
 	 * Gets the left margin.
 	 * @return The left margin.
 	 */
-    public float getLeftMargin() {
+    public Float getLeftMargin() {
      return leftMargin;
     }
 
@@ -149,7 +160,7 @@ public class PageInput extends Input {
 	 * Sets the left margin.
 	 * @param value The left margin.
 	 */
-    public void setLeftMargin(float value) {
+    public void setLeftMargin(Float value) {
     	leftMargin = value;
     }
     
@@ -157,7 +168,7 @@ public class PageInput extends Input {
 	 * Gets the bottom margin.
 	 * @return The bottom margin.
 	 */
-    public float getBottomMargin() { 
+    public Float getBottomMargin() { 
     	return bottomMargin;
    	}
 
@@ -165,7 +176,7 @@ public class PageInput extends Input {
 	 * Sets the bottom margin.
 	 * @param value The bottom margin.
 	 */
-    public void setBottomMargin(float value) {
+    public void setBottomMargin(Float value) {
     	bottomMargin = value;
     }
     
@@ -173,7 +184,7 @@ public class PageInput extends Input {
 	 * Gets the right margin.
 	 * @return The right margin.
 	 */
-    public float getRightMargin() { 
+    public Float getRightMargin() { 
         return rightMargin;
     }
 
@@ -181,7 +192,7 @@ public class PageInput extends Input {
 	 * Sets the right margin.
 	 * @param value The right margin.
 	 */
-    public void setRightMargin(float value) {
+    public void setRightMargin(Float value) {
     	rightMargin = value;
     }
 
@@ -228,15 +239,15 @@ public class PageInput extends Input {
 	 */
     public void setPageOrientation(PageOrientation value){
         pageOrientation = value;
-        float smaller = (float)getPageWidth();
-        float larger = (float)getPageHeight();
-        if (getPageWidth() > getPageHeight()){
-            smaller = (float)getPageHeight();
-            larger = (float)getPageWidth();
+        float smaller;
+        float larger;
+        if (getWidth() > getHeight()){
+            smaller = getHeight();
+            larger = getWidth();
         }
         else {
-            smaller = (float)getPageWidth();
-            larger = (float)getPageHeight();
+            smaller = getWidth();
+            larger = getHeight();
         }
         if (getPageOrientation() == PageOrientation.PORTRAIT){
             setPageHeight(larger);
