@@ -90,6 +90,9 @@ public class Pdf extends Endpoint
             case PDF:
                 type = ResourceType.PDF;
                 break;
+            case HTML:
+                type = ResourceType.HTML;
+                break;
         }
         AdditionalResource resource = new AdditionalResource(resourceData, resourceName, type);
         getResources().add(resource);
@@ -320,6 +323,36 @@ public class Pdf extends Endpoint
 		return input;
 	}
 
+	/**
+	 * Returns an <code>HtmlInput</code> object containing the input html.
+	 * @param resource The resource of type <code>HtmlResource</code>.
+	 * @param basepath The BasePath option.
+	 * @param size The page dimensions.
+	 * @param orientation The orientation of the page.
+	 * @param margins The margins on the page.
+	 * @return Added pdf pages
+	 */
+    public HtmlInput AddHtml(HtmlResource resource, String basepath, PageSize size, PageOrientation orientation, Float margins)
+    {
+        HtmlInput input = new HtmlInput(resource, basepath, size, orientation, margins);
+        this.getInputs().add(input);
+        return input;
+    }
+
+    /**
+	 * Returns an <code>HtmlInput</code> object containing the input html.
+	 * @param html The HTML input string.
+	 * @param basepath The BasePath option.
+	 * @param size The page dimensions.
+	 * @param orientation The orientation of the page.
+	 * @param margins The margins on the page.
+	 * @return Added pdf pages
+	 */
+    public HtmlInput AddHtml(String html, String basepath, PageSize size, PageOrientation orientation, Float margins)
+    {
+    	return AddHtml(new HtmlResource(html), basepath, size, orientation, margins);
+    }
+    
 	/**
 	 * Returns a <code>DlexInput</code> object containing the input pdf.
 	 * @param dlexResource The dlex resource of type <code>DlexResource</code>.

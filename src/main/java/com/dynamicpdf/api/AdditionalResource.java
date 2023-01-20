@@ -42,6 +42,9 @@ class AdditionalResource extends Resource{
             case ".bmp":
                 type = ResourceType.IMAGE;
                 break;
+            case ".html":
+                type = ResourceType.HTML;
+                break;
         }
         return type;
     }
@@ -115,6 +118,9 @@ class AdditionalResource extends Resource{
             {
                 throw new EndpointException("Unsupported font");
             }
+    	case HTML:
+    		setMimeType("text/html");
+            return ".html";
     	}
     	
 		/*

@@ -34,5 +34,12 @@ public enum InputType {
 	 */
 
 	@JsonProperty("page")
-	PAGE;
+	PAGE,
+	
+	/**
+	 * HTML input.
+	 */
+
+	@JsonProperty("html")
+	HTML
 }
