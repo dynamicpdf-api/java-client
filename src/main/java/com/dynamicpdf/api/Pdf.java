@@ -483,11 +483,20 @@ public class Pdf extends Endpoint
 	 * @return The json string.
 	 */
 	public String getInstructionsJson() {
+		return getInstructionsJson(false);
+	}
+	
+	/**
+	 * Gets the instructions json based on the inputs passed.
+	 * @param indented The boolean value specifying whether the json string is indented or not.
+	 * @return The json string.
+	 */
+	public String getInstructionsJson(boolean indented) {
 		for (Input input : instructions.getInputs()) { 
 			if (input.getType() == InputType.PAGE) {
 				PageInput pageInput = (PageInput)input; 
 				for (Element element : pageInput.getElements()) {
-					if (element.getTextFont() != null) {
+					if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 						instructions.getFonts().add(element.getTextFont());
 					}
 				} 
@@ -496,7 +505,7 @@ public class Pdf extends Endpoint
 				instructions.getTemplates().add(input.getTemplate());
 				if (input.getTemplate().getElements() != null && input.getTemplate().getElements().size() > 0) { 
 					for (Element element : input.getTemplate().getElements()) { 
-						if (element.getTextFont() != null) {
+						if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 							instructions.getFonts().add(element.getTextFont()); 
 						}
 					}
@@ -506,8 +515,13 @@ public class Pdf extends Endpoint
 
 		String jsonText = null; 
 		ObjectMapper basicMapper = new ObjectMapper();
+		
 		try {
-			jsonText = basicMapper.writeValueAsString(this.instructions);
+			if(indented) {
+			    jsonText = basicMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this.instructions);
+			} else {
+				jsonText = basicMapper.writeValueAsString(this.instructions);
+			}
 		} catch(JsonProcessingException e1) {
 			e1.printStackTrace();
 		}
@@ -551,7 +565,7 @@ public class Pdf extends Endpoint
 						if (element.getResource() != null) {
 							finalResources.add(element.getResource());
 						}
-						if (element.getTextFont() != null) {
+						if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 							instructions.getFonts().add(element.getTextFont());
 						}
 					}
@@ -566,7 +580,7 @@ public class Pdf extends Endpoint
 							if (element.getResource() != null) {
 								finalResources.add(element.getResource());
 							}
-							if (element.getTextFont() != null) {
+							if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 								instructions.getFonts().add(element.getTextFont());
 							}
 

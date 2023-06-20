@@ -1,6 +1,7 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.LineStyle;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents a line page element.
@@ -34,6 +36,17 @@ public class LineElement extends Element {
 	 */
 	public LineElement(ElementPlacement placement, float x2Offset, float y2Offset) {
 		setPlacement(placement);
+		this.x2Offset = x2Offset;
+		this.y2Offset = y2Offset;
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>LineElement</code> class.
+	 * @param x2Offset X2 coordinate of the line.
+	 * @param y2Offset Y2 coordinate of the line.
+	 */
+	public LineElement(float x2Offset, float y2Offset) {
+		setPlacement(ElementPlacement.TOPLEFT);
 		this.x2Offset = x2Offset;
 		this.y2Offset = y2Offset;
 	}
@@ -83,6 +96,7 @@ public class LineElement extends Element {
 	 * Gets the X2 coordinate of the line.
 	 * @return The X2 coordinate of the line.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getX2Offset() {
 		return x2Offset;
 	}
@@ -99,6 +113,7 @@ public class LineElement extends Element {
 	 * Gets Y2 coordinate of the line.
 	 * @return The Y2 coordinate of the line.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getY2Offset() {
 		return y2Offset;
 	}
@@ -115,6 +130,7 @@ public class LineElement extends Element {
 	 * Gets the width of the line.
 	 * @return The width of the line.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getWidth() {
 		return width;
 	}

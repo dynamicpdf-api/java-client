@@ -46,7 +46,7 @@ public class Grayscale extends Color {
 		if (colorString != null) {
 			return colorString;
 		} else {
-			return "gray(" + Float.toString(grayLevel) + ")";
+			return "gray(" + Float.toString(grayLevel).replaceAll("\\.?0*$", "") + ")";
 		}
 
 	}

@@ -3,6 +3,7 @@ package com.dynamicpdf.api;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents a Html input.
@@ -113,6 +114,7 @@ public class HtmlInput extends Input{
 	 * Gets the top margin.
 	 * @return The top margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getTopMargin() { 
     	return topMargin; 
     }
@@ -129,6 +131,7 @@ public class HtmlInput extends Input{
    	 * Gets the left margin.
    	 * @return The left margin.
    	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getLeftMargin() {
      return leftMargin;
     }
@@ -145,6 +148,7 @@ public class HtmlInput extends Input{
 	 * Gets the bottom margin.
 	 * @return The bottom margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getBottomMargin() { 
     	return bottomMargin;
    	}
@@ -161,6 +165,7 @@ public class HtmlInput extends Input{
 	 * Gets the right margin.
 	 * @return The right margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getRightMargin() { 
         return rightMargin;
     }
@@ -177,6 +182,7 @@ public class HtmlInput extends Input{
 	 * Gets the width of the page.
 	 * @return The width of the page.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public float getPageWidth() { 
         return pageWidth;
     }
@@ -193,6 +199,7 @@ public class HtmlInput extends Input{
 	 * Gets the height of the page.
 	 * @return The height of the page.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public float getPageHeight() { 
         return pageHeight;
     }

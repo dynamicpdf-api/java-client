@@ -1,6 +1,7 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -37,6 +39,17 @@ public class TextElement extends Element {
 	public TextElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
 		super(value, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>TextElement</code> class
+	 * 
+	 * @param value Text to display in the text element.
+	 * @param xOffset X coordinate of the text element.
+	 * @param yOffset Y coordinate of the text element.
+	 */
+	public TextElement(String value, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>TextElement</code> class
@@ -46,6 +59,15 @@ public class TextElement extends Element {
 	 */
 	public TextElement(String value, ElementPlacement placement) {
 		this(value, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>TextElement</code> class
+	 * 
+	 * @param value Text to display in the text element.
+	 */
+	public TextElement(String value) {
+		this(value, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	@JsonProperty("type")
@@ -148,6 +170,7 @@ public class TextElement extends Element {
 	 * Gets the font size for the text of the text element.
 	 * @return The font size for the text of the text element.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getFontSize() {
 		return fontSize;
 	}

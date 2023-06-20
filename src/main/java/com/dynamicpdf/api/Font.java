@@ -372,6 +372,84 @@ public class Font {
 	public static Font fromStream(InputStream stream) {
 		return fromStream(stream, null);
 	}
+	
+	static String getGoogleFontText(String name, int weight, boolean italic) {
+		return name + "," + Integer.toString(weight) + "," + Boolean.toString(italic);
+	}
+
+	/**
+	 * Initializes a new instance of the <code>Font</code> class
+	 * using the google font name.
+	 * @param fontName The name of the google font.
+	 * @return The font from the google.
+	 */
+	public static Font google(String fontName) {
+		Font font = new Font();
+		font.setName(Font.getGoogleFontText(fontName, 400, false));
+		return font;
+	}
+
+    /**
+     * Initializes a new instance of the <code>Font</code> class
+     * using the google font name and bold.
+     * @param fontName The name of the google font.
+     * @param bold If true font weight will be taken as 700 otherwise 400.
+     * @return The font from the google.
+     */
+	public static Font google(String fontName, boolean bold) {
+		Font font = new Font();
+		if (bold) {
+			font.setName(Font.getGoogleFontText(fontName, 700, false));
+		} else {
+			font.setName(Font.getGoogleFontText(fontName, 400, false));
+		}
+		return font;
+	}
+    
+    /**
+     * Initializes a new instance of the <code>Font</code> class
+     * using the google font name and weight. 
+     * @param fontName The name of the google font.
+     * @param weight The weight of the font.
+     * @return The font from the google.
+     */
+	public static Font google(String fontName, int weight) {
+		Font font = new Font();
+		font.setName(Font.getGoogleFontText(fontName, weight, false));
+		return font;
+	}
+    
+    /**
+     * Initializes a new instance of the <code>Font</code> class
+     * using the google font name, bold and italic. 
+     * @param fontName The name of the google font.
+     * @param bold If true font weight will be taken as 700 otherwise 400.
+     * @param italic The italic property of the font.
+     * @return The font from the google.
+     */
+	public static Font google(String fontName, boolean bold, boolean italic) {
+		Font font = new Font();
+		if (bold) {
+			font.setName(Font.getGoogleFontText(fontName, 700, italic));
+		} else {
+			font.setName(Font.getGoogleFontText(fontName, 400, italic));
+		}
+		return font;
+	}
+    
+    /**
+     * Initializes a new instance of the <code>Font</code> class
+     * using the google font name, weight and italic.  
+     * @param fontName The name of the google font.
+     * @param weight The weight of the font.
+     * @param italic The italic property of the font.
+     * @return The font from the google.
+     */
+	public static Font google(String fontName, int weight, boolean italic) {
+		Font font = new Font();
+		font.setName(Font.getGoogleFontText(fontName, weight, italic));
+		return font;
+	}
 
 	/**
 	 * Initializes a new instance of the <code>Font</code> class 

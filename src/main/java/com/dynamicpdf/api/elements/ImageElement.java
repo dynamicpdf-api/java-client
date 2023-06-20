@@ -1,5 +1,6 @@
 package com.dynamicpdf.api.elements;
 
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.ImageResource;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents an image element.
@@ -40,6 +42,21 @@ public class ImageElement extends Element {
 		setXOffset(xOffset);
 		setYOffset(yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resource <code>ImageResource</code> object containing the image resource.
+	 * @param xOffset X coordinate of the image.
+	 * @param yOffset Y coordinate of the image.
+	 */
+	public ImageElement(ImageResource resource, float xOffset, float yOffset) {
+		super();
+		this.resource = resource;
+		this.resourceName = resource.getResourceName();
+		setPlacement(ElementPlacement.TOPLEFT);
+		setXOffset(xOffset);
+		setYOffset(yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>ImageElement</code> class.
@@ -48,6 +65,14 @@ public class ImageElement extends Element {
 	 */
 	public ImageElement(ImageResource resource, ElementPlacement placement) {
 		this(resource, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resource <code>ImageResource</code> object containing the image resource.
+	 */
+	public ImageElement(ImageResource resource) {
+		this(resource, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	/**
@@ -64,6 +89,20 @@ public class ImageElement extends Element {
 		setXOffset(xOffset);
 		setYOffset(yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resourceName The name of the image resource.
+	 * @param xOffset X coordinate of the image.
+	 * @param yOffset Y coordinate of the image.
+	 */
+	public ImageElement(String resourceName, float xOffset, float yOffset) {
+		super();
+		this.resourceName = resourceName;
+		setPlacement(ElementPlacement.TOPLEFT);
+		setXOffset(xOffset);
+		setYOffset(yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>ImageElement</code> class.
@@ -72,6 +111,14 @@ public class ImageElement extends Element {
 	 */
 	public ImageElement(String resourceName, ElementPlacement placement) {
 		this(resourceName, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>ImageElement</code> class.
+	 * @param resourceName The name of the image resource.
+	 */
+	public ImageElement(String resourceName) {
+		this(resourceName, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	@JsonProperty("type")
@@ -101,6 +148,7 @@ public class ImageElement extends Element {
 	 * Gets horizontal scale of the image.
 	 * @return The horizontal scale of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getScaleX() {
 		return scaleX;
 	}
@@ -117,6 +165,7 @@ public class ImageElement extends Element {
 	 * Gets the vertical scale of the image.
 	 * @return The vertical scale of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getScaleY() {
 		return scaleY;
 	}
@@ -133,6 +182,7 @@ public class ImageElement extends Element {
 	 * Gets the maximum height of the image.
 	 * @return The maximum height of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getMaxHeight() {
 		return maxHeight;
 	}
@@ -149,6 +199,7 @@ public class ImageElement extends Element {
 	 * Gets the maximum width of the image.
 	 * @return The maximum width of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getMaxWidth() {
 		return maxWidth;
 	}
