@@ -26,7 +26,11 @@ class PdfInstructions {
 	private String creator;
 	private String keywords;
 	private Security security = null;
+	
+	@JsonInclude(Include.NON_DEFAULT)
 	private boolean flattenAllFormFields;
+	
+	@JsonInclude(Include.NON_DEFAULT)
 	private boolean retainSignatureFormFields;
 	private List<Input> inputs = new ArrayList<Input>();
 
