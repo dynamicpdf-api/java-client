@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -629,8 +630,15 @@ public class Pdf extends Endpoint
 			}
 			else
 			{
+				if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}
 				pdfResponse = new PdfResponse();
-				pdfResponse.setErrorJson(response.asString()); 
+				String errorMessage = response.jsonPath().getString("message");
+				UUID errorId = response.jsonPath().getUUID("id");
+				pdfResponse.setErrorId(errorId);
+				pdfResponse.setErrorJson(response.asString());
+				pdfResponse.setErrorMessage(errorMessage);
 				pdfResponse.setIsSuccessful(false);
 				pdfResponse.setStatusCode(response.getStatusCode());
 			}
