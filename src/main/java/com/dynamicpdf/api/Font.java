@@ -374,7 +374,13 @@ public class Font {
 	}
 	
 	static String getGoogleFontText(String name, int weight, boolean italic) {
-		return name + "," + Integer.toString(weight) + "," + Boolean.toString(italic);
+		StringBuilder fontText = new StringBuilder(name);
+		fontText.append(":");
+		fontText.append(weight);
+		if (italic) {
+			fontText.append("italic");
+		}
+		return fontText.toString();
 	}
 
 	/**
