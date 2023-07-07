@@ -41,5 +41,11 @@ public enum InputType {
 	 */
 
 	@JsonProperty("html")
-	HTML
+	HTML,
+	
+	/**
+	 * Word input.
+	 */
+	@JsonProperty("word")
+    WORD
 }

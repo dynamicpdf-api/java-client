@@ -41,5 +41,11 @@ public enum ResourceType {
 	 * Html resource.
 	 */
 	@JsonProperty("html")
-	HTML
+	HTML,
+	
+	/**
+	 * Word resource.
+	 */
+	@JsonProperty("word")
+    WORD
 }

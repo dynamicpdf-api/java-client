@@ -354,6 +354,20 @@ public class Pdf extends Endpoint
     	return AddHtml(new HtmlResource(html), basepath, size, orientation, margins);
     }
     
+    /**
+     * Returns a <code>WordInput</code> object containing the input pdf.
+     * @param resource The resource of type <code>WordResource</code>.
+     * @param size The page dimensions.
+     * @param orientation The orientation of the page.
+     * @param margins The margins on the page.
+     * @return Added pdf pages
+     */
+	public WordInput addWord(WordResource resource, PageSize size, PageOrientation orientation, Float margins) {
+		WordInput input = new WordInput(resource, size, orientation, margins);
+		this.getInputs().add(input);
+		return input;
+	}
+    
 	/**
 	 * Returns a <code>DlexInput</code> object containing the input pdf.
 	 * @param dlexResource The dlex resource of type <code>DlexResource</code>.

@@ -23,6 +23,7 @@ public abstract class Resource {
 	}
 
 	Resource(String filePath, String resourceName) {
+		this.resourceName = resourceName;
 		File file = new File(filePath);
 		if (file.exists()) {
 			this.data = Resource.getFileData(filePath);
@@ -32,12 +33,11 @@ public abstract class Resource {
 		}
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + this.getFileExtension();
-		} else {
-			this.resourceName = resourceName;
 		}
 	}
 
 	Resource(byte[] value, String resourceName) {
+		this.resourceName = resourceName;
 		if (value.length > 0) {
 			data = value;
 		} else {
@@ -45,12 +45,11 @@ public abstract class Resource {
 		}
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + getFileExtension();
-		} else {
-			this.resourceName = resourceName;
 		}
 	}
 
 	Resource(InputStream steam, String resourceName) {
+		this.resourceName = resourceName;
 		if (steam != null) {
 			data = Resource.getSteamData(steam);
 		} else {
@@ -58,8 +57,6 @@ public abstract class Resource {
 		}
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + getFileExtension();
-		} else {
-			this.resourceName = resourceName;
 		}
 	}
 
