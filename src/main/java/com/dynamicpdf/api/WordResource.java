@@ -21,7 +21,7 @@ public class WordResource extends Resource {
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
 	 * @param filePath The Word file path.
-	 * @param resourceName The Resource name with file extension.
+	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(String filePath, String resourceName) {
 		super(filePath, resourceName);
@@ -36,7 +36,7 @@ public class WordResource extends Resource {
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
 	 * @param value The byte array of the Word file.
-	 * @param resourceName The Resource name with file extension.
+	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(byte[] value, String resourceName) {
 		super(value, resourceName);
@@ -51,7 +51,7 @@ public class WordResource extends Resource {
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
 	 * @param data The stream of the Word file.
-	 * @param resourceName The Resource name with file extension.
+	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(InputStream data, String resourceName) {
 		super(data, resourceName);
@@ -61,6 +61,21 @@ public class WordResource extends Resource {
 		} else if (resourceName != null) {
 			throw new EndpointException("Unsupported file type or invalid file extension.");
 		}
+	}
+	
+	/**
+	 * Sets the resource name.
+	 * @param value The resource name.
+	 * <p>The resource name should be specified with a file extension.</p>
+	 */
+	public void setResourceName(String value) {
+		if ((value == null || value.isBlank()) == true
+				|| (value.contains(".") && value.length() > value.lastIndexOf('.') + 1) == false) {
+			throw new EndpointException("Invalid resource name.");
+		}
+
+		super.setResourceName(value);
+		setMimeType();
 	}
 
 	ResourceType getType() {

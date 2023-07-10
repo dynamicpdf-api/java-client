@@ -23,7 +23,6 @@ public abstract class Resource {
 	}
 
 	Resource(String filePath, String resourceName) {
-		this.resourceName = resourceName;
 		File file = new File(filePath);
 		if (file.exists()) {
 			this.data = Resource.getFileData(filePath);
@@ -31,30 +30,31 @@ public abstract class Resource {
 		} else {
 			throw new EndpointException("File does not exist.");
 		}
+		this.resourceName = resourceName;
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + this.getFileExtension();
 		}
 	}
 
 	Resource(byte[] value, String resourceName) {
-		this.resourceName = resourceName;
 		if (value.length > 0) {
 			data = value;
 		} else {
 			throw new EndpointException("Byte array is empty.");
 		}
+		this.resourceName = resourceName;
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + getFileExtension();
 		}
 	}
 
 	Resource(InputStream steam, String resourceName) {
-		this.resourceName = resourceName;
 		if (steam != null) {
 			data = Resource.getSteamData(steam);
 		} else {
 			throw new EndpointException("Stream is null.");
 		}
+		this.resourceName = resourceName;
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + getFileExtension();
 		}
@@ -98,6 +98,7 @@ public abstract class Resource {
 	/**
 	 * Sets the resource name.
 	 * @param value The resource name.
+	 * <p>For word resources, the resource name should be specified with a file extension.</p>
 	 */
 	public void setResourceName(String value) {
 		resourceName = value;
