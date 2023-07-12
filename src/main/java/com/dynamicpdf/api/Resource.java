@@ -30,7 +30,9 @@ public abstract class Resource {
 		} else {
 			throw new EndpointException("File does not exist.");
 		}
-		this.resourceName = resourceName;
+		if (resourceName != null) {
+			this.resourceName = resourceName;
+		}
 		if (resourceName == null) {
 			this.resourceName = UUID.randomUUID().toString() + this.getFileExtension();
 		}

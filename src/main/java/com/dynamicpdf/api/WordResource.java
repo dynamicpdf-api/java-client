@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.InputStream;
 
 /**
- * Represents a Word resource.
+ * Represents a word resource.
  */
 public class WordResource extends Resource {
 	private ResourceType type = ResourceType.WORD;
@@ -12,7 +12,7 @@ public class WordResource extends Resource {
 
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
-	 * @param filePath The Word file path.
+	 * @param filePath The word file path.
 	 */
 	public WordResource(String filePath) {
 		this(filePath, null);
@@ -20,7 +20,7 @@ public class WordResource extends Resource {
 
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
-	 * @param filePath The Word file path.
+	 * @param filePath The word file path.
 	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(String filePath, String resourceName) {
@@ -35,7 +35,7 @@ public class WordResource extends Resource {
 	
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
-	 * @param value The byte array of the Word file.
+	 * @param value The byte array of the word file.
 	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(byte[] value, String resourceName) {
@@ -50,7 +50,7 @@ public class WordResource extends Resource {
 
 	/**
 	 * Initializes a new instance of the <code>WordResource</code> class.
-	 * @param data The stream of the Word file.
+	 * @param data The stream of the word file.
 	 * @param resourceName The resource name with file extension.
 	 */
 	public WordResource(InputStream data, String resourceName) {

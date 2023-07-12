@@ -178,8 +178,8 @@ public class WordInput extends Input {
 	}
 
 	/**
-	 * Gets the TextReplace object List.
-	 * @return The TextReplace object List.
+	 * Gets the <code>TextReplace</code> object List.
+	 * @return The <code>TextReplace</code> object List.
 	 */
 	public List<TextReplace> getTextReplace() {
 		if (this.textReplace == null) {
@@ -189,8 +189,8 @@ public class WordInput extends Input {
 	}
 
 	/**
-	 * Sets the TextReplace object List.
-	 * @param value The TextReplace object List.
+	 * Sets the <code>TextReplace</code> object List.
+	 * @param value The <code>TextReplace</code> object List.
 	 */
 	public void setTextReplace(List<TextReplace> value) {
 		textReplace = value;
