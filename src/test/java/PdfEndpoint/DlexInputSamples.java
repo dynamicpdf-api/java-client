@@ -130,5 +130,30 @@ public class DlexInputSamples {
 			}
 		}
 		assertEquals(response.getIsSuccessful(), true);
-	}	
+	}
+	
+	@Test
+	public void ImageURI_Pdfoutput() {
+		Pdf pdf = new Pdf();
+		pdf.setAuthor("Author");
+		pdf.setTitle("Title");
+
+		DlexResource dlex = new DlexResource("src\\test\\resources\\dynamic-image.dlex");
+		LayoutDataResource layoutData = new LayoutDataResource("src\\test\\resources\\ImageData.json");
+		DlexInput input = pdf.addDlex(dlex, layoutData);
+
+		PdfResponse response = pdf.process();
+
+		if (response.getIsSuccessful()) {
+			File file = new File("src\\test\\outputs\\ImageURI.pdf");
+			try {
+				OutputStream os = new FileOutputStream(file);
+				os.write(response.getContent());
+				os.close();
+			} catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
+		}
+		assertEquals(response.getIsSuccessful(), true);
+	}
 }
