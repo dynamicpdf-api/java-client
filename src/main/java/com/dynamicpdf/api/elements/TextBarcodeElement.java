@@ -1,11 +1,13 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Base class from which barcode page elements that display text are derived.
@@ -102,6 +104,7 @@ public abstract class TextBarcodeElement extends BarcodeElement {
 	 * Gets the font size to use when displaying the text.
 	 * @return The font size to use when displaying the text.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getFontSize() {
 		return fontSize;
 	}

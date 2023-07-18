@@ -28,6 +28,17 @@ public class QrCodeElement extends Dim2BarcodeElement {
 	public QrCodeElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
 		super(value, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>QrCodeElement</code> class.
+	 * 
+	 * @param value The value of the QR code.
+	 * @param xOffset The X coordinate of the QR code.
+	 * @param yOffset The Y coordinate of the QR code.
+	 */
+	public QrCodeElement(String value, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>QrCodeElement</code> class.
@@ -37,6 +48,15 @@ public class QrCodeElement extends Dim2BarcodeElement {
 	 */
 	public QrCodeElement(String value, ElementPlacement placement) {
 		this(value, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>QrCodeElement</code> class.
+	 * 
+	 * @param value The value of the QR code.
+	 */
+	public QrCodeElement(String value) {
+		this(value, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	/**
@@ -50,6 +70,17 @@ public class QrCodeElement extends Dim2BarcodeElement {
 	public QrCodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset) {
 		super(value, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>QrCodeElement</code> class.
+	 * 
+	 * @param value The value of the QR code.
+	 * @param xOffset The X coordinate of the QR code.
+	 * @param yOffset The Y coordinate of the QR code.
+	 */
+	public QrCodeElement(byte[] value, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>QrCodeElement</code> class.
@@ -59,6 +90,15 @@ public class QrCodeElement extends Dim2BarcodeElement {
 	 */
 	public QrCodeElement(byte[] value, ElementPlacement placement) {
 		this(value, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>QrCodeElement</code> class.
+	 * 
+	 * @param value The value of the QR code.
+	 */
+	public QrCodeElement(byte[] value) {
+		this(value, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	@JsonProperty("type")

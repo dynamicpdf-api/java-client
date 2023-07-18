@@ -1,5 +1,7 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * Represents an image information.
  */
@@ -35,6 +37,7 @@ public class ImageInformation {
 	 * Gets the width of the image.
 	 * @return The width of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getWidth() {
 		return width;
 	}
@@ -51,6 +54,7 @@ public class ImageInformation {
 	 * Gets the height of the image.
 	 * @return The height of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHeight() {
 		return height;
 	}
@@ -67,6 +71,7 @@ public class ImageInformation {
 	 * Gets the horizondalDpi of the image.
 	 * @return The horizondalDpi of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHorizondalDpi() {
 		return horizondalDpi;
 	}
@@ -83,6 +88,7 @@ public class ImageInformation {
 	 * Gets the verticalDpi of the image.
 	 * @return The verticalDpi of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getVerticalDpi() {
 		return verticalDpi;
 	}
@@ -99,6 +105,7 @@ public class ImageInformation {
 	 * Gets the number of color components present in the image.
 	 * @return The number of color components present in the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getNumberOfComponents() {
 		return numberOfComponents;
 	}
@@ -115,6 +122,7 @@ public class ImageInformation {
 	 * Gets the bits per component of the image.
 	 * @return The bits per component of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getBitsPerComponent() {
 		return bitsPerComponent;
 	}

@@ -1,10 +1,12 @@
 package com.dynamicpdf.api.elements;
 
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents Pdf417 barcode element.
@@ -35,6 +37,19 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 		super(value, placement, xOffset, yOffset);
 		this.columns = columns;
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
+	 * 
+	 * @param value String to be encoded.
+	 * @param columns Columns of the PDF417 barcode.
+	 * @param xOffset The X coordinate of the PDF417 barcode.
+	 * @param yOffset The Y coordinate of the PDF417 barcode.
+	 */
+	public Pdf417BarcodeElement(String value, int columns, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+		this.columns = columns;
+	}
 
 	/**
 	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
@@ -45,6 +60,16 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 */
 	public Pdf417BarcodeElement(String value, ElementPlacement placement, int columns) {
 		this(value, placement, columns, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
+	 * 
+	 * @param value String to be encoded.
+	 * @param columns Columns of the PDF417 barcode.
+	 */
+	public Pdf417BarcodeElement(String value, int columns) {
+		this(value, ElementPlacement.TOPLEFT, columns, 0, 0);
 	}
 
 	/**
@@ -65,11 +90,34 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
 	 * 
 	 * @param value String to be encoded.
+	 * @param columns Columns of the PDF417 barcode.
+	 * @param xOffset The X coordinate of the PDF417 barcode.
+	 * @param yOffset The Y coordinate of the PDF417 barcode.
+	 */
+	public Pdf417BarcodeElement(byte[] value, int columns, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+		this.columns = columns;
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
+	 * 
+	 * @param value String to be encoded.
 	 * @param placement The placement of the barcode on the page.
 	 * @param columns Columns of the PDF417 barcode.
 	 */
 	public Pdf417BarcodeElement(byte[] value, ElementPlacement placement, int columns) {
 		this(value, placement, columns, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>Pdf417BarcodeElement</code> class.
+	 * 
+	 * @param value String to be encoded.
+	 * @param columns Columns of the PDF417 barcode.
+	 */
+	public Pdf417BarcodeElement(byte[] value, int columns) {
+		this(value, ElementPlacement.TOPLEFT, columns, 0, 0);
 	}
 
 	@JsonProperty("type")
@@ -98,6 +146,7 @@ public class Pdf417BarcodeElement extends Dim2BarcodeElement {
 	 * @return The YDimension of the barcode.
 	 */
 	@JsonProperty("yDimension")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getYDimension() {
 		return yDimension;
 	}

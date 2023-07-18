@@ -1,10 +1,12 @@
 package com.dynamicpdf.api.elements;
 
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents a Code 128 barcode element.
@@ -36,6 +38,23 @@ public class Code128BarcodeElement extends TextBarcodeElement {
 		super(value, placement, xOffset, yOffset);
 		this.height = height;
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>Code128BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param height The height of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 * 
+	 * <p>Code sets can be specified along with data, in order to do this <code>ProcessTilde</code> property needs to be set to <b>true</b>.
+	 * Example value: "~BHello ~AWORLD 1~C2345", where ~A, ~B and ~C representing code sets A, B and C respectively.
+	 * However if any inline code set has invalid characters it will be shifted to an appropriate code set.</p>
+	 */
+	public Code128BarcodeElement(String value, float height, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+		this.height = height;
+	}
 
 	/**
 	 * Initializes a new instance of the <code>Code128BarcodeElement</code> class
@@ -47,6 +66,16 @@ public class Code128BarcodeElement extends TextBarcodeElement {
 	public Code128BarcodeElement(String value, ElementPlacement placement, float height) {
 		this(value, placement, height, 0, 0);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>Code128BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param height The height of the barcode.
+	 */
+	public Code128BarcodeElement(String value, float height) {
+		this(value, ElementPlacement.TOPLEFT, height, 0, 0);
+	}
 
 	@JsonProperty("type")
 	ElementType getType() {
@@ -57,6 +86,7 @@ public class Code128BarcodeElement extends TextBarcodeElement {
 	 * Gets the height of the barcode. 
 	 * @return The height of the barcode. 
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHeight() {
 		return height;
 	}

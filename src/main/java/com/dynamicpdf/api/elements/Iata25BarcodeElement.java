@@ -1,10 +1,12 @@
 package com.dynamicpdf.api.elements;
 
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents an IATA 2 of 5 barcode element.
@@ -31,6 +33,19 @@ public class Iata25BarcodeElement extends TextBarcodeElement {
 		super(value, placement, xOffset, yOffset);
 		this.height = height;
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>Iata25BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param height The height of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public Iata25BarcodeElement(String value, float height, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+		this.height = height;
+	}
 
 	/**
 	 * Initializes a new instance of the <code>Iata25BarcodeElement</code> class
@@ -41,6 +56,16 @@ public class Iata25BarcodeElement extends TextBarcodeElement {
 	 */
 	public Iata25BarcodeElement(String value, ElementPlacement placement, float height) {
 		this(value, placement, height, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>Iata25BarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param height The height of the barcode.
+	 */
+	public Iata25BarcodeElement(String value, float height) {
+		this(value, ElementPlacement.TOPLEFT, height, 0, 0);
 	}
 
 	@JsonProperty("type")
@@ -68,6 +93,7 @@ public class Iata25BarcodeElement extends TextBarcodeElement {
 	 * Gets the height of the barcode.
 	 * @return The height of the barcode.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHeight() {
 		return height;
 	}

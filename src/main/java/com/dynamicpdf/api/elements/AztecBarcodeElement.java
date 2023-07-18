@@ -32,6 +32,17 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
 	public AztecBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
 		super(value, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 *  Initializes a new instance of the <code>AztecBarcodeElement</code> class.
+	 * 
+	 * @param value The value of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public AztecBarcodeElement(String value, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>AztecBarcodeElement</code> class.
@@ -41,6 +52,15 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
 	 */
 	public AztecBarcodeElement(String value, ElementPlacement placement) {
 		this(value, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>AztecBarcodeElement</code> class.
+	 * 
+	 * @param value The value of the barcode.
+	 */
+	public AztecBarcodeElement(String value) {
+		this(value, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	/**
@@ -54,6 +74,17 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
 	public AztecBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset) {
 		super(value, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>AztecBarcodeElement</code> class.
+	 * 
+	 * @param value The value of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public AztecBarcodeElement(byte[] value, float xOffset, float yOffset) {
+		super(value, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>AztecBarcodeElement</code> class.
@@ -63,6 +94,15 @@ public class AztecBarcodeElement extends Dim2BarcodeElement {
 	 */
 	public AztecBarcodeElement(byte[] value, ElementPlacement placement) {
 		this(value, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>AztecBarcodeElement</code> class.
+	 * 
+	 * @param value The value of the barcode.
+	 */
+	public AztecBarcodeElement(byte[] value) {
+		this(value, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	@JsonProperty("type")

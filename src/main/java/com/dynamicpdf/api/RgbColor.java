@@ -39,7 +39,7 @@ public class RgbColor extends Color {
 		if (colorString != null) {
 			return colorString;
 		} else {
-			return "rgb(" + Float.toString(red) + "," + Float.toString(green) + "," + Float.toString(blue) + ")";
+			return "rgb(" + Float.toString(red).replaceAll("\\.?0*$", "") + "," + Float.toString(green).replaceAll("\\.?0*$", "") + "," + Float.toString(blue).replaceAll("\\.?0*$", "") + ")";
 		}
 	}
 

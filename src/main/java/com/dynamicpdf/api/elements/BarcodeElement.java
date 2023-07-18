@@ -1,8 +1,10 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Base class from which barcode page elements are derived.
@@ -52,6 +54,7 @@ public abstract class BarcodeElement extends Element {
 	 * @return The XDimension of the barcode.
 	 */
 	@JsonProperty("xDimension")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getXDimension() {
 		return xDimension;
 	}

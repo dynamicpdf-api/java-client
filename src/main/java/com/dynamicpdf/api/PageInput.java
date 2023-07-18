@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,12 +123,14 @@ public class PageInput extends Input {
 	
 	@JsonInclude
 	@JsonProperty("pageWidth")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	float getWidth() {
 		return ((getPageWidth() == null) ? DefaultPagewidth : getPageWidth());
 	}
 
 	@JsonInclude
 	@JsonProperty("pageHeight")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	float getHeight() {
 		return ((getPageHeight() == null) ? DefaultPageHeight : getPageHeight());
 	}
@@ -136,6 +139,7 @@ public class PageInput extends Input {
 	 * Gets the top margin.
 	 * @return The top margin.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
     public Float getTopMargin() { 
     	return topMargin; 
     }
@@ -152,6 +156,7 @@ public class PageInput extends Input {
 	 * Gets the left margin.
 	 * @return The left margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getLeftMargin() {
      return leftMargin;
     }
@@ -168,6 +173,7 @@ public class PageInput extends Input {
 	 * Gets the bottom margin.
 	 * @return The bottom margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getBottomMargin() { 
     	return bottomMargin;
    	}
@@ -184,6 +190,7 @@ public class PageInput extends Input {
 	 * Gets the right margin.
 	 * @return The right margin.
 	 */
+    @JsonSerialize(using = FloatJsonSerializer.class)
     public Float getRightMargin() { 
         return rightMargin;
     }

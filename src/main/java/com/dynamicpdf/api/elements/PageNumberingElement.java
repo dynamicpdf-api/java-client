@@ -1,6 +1,7 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents a page numbering label page element.
@@ -89,6 +91,17 @@ public class PageNumberingElement extends Element {
 	public PageNumberingElement(String text, ElementPlacement placement, float xOffset, float yOffset) {
 		super(text, placement, xOffset, yOffset);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>PageNumberingElement</code> class.
+	 * 
+	 * @param text Text to display in the label.
+	 * @param xOffset X coordinate of the label.
+	 * @param yOffset Y coordinate of the label.
+	 */
+	public PageNumberingElement(String text, float xOffset, float yOffset) {
+		super(text, ElementPlacement.TOPLEFT, xOffset, yOffset);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>PageNumberingElement</code> class.
@@ -98,6 +111,15 @@ public class PageNumberingElement extends Element {
 	 */
 	public PageNumberingElement(String text, ElementPlacement placement) {
 		this(text, placement, 0, 0);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>PageNumberingElement</code> class.
+	 * 
+	 * @param text Text to display in the label.
+	 */
+	public PageNumberingElement(String text) {
+		this(text, ElementPlacement.TOPLEFT, 0, 0);
 	}
 
 	@JsonProperty("type")
@@ -184,6 +206,7 @@ public class PageNumberingElement extends Element {
 	 * Gets the font size for the text of the label.
 	 * @return The font size for the text of the label.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getFontSize() {
 		return fontSize;
 	}

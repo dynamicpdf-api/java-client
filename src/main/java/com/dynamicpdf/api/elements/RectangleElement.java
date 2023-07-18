@@ -1,11 +1,13 @@
 package com.dynamicpdf.api.elements;
 
 import com.dynamicpdf.api.Color;
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.LineStyle;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -42,6 +44,18 @@ public class RectangleElement extends Element {
 		this.width = width;
 		this.height = height;
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>RectangleElement</code> class.
+	 * 
+	 * @param width Width of the rectangle.
+	 * @param height Height of the rectangle.
+	 */
+	public RectangleElement(float width, float height) {
+		setPlacement(ElementPlacement.TOPLEFT);
+		this.width = width;
+		this.height = height;
+	}
 
 	@JsonProperty("type")
 	ElementType getType() {
@@ -52,6 +66,7 @@ public class RectangleElement extends Element {
 	 * Gets the width of the rectangle.
 	 * @return The width of the rectangle.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getWidth() {
 		return width;
 	}
@@ -68,6 +83,7 @@ public class RectangleElement extends Element {
 	 * Gets the height of the rectangle.
 	 * @return The height of the rectangle.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHeight() {
 		return height;
 	}
@@ -85,6 +101,7 @@ public class RectangleElement extends Element {
 	 * <p>To force the borders not to appear set the border width to any value 0 or less.</p>
 	 * @return The border width of the rectangle.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getBorderWidth() {
 		return borderWidth;
 	}
@@ -102,6 +119,7 @@ public class RectangleElement extends Element {
 	 * Gets the corner radius of the rectangle.
 	 * @return The corner radius of the rectangle.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getCornerRadius() {
 		return cornerRadius;
 	}

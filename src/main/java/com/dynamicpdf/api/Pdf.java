@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -353,6 +354,20 @@ public class Pdf extends Endpoint
     	return AddHtml(new HtmlResource(html), basepath, size, orientation, margins);
     }
     
+    /**
+     * Returns a <code>WordInput</code> object containing the input pdf.
+     * @param resource The resource of type <code>WordResource</code>.
+     * @param size The page dimensions.
+     * @param orientation The orientation of the page.
+     * @param margins The margins on the page.
+     * @return Added pdf pages
+     */
+	public WordInput addWord(WordResource resource, PageSize size, PageOrientation orientation, Float margins) {
+		WordInput input = new WordInput(resource, size, orientation, margins);
+		this.getInputs().add(input);
+		return input;
+	}
+    
 	/**
 	 * Returns a <code>DlexInput</code> object containing the input pdf.
 	 * @param dlexResource The dlex resource of type <code>DlexResource</code>.
@@ -483,11 +498,20 @@ public class Pdf extends Endpoint
 	 * @return The json string.
 	 */
 	public String getInstructionsJson() {
+		return getInstructionsJson(false);
+	}
+	
+	/**
+	 * Gets the instructions json based on the inputs passed.
+	 * @param indented The boolean value specifying whether the json string is indented or not.
+	 * @return The json string.
+	 */
+	public String getInstructionsJson(boolean indented) {
 		for (Input input : instructions.getInputs()) { 
 			if (input.getType() == InputType.PAGE) {
 				PageInput pageInput = (PageInput)input; 
 				for (Element element : pageInput.getElements()) {
-					if (element.getTextFont() != null) {
+					if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 						instructions.getFonts().add(element.getTextFont());
 					}
 				} 
@@ -496,7 +520,7 @@ public class Pdf extends Endpoint
 				instructions.getTemplates().add(input.getTemplate());
 				if (input.getTemplate().getElements() != null && input.getTemplate().getElements().size() > 0) { 
 					for (Element element : input.getTemplate().getElements()) { 
-						if (element.getTextFont() != null) {
+						if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 							instructions.getFonts().add(element.getTextFont()); 
 						}
 					}
@@ -506,8 +530,13 @@ public class Pdf extends Endpoint
 
 		String jsonText = null; 
 		ObjectMapper basicMapper = new ObjectMapper();
+		
 		try {
-			jsonText = basicMapper.writeValueAsString(this.instructions);
+			if(indented) {
+			    jsonText = basicMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this.instructions);
+			} else {
+				jsonText = basicMapper.writeValueAsString(this.instructions);
+			}
 		} catch(JsonProcessingException e1) {
 			e1.printStackTrace();
 		}
@@ -551,7 +580,7 @@ public class Pdf extends Endpoint
 						if (element.getResource() != null) {
 							finalResources.add(element.getResource());
 						}
-						if (element.getTextFont() != null) {
+						if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 							instructions.getFonts().add(element.getTextFont());
 						}
 					}
@@ -566,7 +595,7 @@ public class Pdf extends Endpoint
 							if (element.getResource() != null) {
 								finalResources.add(element.getResource());
 							}
-							if (element.getTextFont() != null) {
+							if (element.getTextFont() != null && element.getTextFont().getResourceName() != null) {
 								instructions.getFonts().add(element.getTextFont());
 							}
 
@@ -615,8 +644,15 @@ public class Pdf extends Endpoint
 			}
 			else
 			{
+				if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}
 				pdfResponse = new PdfResponse();
-				pdfResponse.setErrorJson(response.asString()); 
+				String errorMessage = response.jsonPath().getString("message");
+				UUID errorId = response.jsonPath().getUUID("id");
+				pdfResponse.setErrorId(errorId);
+				pdfResponse.setErrorJson(response.asString());
+				pdfResponse.setErrorMessage(errorMessage);
 				pdfResponse.setIsSuccessful(false);
 				pdfResponse.setStatusCode(response.getStatusCode());
 			}

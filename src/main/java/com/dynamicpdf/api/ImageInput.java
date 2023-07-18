@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Represents an image input.
@@ -55,6 +56,7 @@ public class ImageInput extends Input {
 	 * Gets the scaleX of the image.
 	 * @return The scaleX of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getScaleX() {
 		return scaleX;
 	}
@@ -71,6 +73,7 @@ public class ImageInput extends Input {
 	 * Gets the scaleY of the image.
 	 * @return The scaleY of the image.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getScaleY() {
 		return scaleY;
 	}
@@ -87,6 +90,7 @@ public class ImageInput extends Input {
 	 * Gets the top margin.
 	 * @return The top margin.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getTopMargin() {
 		return topMargin;
 	}
@@ -103,6 +107,7 @@ public class ImageInput extends Input {
 	 * Gets the left margin.
 	 * @return The left margin.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getLeftMargin() {
 		return leftMargin;
 	}
@@ -119,6 +124,7 @@ public class ImageInput extends Input {
 	 * Gets the bottom margin.
 	 * @return The bottom margin.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getBottomMargin() {
 		return bottomMargin;
 	}
@@ -135,6 +141,7 @@ public class ImageInput extends Input {
 	 * Gets the right margin.
 	 * @return The right margin.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getRightMargin() {
 		return rightMargin;
 	}
@@ -151,6 +158,7 @@ public class ImageInput extends Input {
 	 * Gets the page width.
 	 * @return The page width.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getPageWidth() {
 		return pageWidth;
 	}
@@ -167,6 +175,7 @@ public class ImageInput extends Input {
 	 * Gets the page height.
 	 * @return The page height.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getPageHeight() {
 		return pageHeight;
 	}

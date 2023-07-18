@@ -1,5 +1,7 @@
 package com.dynamicpdf.api;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * Represents a page information.
  */
@@ -30,6 +32,7 @@ public class PageInformation {
 	 * Gets the width of the page.
 	 * @return The width of the page.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getWidth() {
 		return width;
 	}
@@ -46,6 +49,7 @@ public class PageInformation {
 	 * Gets the height of the page.
 	 * @return The height of the page.
 	 */
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getHeight() {
 		return height;
 	}

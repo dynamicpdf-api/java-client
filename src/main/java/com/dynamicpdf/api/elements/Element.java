@@ -1,8 +1,10 @@
 package com.dynamicpdf.api.elements;
 
+import com.dynamicpdf.api.FloatJsonSerializer;
 import com.dynamicpdf.api.Font;
 import com.dynamicpdf.api.Resource;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Base class from which all page elements are derived.
@@ -81,6 +83,7 @@ public abstract class Element {
 	 * @return The X coordinate of the page element.
 	 */
 	@JsonProperty("xOffset")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getXOffset() {
 		return xOffset;
 	}
@@ -98,6 +101,7 @@ public abstract class Element {
 	 * @return The Y coordinate of the page element.
 	 */
 	@JsonProperty("yOffset")
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public float getYOffset() {
 		return yOffset;
 	}

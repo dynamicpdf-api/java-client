@@ -58,6 +58,17 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
 	public DataMatrixBarcodeElement(String value, ElementPlacement placement, float xOffset, float yOffset) {
 		this(value, placement, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>DataMatrixBarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public DataMatrixBarcodeElement(String value, float xOffset, float yOffset) {
+		this(value, ElementPlacement.TOPLEFT, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+	}
 
 	/**
 	 * Initializes a new instance of the <code>DataMatrixBarcodeElement</code> class
@@ -125,6 +136,17 @@ public class DataMatrixBarcodeElement extends Dim2BarcodeElement {
 	 */
 	public DataMatrixBarcodeElement(byte[] value, ElementPlacement placement, float xOffset, float yOffset) {
 		this(value, placement, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
+	}
+	
+	/**
+	 * Initializes a new instance of the <code>DataMatrixBarcodeElement</code> class
+	 * 
+	 * @param value The value of the barcode.
+	 * @param xOffset The X coordinate of the barcode.
+	 * @param yOffset The Y coordinate of the barcode.
+	 */
+	public DataMatrixBarcodeElement(byte[] value, float xOffset, float yOffset) {
+		this(value, ElementPlacement.TOPLEFT, xOffset, yOffset, DataMatrixSymbolSize.AUTO, DataMatrixEncodingType.AUTO, DataMatrixFunctionCharacter.NONE);
 	}
 
 	/**

@@ -20,13 +20,17 @@ class PdfInstructions {
 	private HashSet<Font> fonts = null;
 	private OutlineList outlines = null;
 
-	private String author = "CeteSoftware";
+	private String author;
 	private String title;
 	private String subject;
-	private String creator = "DynamicPDF Cloud Api";
+	private String creator;
 	private String keywords;
 	private Security security = null;
+	
+	@JsonInclude(Include.NON_DEFAULT)
 	private boolean flattenAllFormFields;
+	
+	@JsonInclude(Include.NON_DEFAULT)
 	private boolean retainSignatureFormFields;
 	private List<Input> inputs = new ArrayList<Input>();
 
