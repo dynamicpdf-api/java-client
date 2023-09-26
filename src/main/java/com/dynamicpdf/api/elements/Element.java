@@ -39,6 +39,7 @@ public abstract class Element {
 
     /**
     * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+	* @return The resource of the element.
     */
 	public Resource getResource() {
 		return null;
@@ -58,6 +59,7 @@ public abstract class Element {
 
     /**
     * <p><b>This method is meant for DynamicPDF's internal usage and not supposed to be used by the client programs.</b></p>
+	* @return The font of the element.
     */
 	public Font getTextFont() {
 		return textFont;

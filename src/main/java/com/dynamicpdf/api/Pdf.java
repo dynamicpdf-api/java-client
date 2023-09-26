@@ -341,7 +341,7 @@ public class Pdf extends Endpoint
     }
 
     /**
-	 * @deprecate This method is deprecated, use {@link #addHtml(String, String, PageSize, PageOrientation, Float)} method instead.
+	 * @deprecated This method is deprecated, use {@link #addHtml(String, String, PageSize, PageOrientation, Float)} method instead.
 	 * Returns an <code>HtmlInput</code> object containing the input html.
 	 * @param html The HTML input string.
 	 * @param basepath The BasePath option.
