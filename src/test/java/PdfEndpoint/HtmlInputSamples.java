@@ -59,6 +59,39 @@ public class HtmlInputSamples {
  		assertEquals(response.getIsSuccessful(), true);
      }
 
+     @Test
+    public void HtmlStringUsingaddHtml_pdfoutput(){
+
+         Pdf pdf = new Pdf();
+
+         pdf.addHtml("<html>hello.</html>", null, PageSize.LETTER, PageOrientation.PORTRAIT, 20F);
+
+         String htmlString = null;
+         try {
+        	 htmlString = Files.lines(Paths.get("src\\test\\resources\\html.html"), StandardCharsets.UTF_8)
+					   .collect(Collectors.joining(System.lineSeparator()));
+         } catch (IOException ex) {
+        	 System.out.println("Exception: " + ex);
+		 }
+
+         HtmlResource resource = new HtmlResource(htmlString);
+		 pdf.addHtml(resource, null, PageSize.LETTER, PageOrientation.PORTRAIT, 20F);
+
+         PdfResponse response = pdf.process();
+
+         if (response.getIsSuccessful()) {
+ 			File file = new File("src\\test\\outputs\\HtmlToPdfUsingAddHtml.pdf");
+ 			try {
+ 				OutputStream os = new FileOutputStream(file);
+ 				os.write(response.getContent());
+ 				os.close();
+ 			} catch (Exception e) {
+ 				System.out.println("Exception: " + e);
+ 			}
+ 		}
+ 		assertEquals(response.getIsSuccessful(), true);
+     }
+
 	@Test
     public void HtmlStringParameters_pdfoutput(){
 

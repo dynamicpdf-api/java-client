@@ -325,6 +325,7 @@ public class Pdf extends Endpoint
 	}
 
 	/**
+	 * @deprecated This method is deprecated, use {@link #addHtml(HtmlResource, String, PageSize, PageOrientation, Float)} method instead.
 	 * Returns an <code>HtmlInput</code> object containing the input html.
 	 * @param resource The resource of type <code>HtmlResource</code>.
 	 * @param basepath The BasePath option.
@@ -333,7 +334,38 @@ public class Pdf extends Endpoint
 	 * @param margins The margins on the page.
 	 * @return Added pdf pages
 	 */
+	@Deprecated
     public HtmlInput AddHtml(HtmlResource resource, String basepath, PageSize size, PageOrientation orientation, Float margins)
+    {
+		return addHtml(resource, basepath, size, orientation, margins);
+    }
+
+    /**
+	 * @deprecated This method is deprecated, use {@link #addHtml(String, String, PageSize, PageOrientation, Float)} method instead.
+	 * Returns an <code>HtmlInput</code> object containing the input html.
+	 * @param html The HTML input string.
+	 * @param basepath The BasePath option.
+	 * @param size The page dimensions.
+	 * @param orientation The orientation of the page.
+	 * @param margins The margins on the page.
+	 * @return Added pdf pages
+	 */
+	@Deprecated
+    public HtmlInput AddHtml(String html, String basepath, PageSize size, PageOrientation orientation, Float margins)
+    {
+    	return addHtml(new HtmlResource(html), basepath, size, orientation, margins);
+    }
+
+	/**
+	 * Returns an <code>HtmlInput</code> object containing the input html.
+	 * @param resource The resource of type <code>HtmlResource</code>.
+	 * @param basepath The BasePath option.
+	 * @param size The page dimensions.
+	 * @param orientation The orientation of the page.
+	 * @param margins The margins on the page.
+	 * @return Added pdf pages
+	 */
+    public HtmlInput addHtml(HtmlResource resource, String basepath, PageSize size, PageOrientation orientation, Float margins)
     {
         HtmlInput input = new HtmlInput(resource, basepath, size, orientation, margins);
         this.getInputs().add(input);
@@ -349,9 +381,9 @@ public class Pdf extends Endpoint
 	 * @param margins The margins on the page.
 	 * @return Added pdf pages
 	 */
-    public HtmlInput AddHtml(String html, String basepath, PageSize size, PageOrientation orientation, Float margins)
+    public HtmlInput addHtml(String html, String basepath, PageSize size, PageOrientation orientation, Float margins)
     {
-    	return AddHtml(new HtmlResource(html), basepath, size, orientation, margins);
+    	return addHtml(new HtmlResource(html), basepath, size, orientation, margins);
     }
     
     /**
