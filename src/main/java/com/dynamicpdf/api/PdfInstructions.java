@@ -24,6 +24,7 @@ class PdfInstructions {
 	private String title;
 	private String subject;
 	private String creator;
+	private String producer;
 	private String keywords;
 	private Security security = null;
 	
@@ -81,6 +82,14 @@ class PdfInstructions {
 
 	void setCreator(String value) {
 		creator = value;
+	}
+
+	String getProducer() {
+		return producer;
+	}
+
+	void setProducer(String value) {
+		producer = value;
 	}
 
 	String getKeywords() {
