@@ -33,6 +33,10 @@ public class PageInputSamples {
         Pdf pdf = new Pdf();
         pdf.setAuthor("Author");
         pdf.setTitle("Title");
+        pdf.setSubject("topLevel document metadata");
+        pdf.setCreator("John Creator");
+        pdf.setProducer("ceTe Software");
+        pdf.setKeywords("dynamicpdf api example pdf dotnet instructions");
 
         PageInput pageInput = new PageInput();
         TextElement element = new TextElement("Hello World", ElementPlacement.TOPCENTER);

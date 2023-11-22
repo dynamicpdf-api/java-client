@@ -179,6 +179,24 @@ public class Pdf extends Endpoint
 	}
 
 	/**
+	 * Gets the producer.
+	 * @return The producer.
+	 */
+	public String getProducer()
+	{ 
+		return this.instructions.getProducer();
+	}
+
+	/**
+	 * Sets the producer.
+	 * @param value The producer.
+	 */
+	public void setProducer(String value) 
+	{ 
+		this.instructions.setProducer(value);
+	}
+
+	/**
 	 * Gets the keywords.
 	 * @return The keywords.
 	 */
