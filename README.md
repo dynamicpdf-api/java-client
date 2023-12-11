@@ -21,7 +21,7 @@ The DynamicPDF Cloud API consists of the following endpoints.
 <dependency>
   <groupId>com.dynamicpdf.api</groupId>
   <artifactId>dynamicpdf-api</artifactId>
-  <version>1.4.0</version>
+  <version>1.5.0</version>
 </dependency>
 ```
 
