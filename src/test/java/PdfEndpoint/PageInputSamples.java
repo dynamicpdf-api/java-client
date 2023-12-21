@@ -37,6 +37,7 @@ public class PageInputSamples {
         pdf.setCreator("John Creator");
         pdf.setProducer("ceTe Software");
         pdf.setKeywords("dynamicpdf api example pdf dotnet instructions");
+        pdf.setTag(true);
 
         PageInput pageInput = new PageInput();
         TextElement element = new TextElement("Hello World", ElementPlacement.TOPCENTER);

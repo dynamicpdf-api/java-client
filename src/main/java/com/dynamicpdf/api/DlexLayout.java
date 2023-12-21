@@ -3,6 +3,10 @@ package com.dynamicpdf.api;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.HashSet;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -23,10 +27,21 @@ public class DlexLayout extends Endpoint
 	 * @param cloudDlexPath The DLEX file path present in the resource manager.
 	 * @param layoutData The <code>LayoutDataResource</code>, json data file used to create the PDF report.
 	 */
-
 	public DlexLayout(String cloudDlexPath, LayoutDataResource layoutData) { 
 		super();        
 		dlexPath = cloudDlexPath;
+		this.resource = layoutData;
+	}
+
+	/**
+	 * Initializes a new instance of the <code>DlexInput</code> class by posting the 
+	 * DLEX file and the JSON data file from the client to the API to create the PDF report.
+	 * @param dlexResource The <code>DlexResource</code> dlex file created as per the desired PDF report design.
+	 * @param layoutData The <code>LayoutDataResource</code>, json data file used to create the PDF report.
+	 */
+	public DlexLayout(DlexResource dlexResource, LayoutDataResource layoutData) { 
+		super();
+		getResources().add(dlexResource);
 		this.resource = layoutData;
 	}
 
@@ -45,7 +60,61 @@ public class DlexLayout extends Endpoint
 	public void setDlexPath(String value) { dlexPath = value; }
 
 	/**
-	 * Process the DLEX and layout data to create PDF report.
+	 * Adds additional resource to the endpoint.
+	 * @param resourcePath The resource file path.
+	 * @param resourceName The name of the resource.
+	 */
+	public void addAdditionalResource(String resourcePath, String resourceName)
+	{
+	 	if( resourceName == null) {
+        	Path path = Paths.get(resourcePath);
+            resourceName = path.getFileName().toString();
+        }
+	 	AdditionalResource resource = new AdditionalResource(resourcePath, resourceName);
+	 	if(resource.getType() == ResourceType.LAYOUTDATA )
+         	throw new EndpointException("Layout data resources cannot be added to a DlexLayout object.");
+     	else if( resource.getType() == ResourceType.DLEX)
+         	throw new EndpointException("Dlex resources cannot be added to a DlexLayout object.");
+     	else
+         	getResources().add(resource);
+	}
+
+	/**
+	  * Adds additional resource to the endpoint.
+	  * @param resourceData The resource data.
+	  * @param additionalResourceType The type of the additional resource.
+	  * @param resourceName The name of the resource.
+	  */
+	public void addAdditionalResource(byte[] resourceData, AdditionalResourceType additionalResourceType, String resourceName)
+	{
+		ResourceType type = ResourceType.PDF;
+		switch(additionalResourceType)
+		{
+			case FONT:
+				type = ResourceType.FONT;
+               	break;
+		 	case IMAGE:
+              	type = ResourceType.IMAGE;
+              	break;
+         	case PDF:
+            	type = ResourceType.PDF;
+             	break;
+         	default:
+             	throw new EndpointException("This type of resource not allowed");
+         }
+		AdditionalResource resource = new AdditionalResource(resourceData, resourceName, type);
+        getResources().add(resource);
+	}
+
+	private HashSet<Resource> resources = new HashSet<Resource>();
+	
+	/**
+	 * Gets the collection of resource.
+	 * @return The collection of resource.
+	 */
+	public HashSet<Resource> getResources() { return resources; }
+
+	/** Process the DLEX and layout data to create PDF report.
 	 * @return Pdf Response
 	 */
 	public PdfResponse process()
@@ -74,6 +143,13 @@ public class DlexLayout extends Endpoint
 				requestSpec.multiPart("LayoutData", resource.getLayoutDataResourceName(), resource.getData(),resource.getMimeType());
 			if (dlexPath != null)
 				requestSpec.param("DlexPath" , dlexPath);
+			if (getResources() != null && getResources().size() > 0)
+            {
+                for (Resource resource : getResources())
+                {
+                    requestSpec.multiPart("Resource", resource.getResourceName(), resource.getData(), resource.getMimeType());
+                }
+            }
 
 			Response response = RestAssured
 					.given()

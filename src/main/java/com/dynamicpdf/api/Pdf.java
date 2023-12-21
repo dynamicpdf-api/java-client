@@ -197,6 +197,24 @@ public class Pdf extends Endpoint
 	}
 
 	/**
+	 * Gets the tag property.
+	 * @return The tag.
+	 */
+	public boolean getTag()
+	{
+		return this.instructions.getTag();
+	}
+
+	/**
+	 * Sets the tag property.
+	 * @param value The tag.
+	 */
+	public void setTag(boolean value)
+	{ 
+		this.instructions.setTag(value);
+	}
+
+	/**
 	 * Gets the keywords.
 	 * @return The keywords.
 	 */

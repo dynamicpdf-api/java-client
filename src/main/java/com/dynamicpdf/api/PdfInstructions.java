@@ -25,6 +25,7 @@ class PdfInstructions {
 	private String subject;
 	private String creator;
 	private String producer;
+	private boolean tag;
 	private String keywords;
 	private Security security = null;
 	
@@ -90,6 +91,14 @@ class PdfInstructions {
 
 	void setProducer(String value) {
 		producer = value;
+	}
+
+	boolean getTag() {
+		return tag;
+	}
+
+	void setTag(boolean value) {
+		tag = value;
 	}
 
 	String getKeywords() {
