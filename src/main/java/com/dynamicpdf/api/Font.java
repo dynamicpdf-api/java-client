@@ -382,6 +382,18 @@ public class Font {
 		}
 		return fontText.toString();
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>Font</code> class
+	 * using the font from the global storage.
+	 * @param fontName The name of the font to get from the global storage..
+	 * @return The font from the global.
+	 */
+	public static Font global(String fontName) {
+		Font font = new Font();
+		font.setName(fontName);
+		return font;
+	}
 
 	/**
 	 * Initializes a new instance of the <code>Font</code> class
@@ -391,7 +403,7 @@ public class Font {
 	 */
 	public static Font google(String fontName) {
 		Font font = new Font();
-		font.setName(Font.getGoogleFontText(fontName, 400, false));
+		font.setName(fontName);
 		return font;
 	}
 

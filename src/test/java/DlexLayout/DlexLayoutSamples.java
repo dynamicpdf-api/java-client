@@ -127,5 +127,26 @@ public class DlexLayoutSamples {
 			}
 		}		
 		assertEquals(response.getIsSuccessful(), true);
-	}	
+	}
+	@Test
+	public void DlexLayoutWithGlobalFont()
+	{
+		LayoutDataResource layoutData = new LayoutDataResource("src\\test\\resources\\test.json");
+		DlexResource dlexResource = new DlexResource("src\\test\\resources\\test.dlex","test.dlex");
+        DlexLayout dlexEndpoint = new DlexLayout(dlexResource, layoutData);
+        PdfResponse response = dlexEndpoint.process();
+
+		if (response.getIsSuccessful()){
+			File file = new File("src\\test\\outputs\\DlexLayoutWithGlobalFont.pdf");
+			try {
+				OutputStream os = new FileOutputStream(file);
+				os.write(response.getContent());
+				os.close();
+			}
+			catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
+		}		
+		assertEquals(response.getIsSuccessful(), true);
+	}
 }

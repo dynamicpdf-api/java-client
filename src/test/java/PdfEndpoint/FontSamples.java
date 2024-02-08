@@ -112,4 +112,37 @@ public class FontSamples {
 		}
 		assertEquals(response.getIsSuccessful(), true);
 	}
+
+	@Test
+	public void PageInput_GlobalFont_Pdfoutput() {
+		Pdf pdf = new Pdf();
+		 
+        Font font = Font.global("Paris Normal");
+        
+        font.setEmbed(true);
+        
+        font.setSubset(true);
+        
+        PageInput pageInput = new PageInput();
+        
+        TextElement element = new TextElement("Hello World", ElementPlacement.TOPLEFT);
+        element.setFont(font);
+		pageInput.getElements().add(element);
+
+		pdf.getInputs().add(pageInput);
+
+		PdfResponse response = pdf.process();
+
+		if (response.getIsSuccessful()) {
+			File file = new File("src\\test\\outputs\\GlobalFont.pdf");
+			try {
+				OutputStream os = new FileOutputStream(file);
+				os.write(response.getContent());
+				os.close();
+			} catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
+		}
+		assertEquals(response.getIsSuccessful(), true);
+	}
 }
