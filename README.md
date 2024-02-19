@@ -2,7 +2,7 @@
 
 # Java Client Library (`java-client`)
 
-The Java Client library (`java-client`) uses the DynamicPDF Cloud API Java client library to create, merge, split, form fill, stamp, obtain metadata, convert, and secure/encrypt PDF documents. For more information, refer to the [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/) website.
+The Java Client library (`java-client`) uses the DynamicPDF API Java client library to create, merge, split, form fill, stamp, obtain metadata, convert, and secure/encrypt PDF documents. For more information, refer to the [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/) website.
 
 The DynamicPDF Cloud API consists of the following endpoints.
 
