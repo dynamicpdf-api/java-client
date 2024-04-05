@@ -47,5 +47,11 @@ public enum ResourceType {
 	 * Word resource.
 	 */
 	@JsonProperty("word")
-    WORD
+    WORD,
+
+	/**
+	 * Excel resource.
+	 */
+	@JsonProperty("excel")
+    EXCEL
 }

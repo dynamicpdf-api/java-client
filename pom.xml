@@ -9,12 +9,12 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
   <name>Dynamicpdf.Api</name>
-  <description>A Java Client API that uses the DynamicPDF Cloud API to create, merge, split, form fill, stamp, secure/encrypt PDF documents.</description>
+  <description>A Java Client API that uses the DynamicPDF API to create, merge, split, form fill, stamp, secure/encrypt PDF documents.</description>
   <url>https://github.com/dynamicpdf-api/java-client</url>
   <inceptionYear>2021</inceptionYear>
   <organization>
     <name>ceTeSoftware</name>
-    <url>https://cloud.dynamicpdf.com/</url>
+    <url>https://dpdf.io/</url>
   </organization>
   <licenses>
     <license>

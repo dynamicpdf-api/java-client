@@ -437,6 +437,20 @@ public class Pdf extends Endpoint
 	}
     
 	/**
+     * Returns a <code>ExcelInput</code> object containing the input pdf.
+     * @param resource The resource of type <code>ExcelResource</code>.
+     * @param size The page dimensions.
+     * @param orientation The orientation of the page.
+     * @param margins The margins on the page.
+     * @return Added pdf pages
+     */
+	public ExcelInput addExcel(ExcelResource resource, PageSize size, PageOrientation orientation, Float margins) {
+		ExcelInput input = new ExcelInput(resource, size, orientation, margins);
+		this.getInputs().add(input);
+		return input;
+	}
+
+	/**
 	 * Returns a <code>DlexInput</code> object containing the input pdf.
 	 * @param dlexResource The dlex resource of type <code>DlexResource</code>.
 	 * @param layoutData The layout data resource of type <code>LayoutDataResource</code>.

@@ -47,5 +47,11 @@ public enum InputType {
 	 * Word input.
 	 */
 	@JsonProperty("word")
-    WORD
+    WORD,
+
+	/**
+	 * Excel input.
+	 */
+	@JsonProperty("excel")
+	EXCEL
 }
