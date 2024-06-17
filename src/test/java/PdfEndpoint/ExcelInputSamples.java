@@ -31,8 +31,8 @@ public class ExcelInputSamples {
 		ExcelResource excelResource = new ExcelResource("src\\test\\resources\\DocumentA.xlsx");
 		ExcelInput excel = new ExcelInput(excelResource);
 
-		excel.setPageWidth(300);
-		excel.setPageHeight(200);
+		excel.setPageWidth(300f);
+		excel.setPageHeight(200f);
 
 		excel.setTopMargin(10f);
 		excel.setBottomMargin(10f);

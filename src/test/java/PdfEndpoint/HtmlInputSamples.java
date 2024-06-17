@@ -34,8 +34,8 @@ public class HtmlInputSamples {
          HtmlResource htmlResource = new HtmlResource("<html><body>hello</body></html>");
          
          HtmlInput html = new HtmlInput(htmlResource);
-         html.setPageWidth(300);
-         html.setPageHeight(200);
+         html.setPageWidth(300f);
+         html.setPageHeight(200f);
     
          html.setTopMargin(10f);
          html.setBottomMargin(10f);
@@ -209,8 +209,8 @@ public class HtmlInputSamples {
          HtmlResource file = new HtmlResource(htmlString);
          
          HtmlInput html = new HtmlInput(file);
-         html.setPageHeight(400);
-         html.setPageWidth(300);
+         html.setPageHeight(400f);
+         html.setPageWidth(300f);
 
          pdf.getInputs().add(html);
 

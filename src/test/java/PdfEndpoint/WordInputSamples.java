@@ -32,8 +32,8 @@ public class WordInputSamples {
 		WordResource wordResource = new WordResource("src\\test\\resources\\Doc1.docx");
 		WordInput word = new WordInput(wordResource);
 
-		word.setPageWidth(300);
-		word.setPageHeight(200);
+		word.setPageWidth(300f);
+		word.setPageHeight(200f);
 
 		word.setTopMargin(10f);
 		word.setBottomMargin(10f);
@@ -64,8 +64,8 @@ public class WordInputSamples {
 		WordResource wordResource = new WordResource("src\\test\\resources\\Doc1.docx");
 		WordInput word = new WordInput(wordResource);
 
-		word.setPageWidth(300);
-		word.setPageHeight(200);
+		word.setPageWidth(300f);
+		word.setPageHeight(200f);
 
 		word.setTopMargin(10f);
 		word.setBottomMargin(10f);

@@ -8,19 +8,22 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 public abstract class ConverterInput extends Input{
 
-	private PageSize pageSize = PageSize.LETTER;
-    private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
+	private PageSize pageSize = null;
+    private PageOrientation pageOrientation = null;
 	private Float topMargin = null;
     private Float bottomMargin = null;
     private Float rightMargin = null;
     private Float leftMargin = null;
-    private float pageWidth;
-    private float pageHeight;
+    private Float pageWidth = null;
+    private Float pageHeight = null;
 
 	ConverterInput(Resource resource, PageSize size, PageOrientation orientation, Float margins) {
 		super(resource);
-		setPageSize(size);
-		setPageOrientation(orientation);
+		if (size != null)
+			setPageSize(size);
+		
+		if(orientation != null)	
+			setPageOrientation(orientation);
 
 		if (margins != null) {
 			setTopMargin(margins);
@@ -32,13 +35,17 @@ public abstract class ConverterInput extends Input{
 
 	ConverterInput(Resource resource, PageSize size, PageOrientation orientation) {
 		super(resource);
-		setPageSize(size);
-		setPageOrientation(orientation);
+		if (size != null)
+			setPageSize(size);
+
+		if (orientation != null)
+			setPageOrientation(orientation);
 	}
 
 	ConverterInput(Resource resource, PageSize size) {
 		super(resource);
-		setPageSize(size);
+		if (size != null)
+			setPageSize(size);
 	}
 
 	ConverterInput(Resource resource) {
@@ -118,7 +125,7 @@ public abstract class ConverterInput extends Input{
 	 * @return The page width.
 	 */
 	@JsonSerialize(using = FloatJsonSerializer.class)
-	public float getPageWidth() {
+	public Float getPageWidth() {
 		return pageWidth;
 	}
 
@@ -126,7 +133,7 @@ public abstract class ConverterInput extends Input{
 	 * Sets the page width.
 	 * @param value The page width.
 	 */
-	public void setPageWidth(float value) {
+	public void setPageWidth(Float value) {
 		pageWidth = value;
 	}
 
@@ -135,7 +142,7 @@ public abstract class ConverterInput extends Input{
 	 * @return The page height.
 	 */
 	@JsonSerialize(using = FloatJsonSerializer.class)
-	public float getPageHeight() {
+	public Float getPageHeight() {
 		return pageHeight;
 	}
 
@@ -143,7 +150,7 @@ public abstract class ConverterInput extends Input{
 	 * Sets the page height.
 	 * @param value The page height.
 	 */
-	public void setPageHeight(float value) {
+	public void setPageHeight(Float value) {
 		pageHeight = value;
 	}
 
@@ -166,12 +173,12 @@ public abstract class ConverterInput extends Input{
 		double[] paperSize = UnitConverter.getPaperSize(value);
 		double smaller = paperSize[0];
 		double larger = paperSize[1];
-		if (getPageOrientation() == PageOrientation.PORTRAIT) {
-			setPageHeight((float) larger);
-			setPageWidth((float) smaller);
-		} else {
+		if (getPageOrientation() == PageOrientation.LANDSCAPE) {
 			setPageHeight((float) smaller);
 			setPageWidth((float) larger);
+		} else {
+			setPageHeight((float) larger);
+			setPageWidth((float) smaller);
 		}
 	}
 
@@ -193,19 +200,21 @@ public abstract class ConverterInput extends Input{
 		pageOrientation = value;
 		float smaller;
 		float larger;
-		if (getPageWidth() > getPageHeight()) {
-			smaller = getPageHeight();
-			larger = getPageWidth();
-		} else {
-			smaller = getPageWidth();
-			larger = getPageHeight();
-		}
-		if (getPageOrientation() == PageOrientation.PORTRAIT) {
-			setPageHeight(larger);
-			setPageWidth(smaller);
-		} else {
-			setPageHeight(smaller);
-			setPageWidth(larger);
+		if (getPageWidth() != null && getPageHeight() != null){
+			if (getPageWidth() > getPageHeight()) {
+				smaller = getPageHeight();
+				larger = getPageWidth();
+			} else {
+				smaller = getPageWidth();
+				larger = getPageHeight();
+			}
+			if (getPageOrientation() == PageOrientation.LANDSCAPE) {
+				setPageHeight(smaller);
+				setPageWidth(larger);
+			} else {
+				setPageHeight(larger);
+				setPageWidth(smaller);
+			}
 		}
 	}
 }
