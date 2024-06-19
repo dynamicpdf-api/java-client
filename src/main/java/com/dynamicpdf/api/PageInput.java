@@ -23,11 +23,9 @@ public class PageInput extends Input {
     private Float bottomMargin = null;
     private Float rightMargin = null;
     private Float leftMargin = null;
-    private PageSize pageSize = PageSize.LETTER;
-    private PageOrientation pageOrientation = PageOrientation.PORTRAIT;
+    private PageSize pageSize = null;
+    private PageOrientation pageOrientation = null;
 	private List<Element> elements = null;
-	private final float DefaultPageHeight = 792.0f;
-    private final float DefaultPagewidth = 612.0f;
 
 	/**
 	 * Initializes a new instance of the <code>PageInput</code> class.
@@ -91,7 +89,7 @@ public class PageInput extends Input {
 	 * Gets the width of the page.
 	 * @return The width of the page.
 	 */
-	@JsonIgnore
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public Float getPageWidth() {
 		return pageWidth;
 	}
@@ -108,7 +106,7 @@ public class PageInput extends Input {
 	 * Gets the height of the page.
 	 * @return The height of the page.
 	 */
-	@JsonIgnore
+	@JsonSerialize(using = FloatJsonSerializer.class)
 	public Float getPageHeight() {
 		return pageHeight;
 	}
@@ -121,20 +119,6 @@ public class PageInput extends Input {
 		pageHeight = value;
 	}
 	
-	@JsonInclude
-	@JsonProperty("pageWidth")
-	@JsonSerialize(using = FloatJsonSerializer.class)
-	float getWidth() {
-		return ((getPageWidth() == null) ? DefaultPagewidth : getPageWidth());
-	}
-
-	@JsonInclude
-	@JsonProperty("pageHeight")
-	@JsonSerialize(using = FloatJsonSerializer.class)
-	float getHeight() {
-		return ((getPageHeight() == null) ? DefaultPageHeight : getPageHeight());
-	}
-
 	/**
 	 * Gets the top margin.
 	 * @return The top margin.
@@ -221,13 +205,13 @@ public class PageInput extends Input {
         double[] paperSize = UnitConverter.getPaperSize(value);
         double smaller = paperSize[0];
         double larger = paperSize[1];
-        if (getPageOrientation() == PageOrientation.PORTRAIT){
-            setPageHeight((float)larger);
-            setPageWidth((float)smaller);
+        if (getPageOrientation() == PageOrientation.LANDSCAPE){
+			setPageHeight((float)smaller);
+            setPageWidth((float)larger); 
         }
         else{
-            setPageHeight((float)smaller);
-            setPageWidth((float)larger); 
+            setPageHeight((float)larger);
+            setPageWidth((float)smaller);
         }
     } 
 
@@ -248,21 +232,21 @@ public class PageInput extends Input {
         pageOrientation = value;
         float smaller;
         float larger;
-        if (getWidth() > getHeight()){
-            smaller = getHeight();
-            larger = getWidth();
+        if (getPageWidth() > getPageHeight()){
+            smaller = getPageHeight();
+            larger = getPageWidth();
         }
         else {
-            smaller = getWidth();
-            larger = getHeight();
+            smaller = getPageWidth();
+            larger = getPageHeight();
         }
-        if (getPageOrientation() == PageOrientation.PORTRAIT){
+        if (getPageOrientation() == PageOrientation.LANDSCAPE){
+			setPageHeight(smaller);
+            setPageWidth(larger);
+        }
+        else {
             setPageHeight(larger);
             setPageWidth(smaller);
-        }
-        else {
-            setPageHeight(smaller);
-            setPageWidth(larger);
         }
      }
     
