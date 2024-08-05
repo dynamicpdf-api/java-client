@@ -36,7 +36,7 @@ public class PdfText extends Endpoint {
 		this(resource, 1, 0);
 	}
 
-	String getEndpointName() {
+	public String getEndpointName() {
 		return "pdf-text";
 	}
 

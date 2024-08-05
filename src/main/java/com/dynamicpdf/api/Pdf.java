@@ -40,7 +40,7 @@ public class Pdf extends Endpoint
 	 * Gets the collection of resource.
 	 * @return The collection of resource.
 	 */
-	String getEndpointName() { return "pdf";}
+	public String getEndpointName() { return "pdf";}
 
 	/**
      * Adds additional resource to the endpoint.

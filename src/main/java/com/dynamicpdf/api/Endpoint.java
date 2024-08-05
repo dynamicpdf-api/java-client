@@ -19,16 +19,16 @@ public abstract class Endpoint {
 	private String baseUrl = defaultBaseUrl;
 	private String apiKey = defaultApiKey;
 
-	Endpoint() {
+	protected Endpoint() {
 	}
 
 	RequestSpecification getRequestSpecification() { return requestSpec; }
 
 	void setRequestSpecification(RequestSpecification value) { requestSpec = value; }
 
-	abstract String getEndpointName();
+	public abstract String getEndpointName();
 
-    String getEndpointVersion() { 
+    public String getEndpointVersion() { 
 		return endpointVersion;
 	}
 	/**

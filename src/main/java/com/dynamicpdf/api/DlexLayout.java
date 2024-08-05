@@ -45,7 +45,7 @@ public class DlexLayout extends Endpoint
 		this.resource = layoutData;
 	}
 
-	String getEndpointName() { return "dlex-layout";}
+	public String getEndpointName() { return "dlex-layout";}
 
 	/**
 	 * Gets the DLEX file path present in the resource manager.

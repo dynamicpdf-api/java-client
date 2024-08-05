@@ -24,7 +24,7 @@ public class PdfXmp extends Endpoint
 		this.resource = resource;
 	}
 
-	String getEndpointName() { return "pdf-xmp";}
+	public String getEndpointName() { return "pdf-xmp";}
 
 
 	/**

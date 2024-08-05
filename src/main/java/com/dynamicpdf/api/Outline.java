@@ -31,16 +31,6 @@ public class Outline {
 
 	Outline(PdfInput input) {
 		fromInputID = input.getId();
-		if (input.getMergeOptions() == null)
-		{
-			MergeOptions mergeOptions =new MergeOptions() ;
-			mergeOptions.setOutlines(false);
-			input.setMergeOptions(mergeOptions);
-		}
-		else 
-		{
-			input.getMergeOptions().setOutlines(false);
-		}
 	}
 
 	/**

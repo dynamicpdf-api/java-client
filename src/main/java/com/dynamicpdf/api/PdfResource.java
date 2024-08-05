@@ -68,8 +68,7 @@ public class PdfResource extends Resource {
 		return ".pdf";
 	}
 
-	String getMimeType() {
+	public String getMimeType() {
 		return "application/pdf";
 	}
-
 }

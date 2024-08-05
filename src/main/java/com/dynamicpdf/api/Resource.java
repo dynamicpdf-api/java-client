@@ -70,11 +70,11 @@ public abstract class Resource {
 		filePath = value;
 	}
 
-	byte[] getData() {
+	public byte[] getData() {
 		return data;
 	}
 
-	void setData(byte[] value) {
+	public void setData(byte[] value) {
 		data = value;
 	}
 

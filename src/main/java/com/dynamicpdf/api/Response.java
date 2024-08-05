@@ -21,7 +21,7 @@ public class Response {
 		return isSuccessful;
 	}
 
-	void setIsSuccessful(boolean value) {
+	public void setIsSuccessful(boolean value) {
 		isSuccessful = value;
 	}
 
@@ -33,7 +33,7 @@ public class Response {
 		return errorMessage;
 	}
 
-	void setErrorMessage(String value) {
+	public void setErrorMessage(String value) {
 		errorMessage = value;
 	}
 
@@ -45,7 +45,7 @@ public class Response {
 		return errorId;
 	}
 
-	void setErrorId(UUID value) {
+	public void setErrorId(UUID value) {
 		errorId = value;
 	}
 
@@ -57,7 +57,7 @@ public class Response {
 		return statusCode;
 	}
 
-	void setStatusCode(int value) {
+	public void setStatusCode(int value) {
 		statusCode = value;
 	}
 
@@ -69,7 +69,7 @@ public class Response {
 		return errorJson;
 	}
 
-	void setErrorJson(String value) {
+	public void setErrorJson(String value) {
 		errorJson = value;
 	}
 }

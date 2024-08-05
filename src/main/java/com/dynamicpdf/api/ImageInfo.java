@@ -26,7 +26,7 @@ public class ImageInfo extends Endpoint
 		this.resource = resource;
 	}
 
-	String getEndpointName() { return "image-info";}
+	public String getEndpointName() { return "image-info";}
 
 	/**
 	 * Process the image resource to get image's information.

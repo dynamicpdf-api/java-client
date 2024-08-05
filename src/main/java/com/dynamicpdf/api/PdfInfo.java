@@ -26,7 +26,7 @@ public class PdfInfo extends Endpoint
 		this.resource = resource;
 	}
 
-	String getEndpointName() { return "pdf-info";}
+	public String getEndpointName() { return "pdf-info";}
 
 	/**
 	 * Process the pdf resource to get pdf's information.
