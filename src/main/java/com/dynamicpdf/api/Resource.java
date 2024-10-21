@@ -119,6 +119,7 @@ public abstract class Resource {
 				data = output.toByteArray();
 			}
 		} catch (IOException ex) {
+			throw new EndpointException("Stream is null." + ex.getMessage());
 		}
 		return data;
 	}
@@ -129,8 +130,8 @@ public abstract class Resource {
 					.collect(Collectors.joining(System.lineSeparator()));
 			return content.getBytes("UTF8");
 		} catch (IOException ex) {
+			throw new EndpointException("Invalid file path or Failed to read file" + ex.getMessage());
 		}
-		return null;
 	}
 
 	static byte[] getFileData(String filePath) {
@@ -138,6 +139,7 @@ public abstract class Resource {
 		try {
 			data = Files.readAllBytes(Paths.get(filePath));
 		} catch (IOException ex) {
+			throw new EndpointException("Invalid file path or Failed to read file" + ex.getMessage());
 		}
 		return data;
 	}

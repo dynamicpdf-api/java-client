@@ -280,6 +280,7 @@ public class PdfImage extends Endpoint {
                 String errorMessage = response.jsonPath().getString("message");
                 UUID errorId = response.jsonPath().getUUID("id");
                 imagingResponse.setErrorId(errorId);
+                imagingResponse.setErrorJson(response.asString());
                 imagingResponse.setErrorMessage(errorMessage);
                 imagingResponse.setIsSuccessful(false);
                 imagingResponse.setStatusCode(response.getStatusCode());
