@@ -1,6 +1,7 @@
 
 package com.dynamicpdf.api;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -69,8 +70,15 @@ public class PdfXmp extends Endpoint
 			}
 			else
 			{
+				if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}	
 				xmlResponse = new XmlResponse();
-				xmlResponse.setErrorJson(response.asString()); 
+				String errorMessage = response.jsonPath().getString("message");
+				UUID errorId = response.jsonPath().getUUID("id");
+				xmlResponse.setErrorId(errorId);
+				xmlResponse.setErrorJson(response.asString());
+				xmlResponse.setErrorMessage(errorMessage);
 				xmlResponse.setIsSuccessful(false);
 				xmlResponse.setStatusCode(response.getStatusCode());
 			}

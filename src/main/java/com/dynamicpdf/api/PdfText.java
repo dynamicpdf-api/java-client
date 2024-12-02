@@ -1,5 +1,6 @@
 package com.dynamicpdf.api;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -113,8 +114,15 @@ public class PdfText extends Endpoint {
 				pdfTextResponse.setIsSuccessful(true);
 				pdfTextResponse.setStatusCode(response.getStatusCode());
 			} else {
+				if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}
 				pdfTextResponse = new PdfTextResponse();
+				String errorMessage = response.jsonPath().getString("message");
+				UUID errorId = response.jsonPath().getUUID("id");
+				pdfTextResponse.setErrorId(errorId);
 				pdfTextResponse.setErrorJson(response.asString());
+				pdfTextResponse.setErrorMessage(errorMessage);
 				pdfTextResponse.setIsSuccessful(false);
 				pdfTextResponse.setStatusCode(response.getStatusCode());
 			}

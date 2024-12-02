@@ -277,6 +277,9 @@ public class PdfImage extends Endpoint {
                 imagingResponse.setIsSuccessful(true);
                 imagingResponse.setStatusCode(response.getStatusCode());
             } else {
+                if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}
                 String errorMessage = response.jsonPath().getString("message");
                 UUID errorId = response.jsonPath().getUUID("id");
                 imagingResponse.setErrorId(errorId);

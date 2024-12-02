@@ -1,6 +1,7 @@
 
 package com.dynamicpdf.api;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -69,8 +70,15 @@ public class ImageInfo extends Endpoint
 			}
 			else
 			{
+				if (response.getStatusCode() == 401) {
+					throw new EndpointException("Invalid api key specified.");
+				}
 				imageResponse = new ImageResponse();
-				imageResponse.setErrorJson(response.asString()); 
+				String errorMessage = response.jsonPath().getString("message");
+				UUID errorId = response.jsonPath().getUUID("id");
+				imageResponse.setErrorId(errorId);
+				imageResponse.setErrorJson(response.asString());
+				imageResponse.setErrorMessage(errorMessage);
 				imageResponse.setIsSuccessful(false);
 				imageResponse.setStatusCode(response.getStatusCode());
 			}
