@@ -16,6 +16,7 @@ public class PdfText extends Endpoint {
 	PdfResource resource;
 	private int startPage;
 	private int pageCount;
+	private TextOrder textOrder;
 
 	/**
 	 * Initializes a new instance of the <code>PdfText</code> class.
@@ -28,13 +29,28 @@ public class PdfText extends Endpoint {
 		this.startPage = startPage;
 		this.pageCount = pageCount;
 	}
+	
+	/**
+	 * Initializes a new instance of the <code>PdfText</code> class.
+	 * @param resource The image resource of type <code>PdfResource</code>
+	 * @param startPage The start page.
+	 * @param pageCount The page count.
+	 * @param textOrder The text extraction order
+	 */
 
+	public PdfText(PdfResource resource, int startPage, int pageCount, TextOrder textOrder) {
+		this.resource = resource;
+		this.startPage = startPage;
+		this.pageCount = pageCount;
+		this.textOrder = textOrder;
+	}
+	
 	/**
 	 * Initializes a new instance of the <code>PdfText</code> class.
 	 * @param resource The image resource of type <code>PdfResource</code>
 	 */
 	public PdfText(PdfResource resource) {
-		this(resource, 1, 0);
+		this(resource, 1, 0, TextOrder.Stream);
 	}
 
 	public String getEndpointName() {
@@ -73,6 +89,23 @@ public class PdfText extends Endpoint {
 		pageCount = value;
 	}
 
+
+	/**
+	 * Gets the text extraction order.
+	 * @return The text order.
+	 */
+	public TextOrder getTextOrder() {
+		return textOrder;
+	}
+
+	/**
+	 * Sets the text extraction order.
+	 * @param textOrder The text order.
+	 */
+	public void setTextOrder(TextOrder textOrder) {
+		this.textOrder = textOrder;
+	}
+	
 	/**
 	 * Process the pdf resource to get pdf's text.
 	 * <p>PdfTextResponse</p>
@@ -106,6 +139,7 @@ public class PdfText extends Endpoint {
 					.spec(requestSpec)
 					.queryParam("StartPage", String.valueOf(startPage))
 					.queryParam("PageCount", String.valueOf(pageCount))
+					.queryParam("TextOrder", String.valueOf(textOrder))
 					.body(resource.getData())
 					.post(getDefaultBaseUrl() + "/"+ getEndpointVersion() + "/"  + getEndpointName());
 
@@ -129,5 +163,4 @@ public class PdfText extends Endpoint {
 			return pdfTextResponse;
 		});
 	}
-
 }

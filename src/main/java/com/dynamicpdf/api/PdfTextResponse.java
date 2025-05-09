@@ -1,4 +1,7 @@
 package com.dynamicpdf.api;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.util.List;
 
@@ -21,8 +24,15 @@ public class PdfTextResponse extends JsonResponse {
 	 * @param jsonContent The json content
 	 */
 	public PdfTextResponse(String jsonContent) {
-		super(jsonContent);
-	}
+        super(jsonContent);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        try {
+            content = mapper.readValue(super.getJsonContent(), new TypeReference<List<PdfContent>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 	/**
 	 * Gets the collection of PdfContent.
