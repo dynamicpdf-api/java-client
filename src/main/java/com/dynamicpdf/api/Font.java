@@ -52,11 +52,45 @@ public class Font {
 	private String resourceName;
 
 	static {
-
 		try {
-			String windDir = System.getenv("WINDIR");
-			if (windDir != null && windDir.length() > 0) {
-				pathToFontsResourceDirectory = windDir + "\\Fonts";
+			String os = System.getProperty("os.name").toLowerCase();
+
+			if (os.contains("win")) {
+				String winDir = System.getenv("WINDIR");
+				if (winDir != null && !winDir.isEmpty()) {
+					String winFonts = winDir + File.separator + "Fonts";
+					if (new File(winFonts).exists()) {
+						pathToFontsResourceDirectory = winFonts;
+					}
+				}
+			}
+
+			else if (os.contains("mac") || os.contains("darwin")) {
+				String userHome = System.getProperty("user.home");
+
+				String[] macPaths = { "/System/Library/Fonts", "/Library/Fonts", userHome + "/Library/Fonts" };
+
+				for (String path : macPaths) {
+					if (new File(path).exists()) {
+						pathToFontsResourceDirectory = path;
+						break;
+					}
+				}
+			}
+
+			else if (os.contains("nux") || os.contains("linux")) {
+
+				String userHome = System.getProperty("user.home");
+
+				String[] linuxPaths = { "/usr/share/fonts", "/usr/local/share/fonts", userHome + "/.fonts",
+						userHome + "/.local/share/fonts" };
+
+				for (String path : linuxPaths) {
+					if (new File(path).exists()) {
+						pathToFontsResourceDirectory = path;
+						break;
+					}
+				}
 			}
 		} catch (Exception ex) {
 		}

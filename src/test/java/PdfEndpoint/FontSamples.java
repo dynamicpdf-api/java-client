@@ -145,4 +145,38 @@ public class FontSamples {
 		}
 		assertEquals(response.getIsSuccessful(), true);
 	}
+	
+	@Test
+	public void PageInput_SystemFont_Pdfoutput() {
+		Pdf pdf = new Pdf();
+
+		Font font = Font.fromSystem("Monotype Corsiva", "Monotype Corsiva.ttf");
+
+		font.setEmbed(true);
+
+		font.setSubset(true);
+
+		PageInput pageInput = new PageInput();
+
+		TextElement element = new TextElement("Hello World", ElementPlacement.TOPCENTER);
+		element.setFontSize(20);
+		element.setFont(font);
+		pageInput.getElements().add(element);
+
+		pdf.getInputs().add(pageInput);
+
+		PdfResponse response = pdf.process();
+
+		if (response.getIsSuccessful()) {
+			File file = new File("src\\test\\outputs\\SystemFont.pdf");
+			try {
+				OutputStream os = new FileOutputStream(file);
+				os.write(response.getContent());
+				os.close();
+			} catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
+		}
+		assertEquals(response.getIsSuccessful(), true);
+	}
 }

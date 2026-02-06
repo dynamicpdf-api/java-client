@@ -519,6 +519,45 @@ public class Pdf extends Endpoint
 	}
 
 	/**
+	* Returns a <code>PageInput</code> object containing the input pdf.
+	* 
+	* @param size The page dimensions.
+	* @param orientation The orientation of the page.
+	* @param margins     The margins on the page.
+	* @return Added pdf pages
+	*/
+	public PageInput addPage(PageSize size, PageOrientation orientation, Float margins) {
+		PageInput input = new PageInput(size, orientation, margins);
+		this.getInputs().add(input);
+		return input;
+	}
+
+	/**
+	* Returns a <code>PageInput</code> object containing the input pdf.
+	* 
+	* @param size The page dimensions.
+	* @param orientation The orientation of the page.
+	* @return Added pdf pages
+	*/
+	public PageInput addPage(PageSize size, PageOrientation orientation) {
+		PageInput input = new PageInput(size, orientation);
+		this.getInputs().add(input);
+		return input;
+	}
+
+	/**
+	* Returns a <code>PageInput</code> object containing the input pdf.
+	* 
+	* @param size The page dimensions.
+	* @return Added pdf pages
+	*/
+	public PageInput addPage(PageSize size) {
+		PageInput input = new PageInput(size);
+		this.getInputs().add(input);
+		return input;
+	}
+
+	/**
 	 * Returns a <code>PageInput</code> object containing the input pdf.
 	 * @return A <code>PageInput</code> object containing the input pdf.
 	 */

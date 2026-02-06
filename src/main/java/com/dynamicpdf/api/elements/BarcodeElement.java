@@ -67,6 +67,7 @@ public abstract class BarcodeElement extends Element {
 		xDimension = value;
 	}
 
+	@JsonProperty("value")
 	/**
 	 * Gets the value of the barcode.
 	 * @return The value of the barcode.
@@ -80,7 +81,7 @@ public abstract class BarcodeElement extends Element {
 	 * Sets the value of the barcode.
 	 * @param value The value of the barcode.
 	 */
-	public void setValue(String value) {
+	void setValue(String value) {
 		setInputValue(value);
 	}
 

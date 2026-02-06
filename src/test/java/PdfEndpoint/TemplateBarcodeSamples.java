@@ -40,14 +40,13 @@ public class TemplateBarcodeSamples {
 		Template template = new Template("Temp1");
 		AztecBarcodeElement element = new AztecBarcodeElement("Hello World", ElementPlacement.BOTTOMRIGHT);
 		element.setSymbolSize(AztecSymbolSize.R105XC105);
-        element.setXDimension(3);
-        element.setColor(RgbColor.getRed());
-        element.setAztecErrorCorrection(30);
-        element.setProcessTilde(true);
-        element.setReaderInitializationSymbol(true);
-        element.setValue("test123");
-        element.setXOffset(-100);
-        element.setYOffset(-100);
+		element.setXDimension(3);
+		element.setColor(RgbColor.getRed());
+		element.setAztecErrorCorrection(30);
+		element.setProcessTilde(true);
+		element.setReaderInitializationSymbol(true);
+		element.setXOffset(-100);
+		element.setYOffset(-100);
 		template.getElements().add(element);
 		
 		input.setTemplate(template);

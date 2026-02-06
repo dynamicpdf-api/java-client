@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.dynamicpdf.api.PageInput;
+import com.dynamicpdf.api.PageOrientation;
+import com.dynamicpdf.api.PageSize;
 import com.dynamicpdf.api.Pdf;
 import com.dynamicpdf.api.PdfResponse;
 import com.dynamicpdf.api.Template;
@@ -54,6 +56,31 @@ public class PageInputSamples {
                 os.close();
             }
             catch (Exception e) {
+                System.out.println("Exception: " + e);
+            }
+        }
+        assertEquals(response.getIsSuccessful(), true);
+    }
+
+     @Test
+    public void PageInput_PageDimensions_PdfOutput() {
+        Pdf pdf = new Pdf();
+        pdf.setAuthor("Author");
+        pdf.setTitle("Title");
+
+        PageInput pageInput = pdf.addPage(PageSize.POSTCARD, PageOrientation.LANDSCAPE, 25f);
+        TextElement element = new TextElement("Hello World", ElementPlacement.TOPCENTER);
+        pageInput.getElements().add(element);
+
+        PdfResponse response = pdf.process();
+
+        if (response.getIsSuccessful()) {
+            File file = new File("src\\test\\outputs\\PageDimensions_PdfOutput.pdf");
+            try {
+                OutputStream os = new FileOutputStream(file);
+                os.write(response.getContent());
+                os.close();
+            } catch (Exception e) {
                 System.out.println("Exception: " + e);
             }
         }
